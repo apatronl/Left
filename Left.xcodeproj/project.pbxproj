@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		ED4FF2CF1C6EAD0E00FF7439 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4FF2C21C6EAC0000FF7439 /* Alamofire.framework */; };
 		ED4FF2D01C6EAD0E00FF7439 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED4FF2C21C6EAC0000FF7439 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED4FF2D51C6EB04C00FF7439 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF2D41C6EB04C00FF7439 /* RequestHandler.swift */; };
+		ED4FF3211C6EBA9500FF7439 /* Freddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4FF3171C6EBA0900FF7439 /* Freddy.framework */; };
+		ED4FF3221C6EBA9500FF7439 /* Freddy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED4FF3171C6EBA0900FF7439 /* Freddy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED4FF3311C6EDDCD00FF7439 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4FF3301C6EDDCD00FF7439 /* SwiftyJSON.framework */; };
+		ED4FF3341C6EDEC400FF7439 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4FF3331C6EDEC400FF7439 /* Alamofire.framework */; };
 		ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399A1BAC9D40009487B5 /* AppDelegate.swift */; };
 		ED80399D1BAC9D40009487B5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399C1BAC9D40009487B5 /* SearchViewController.swift */; };
 		ED80399F1BAC9D40009487B5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399E1BAC9D40009487B5 /* FavoritesViewController.swift */; };
@@ -81,6 +86,62 @@
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
 			remoteInfo = "Alamofire iOS";
 		};
+		ED4FF3121C6EBA0900FF7439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB6ADF3E1C23612000D77BF1;
+			remoteInfo = Freddy;
+		};
+		ED4FF3141C6EBA0900FF7439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB6ADF471C23612000D77BF1;
+			remoteInfo = FreddyTests;
+		};
+		ED4FF3161C6EBA0900FF7439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB6ADF1F1C23610B00D77BF1;
+			remoteInfo = MobileFreddy;
+		};
+		ED4FF3181C6EBA0900FF7439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB6ADF291C23610B00D77BF1;
+			remoteInfo = MobileFreddyTests;
+		};
+		ED4FF31A1C6EBA0900FF7439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB6ADF5A1C23612900D77BF1;
+			remoteInfo = TVFreddy;
+		};
+		ED4FF31C1C6EBA0900FF7439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB6ADF631C23612A00D77BF1;
+			remoteInfo = TVFreddyTests;
+		};
+		ED4FF31E1C6EBA0900FF7439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB6ADF761C23613200D77BF1;
+			remoteInfo = NanoFreddy;
+		};
+		ED4FF3231C6EBA9500FF7439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DB6ADF1E1C23610B00D77BF1;
+			remoteInfo = MobileFreddy;
+		};
 		ED8039AE1BAC9D40009487B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ED80398F1BAC9D40009487B5 /* Project object */;
@@ -104,6 +165,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				ED4FF3221C6EBA9500FF7439 /* Freddy.framework in Embed Frameworks */,
 				ED4FF2D01C6EAD0E00FF7439 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -113,6 +175,10 @@
 
 /* Begin PBXFileReference section */
 		ED4FF2B71C6EAC0000FF7439 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		ED4FF2D41C6EB04C00FF7439 /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
+		ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Freddy.xcodeproj; path = Vendor/Freddy/Freddy.xcodeproj; sourceTree = "<group>"; };
+		ED4FF3301C6EDDCD00FF7439 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		ED4FF3331C6EDEC400FF7439 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		ED8039971BAC9D40009487B5 /* Left.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Left.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED80399A1BAC9D40009487B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED80399C1BAC9D40009487B5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +205,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED4FF3211C6EBA9500FF7439 /* Freddy.framework in Frameworks */,
+				ED4FF3341C6EDEC400FF7439 /* Alamofire.framework in Frameworks */,
 				ED4FF2CF1C6EAD0E00FF7439 /* Alamofire.framework in Frameworks */,
+				ED4FF3311C6EDDCD00FF7439 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,9 +243,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		ED4FF3091C6EBA0900FF7439 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED4FF3131C6EBA0900FF7439 /* Freddy.framework */,
+				ED4FF3151C6EBA0900FF7439 /* FreddyTests.xctest */,
+				ED4FF3171C6EBA0900FF7439 /* Freddy.framework */,
+				ED4FF3191C6EBA0900FF7439 /* MobileFreddyTests.xctest */,
+				ED4FF31B1C6EBA0900FF7439 /* Freddy.framework */,
+				ED4FF31D1C6EBA0900FF7439 /* TVFreddyTests.xctest */,
+				ED4FF31F1C6EBA0900FF7439 /* Freddy.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		ED80398E1BAC9D40009487B5 = {
 			isa = PBXGroup;
 			children = (
+				ED4FF3331C6EDEC400FF7439 /* Alamofire.framework */,
+				ED4FF3301C6EDDCD00FF7439 /* SwiftyJSON.framework */,
+				ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */,
 				ED4FF2B71C6EAC0000FF7439 /* Alamofire.xcodeproj */,
 				ED8039991BAC9D40009487B5 /* Left */,
 				ED8039B01BAC9D40009487B5 /* LeftTests */,
@@ -199,13 +285,14 @@
 			isa = PBXGroup;
 			children = (
 				ED80399A1BAC9D40009487B5 /* AppDelegate.swift */,
-				EDB9B6901BB0596500B88EBF /* NavViewController.swift */,
+				ED4FF2D41C6EB04C00FF7439 /* RequestHandler.swift */,
 				ED80399C1BAC9D40009487B5 /* SearchViewController.swift */,
+				EDA728FC1BB45F0A00A0FA26 /* ResultsViewController.swift */,
+				EDA728FE1BB462DC00A0FA26 /* RecipeViewController.swift */,
 				EDF1B9561BEAFAE000750317 /* RecipeItem.swift */,
 				ED80399E1BAC9D40009487B5 /* FavoritesViewController.swift */,
-				EDA728FC1BB45F0A00A0FA26 /* ResultsViewController.swift */,
 				ED8039A01BAC9D40009487B5 /* Main.storyboard */,
-				EDA728FE1BB462DC00A0FA26 /* RecipeViewController.swift */,
+				EDB9B6901BB0596500B88EBF /* NavViewController.swift */,
 				ED8039A31BAC9D40009487B5 /* Assets.xcassets */,
 				ED8039A51BAC9D40009487B5 /* LaunchScreen.storyboard */,
 				EDB9B6941BB05C9B00B88EBF /* Supporting Files */,
@@ -251,11 +338,13 @@
 				ED8039941BAC9D40009487B5 /* Frameworks */,
 				ED8039951BAC9D40009487B5 /* Resources */,
 				ED4FF2D31C6EAD0E00FF7439 /* Embed Frameworks */,
+				ED4FF3321C6EDE3900FF7439 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				ED4FF2D21C6EAD0E00FF7439 /* PBXTargetDependency */,
+				ED4FF3241C6EBA9500FF7439 /* PBXTargetDependency */,
 			);
 			name = Left;
 			productName = Left;
@@ -337,6 +426,10 @@
 					ProductGroup = ED4FF2B81C6EAC0000FF7439 /* Products */;
 					ProjectRef = ED4FF2B71C6EAC0000FF7439 /* Alamofire.xcodeproj */;
 				},
+				{
+					ProductGroup = ED4FF3091C6EBA0900FF7439 /* Products */;
+					ProjectRef = ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -397,6 +490,55 @@
 			remoteRef = ED4FF2CD1C6EAC0000FF7439 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		ED4FF3131C6EBA0900FF7439 /* Freddy.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Freddy.framework;
+			remoteRef = ED4FF3121C6EBA0900FF7439 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ED4FF3151C6EBA0900FF7439 /* FreddyTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FreddyTests.xctest;
+			remoteRef = ED4FF3141C6EBA0900FF7439 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ED4FF3171C6EBA0900FF7439 /* Freddy.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Freddy.framework;
+			remoteRef = ED4FF3161C6EBA0900FF7439 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ED4FF3191C6EBA0900FF7439 /* MobileFreddyTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MobileFreddyTests.xctest;
+			remoteRef = ED4FF3181C6EBA0900FF7439 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ED4FF31B1C6EBA0900FF7439 /* Freddy.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Freddy.framework;
+			remoteRef = ED4FF31A1C6EBA0900FF7439 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ED4FF31D1C6EBA0900FF7439 /* TVFreddyTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TVFreddyTests.xctest;
+			remoteRef = ED4FF31C1C6EBA0900FF7439 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ED4FF31F1C6EBA0900FF7439 /* Freddy.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Freddy.framework;
+			remoteRef = ED4FF31E1C6EBA0900FF7439 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -427,6 +569,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ED4FF3321C6EDE3900FF7439 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AlamoFire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ED8039931BAC9D40009487B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -438,6 +598,7 @@
 				EDA728FF1BB462DC00A0FA26 /* RecipeViewController.swift in Sources */,
 				ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */,
 				EDA728FD1BB45F0A00A0FA26 /* ResultsViewController.swift in Sources */,
+				ED4FF2D51C6EB04C00FF7439 /* RequestHandler.swift in Sources */,
 				ED80399D1BAC9D40009487B5 /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +626,11 @@
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";
 			targetProxy = ED4FF2D11C6EAD0E00FF7439 /* PBXContainerItemProxy */;
+		};
+		ED4FF3241C6EBA9500FF7439 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MobileFreddy;
+			targetProxy = ED4FF3231C6EBA9500FF7439 /* PBXContainerItemProxy */;
 		};
 		ED8039AF1BAC9D40009487B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -586,6 +752,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Left/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -602,6 +772,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Left/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

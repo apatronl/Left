@@ -1,3 +1,9 @@
 [submodule "Alamofire"]
 	path = Alamofire
 	url = https://github.com/Alamofire/Alamofire.git
+[submodule "Vendor/Freddy"]
+	path = Vendor/Freddy
+	url = https://github.com/bignerdranch/Freddy.git
+[submodule "SwiftyJSON"]
+	path = SwiftyJSON
+	url = https://github.com/SwiftyJSON/SwiftyJSON

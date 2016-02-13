@@ -9,6 +9,11 @@
 import UIKit
 
 class ResultsViewController: UITableViewController {
+    
+    var recipes: [RecipeItem] = [
+        RecipeItem(name:"Brownies", url: "http://facebook.com"),
+        RecipeItem(name: "Easy Ice Cream Cake", url: "http://facebook.com"),
+        RecipeItem(name: "Too Much Chocolate Cake", url: "http://facebook.com") ]
 
     @IBOutlet weak var resultsTable: UITableView!
     
@@ -34,3 +39,10 @@ class ResultsViewController: UITableViewController {
     */
 
 }
+
+//class RecipesData {
+//    let recipesData = [
+//        RecipeItem(name:"Brownies", url: "http://facebook.com"),
+//        RecipeItem(name: "Easy Ice Cream Cake", url: "http://facebook.com"),
+//        RecipeItem(name: "Too Much Chocolate Cake", url: "http://facebook.com") ]
+//}

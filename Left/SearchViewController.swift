@@ -12,15 +12,19 @@ class SearchViewController: UIViewController {
     
     var ingredients = [NSString]()
     var recipes = [NSString]()
+    let apiKey: String = "570024717057c65d605c4d54f84f2300"
+    let rq: RequestHandler = RequestHandler()
     
     @IBAction func resignKeyboard(sender: AnyObject) {
         sender.resignFirstResponder()
     }
 
-//    @IBAction func searchButtonPressed(sender: UIButton) {
-//        RestClient.getRecipes(["chocolate"])
-//        
-//    }
+    @IBAction func searchButtonPressed(sender: UIButton) {
+//        if let res = rq.performRequest("http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q=chocolate") {
+//            print(res)
+//        }
+    }
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
