@@ -3,7 +3,7 @@
 //  Left
 //
 //  Created by Alejandrina Patron on 2/12/16.
-//  Copyright © 2016 A(pps)PL. All rights reserved.
+//  Copyright © 2016 Ale Patrón. All rights reserved.
 //
 
 import Alamofire

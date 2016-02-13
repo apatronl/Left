@@ -3,7 +3,7 @@
 //  Left
 //
 //  Created by Alejandrina Patron on 9/18/15.
-//  Copyright © 2015 A(pps)PL. All rights reserved.
+//  Copyright © 2015 Ale Patrón. All rights reserved.
 //
 
 import UIKit

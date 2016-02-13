@@ -3,7 +3,7 @@
 //  Left
 //
 //  Created by Alejandrina Patron on 11/4/15.
-//  Copyright © 2015 A(pps)PL. All rights reserved.
+//  Copyright © 2015 Ale Patrón. All rights reserved.
 //
 
 import Foundation
@@ -13,7 +13,6 @@ class RecipeItem: NSObject {
     let name: String
     //let photo: UIImage?
     let url: String
-    
 //    init(name: String, photo: UIImage, url: String) {
 //        self.name = name
 //        self.photo = photo
