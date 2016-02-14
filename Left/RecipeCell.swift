@@ -17,7 +17,7 @@ class RecipeCell: UITableViewCell {
         didSet {
             recipeName.text = recipe.name
             if let photo = recipe.photo {
-                recipeImg.contentMode = UIViewContentMode.ScaleToFill
+                recipeImg.contentMode = UIViewContentMode.ScaleAspectFill
                 recipeImg.image = photo
             }
             

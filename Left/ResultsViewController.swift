@@ -12,8 +12,8 @@ class ResultsViewController: UITableViewController {
     
     var recipes: [RecipeItem] = [
         RecipeItem(name:"Slutty Brownies", photo: "http://static.food2fork.com/BrownieFeature193f.jpg".urlToImg(), url: "http://facebook.com"),
-        RecipeItem(name: "Easy Ice Cream Cake", photo: nil, url: "http://facebook.com"),
-        RecipeItem(name: "Too Much Chocolate Cake", photo: nil, url: "http://facebook.com") ]
+        RecipeItem(name: "Easy Ice Cream Cake", photo: "http://static.food2fork.com/easyicecreamcake_300d8c35460.jpg".urlToImg(), url: "http://facebook.com"),
+        RecipeItem(name: "Too Much Chocolate Cake", photo: "http://static.food2fork.com/518798fb0d.jpg".urlToImg(), url: "http://facebook.com") ]
 
     @IBOutlet weak var resultsTable: UITableView!
     
