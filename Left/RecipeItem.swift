@@ -11,15 +11,12 @@ import UIKit
 
 class RecipeItem: NSObject {
     let name: String
-    //let photo: UIImage?
+    let photo: UIImage?
     let url: String
-//    init(name: String, photo: UIImage, url: String) {
-//        self.name = name
-//        self.photo = photo
-//        self.url = url
-//    }
-    init(name: String, url: String) {
+    
+    init(name: String, photo: UIImage?, url: String) {
         self.name = name
+        self.photo = photo
         self.url = url
     }
 }

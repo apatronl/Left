@@ -11,6 +11,7 @@ import UIKit
 class RecipeViewController: UIViewController {
 
     override func viewDidLoad() {
+        self.navigationItem.title = "Brownies" //Change to title of chosen recipe
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
