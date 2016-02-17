@@ -29,8 +29,8 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        let image = UIImage(named: "food.png")
-//        navigationItem.titleView = UIImageView(image: image)
+        let image = UIImage(named: "leftLogo.png")
+        navigationItem.titleView = UIImageView(image: image)
 
         navigationItem.title = "Left"
         //Looks for single or multiple taps.
