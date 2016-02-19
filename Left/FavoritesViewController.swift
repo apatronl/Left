@@ -8,7 +8,9 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+class FavoritesViewController: UITableViewController {
+    
+    var favorites = [RecipeItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

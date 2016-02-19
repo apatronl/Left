@@ -22,18 +22,14 @@ class RequestHandler {
             case .Success:
                 if let value = response.result.value {
                     json = JSON(value)
-                    print("JSON: \(json)")
-                    //print(json!["recipes"][0]["title"])
-                    print(json!["count"])
-//                    for ("title", title): (String, JSON!) in json {
-//                        //Do something you want
-//                        print(title)
-//                    }
+//                    print("JSON: \(json)")
+//                    print(json!["count"])
                 }
             case .Failure(let error):
                 print(error)
             }
         }
+        print(json)
         return json
     }
 }

@@ -8,17 +8,39 @@
 
 import UIKit
 
-class RecipeViewController: UIViewController {
+class RecipeViewController: UIViewController, UIWebViewDelegate {
+    
+    var recipeName: String?
+    var recipeURL: String?
+    
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
-        self.navigationItem.title = "Brownies" //Change to title of chosen recipe
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        activityIndicator.hidden = true
+        self.navigationItem.title = recipeName
+    
+        let url = NSURL(string: recipeURL!)
+        let requestObj = NSURLRequest(URL: url!)
+        webView.loadRequest(requestObj)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        activityIndicator.hidden = true
+        activityIndicator.stopAnimating()
     }
     
 

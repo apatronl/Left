@@ -11,9 +11,11 @@ import UIKit
 class ResultsViewController: UITableViewController {
     
     var recipes: [RecipeItem] = [
-        RecipeItem(name:"Slutty Brownies", photo: "http://static.food2fork.com/BrownieFeature193f.jpg".urlToImg(), url: "http://facebook.com"),
-        RecipeItem(name: "Easy Ice Cream Cake", photo: "http://static.food2fork.com/easyicecreamcake_300d8c35460.jpg".urlToImg(), url: "http://facebook.com"),
-        RecipeItem(name: "Too Much Chocolate Cake", photo: "http://static.food2fork.com/518798fb0d.jpg".urlToImg(), url: "http://facebook.com") ]
+        RecipeItem(name:"Slutty Brownies", photo: "http://static.food2fork.com/BrownieFeature193f.jpg".urlToImg(), url: "http://whatsgabycooking.com/slutty-brownies/"),
+        RecipeItem(name: "Easy Ice Cream Cake", photo: "http://static.food2fork.com/easyicecreamcake_300d8c35460.jpg".urlToImg(), url: "http://www.realsimple.com/food-recipes/browse-all-recipes/easy-ice-cream-cake-10000001817861/index.html"),
+        RecipeItem(name: "Too Much Chocolate Cake", photo: "http://static.food2fork.com/518798fb0d.jpg".urlToImg(), url: "http://allrecipes.com/Recipe/Too-Much-Chocolate-Cake/Detail.aspx") ]
+    
+    var data = [RecipeItem]()
 
     @IBOutlet weak var resultsTable: UITableView!
     
@@ -22,7 +24,7 @@ class ResultsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count
+        return data.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
@@ -30,26 +32,20 @@ class ResultsViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("RecipeCell", forIndexPath: indexPath)
                 as! RecipeCell
             
-            let recipe = recipes[indexPath.row] as RecipeItem
+            let recipe = data[indexPath.row] as RecipeItem
             cell.recipe = recipe
             return cell
     }
     
-}
-
-extension String {
-    func urlToImg() -> UIImage? {
-        let url = NSURL(string: self)
-        if let data = NSData(contentsOfURL: url!) {
-            return UIImage(data: data)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "RecipeDetailView" {
+            let destinationVC = segue.destinationViewController as! RecipeViewController
+            if let selectedRecipe = sender as? RecipeCell {
+                let indexPath = tableView.indexPathForCell(selectedRecipe)
+                destinationVC.recipeName = data[indexPath!.row].name
+                destinationVC.recipeURL = data[indexPath!.row].url
+            }
         }
-        return nil
     }
+    
 }
-
-//class RecipesData {
-//    let recipesData = [
-//        RecipeItem(name:"Brownies", url: "http://facebook.com"),
-//        RecipeItem(name: "Easy Ice Cream Cake", url: "http://facebook.com"),
-//        RecipeItem(name: "Too Much Chocolate Cake", url: "http://facebook.com") ]
-//}

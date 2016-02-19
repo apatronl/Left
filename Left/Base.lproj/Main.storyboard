@@ -116,9 +116,12 @@
                                 </variation>
                                 <connections>
                                     <action selector="searchButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="4cr-EP-tew"/>
-                                    <segue destination="pEd-RP-jZV" kind="show" id="fdV-wI-oss"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Vs1-fK-X1W">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -126,6 +129,7 @@
                             <constraint firstItem="8qG-XW-cUk" firstAttribute="centerX" secondItem="R7N-Ew-qdL" secondAttribute="centerX" id="9MZ-J5-OQB"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="481" id="9aI-u4-rnI"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="BCY-oS-pbJ"/>
+                            <constraint firstItem="Vs1-fK-X1W" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="CRG-sP-P7O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cqk-gq-7ib" secondAttribute="trailing" constant="31" id="DRr-rV-m43"/>
                             <constraint firstItem="5BC-9S-Z4d" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="32" id="Etu-ql-7w6"/>
                             <constraint firstItem="8qG-XW-cUk" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="33" id="IbD-hn-swb"/>
@@ -145,6 +149,7 @@
                             <constraint firstItem="5BC-9S-Z4d" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="e58-B3-b8x"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="euO-St-TwD"/>
                             <constraint firstItem="w18-qk-1Nh" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="32" id="fTA-q5-Sji"/>
+                            <constraint firstItem="Vs1-fK-X1W" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="fZd-7d-mRW"/>
                             <constraint firstItem="Cqk-gq-7ib" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="iNe-qK-r1E"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="R7N-Ew-qdL" secondAttribute="bottom" constant="47" id="ihv-e4-BXL"/>
                             <constraint firstItem="w18-qk-1Nh" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="itO-Gi-Oiy"/>
@@ -166,8 +171,11 @@
                                 <exclude reference="Cqk-gq-7ib"/>
                                 <exclude reference="5BC-9S-Z4d"/>
                                 <exclude reference="R7N-Ew-qdL"/>
+                                <exclude reference="Vs1-fK-X1W"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="CRG-sP-P7O"/>
+                                <exclude reference="fZd-7d-mRW"/>
                                 <exclude reference="Etu-ql-7w6"/>
                                 <exclude reference="Zmj-0m-DqA"/>
                                 <exclude reference="e58-B3-b8x"/>
@@ -207,8 +215,11 @@
                                 <include reference="Cqk-gq-7ib"/>
                                 <include reference="5BC-9S-Z4d"/>
                                 <include reference="R7N-Ew-qdL"/>
+                                <include reference="Vs1-fK-X1W"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="CRG-sP-P7O"/>
+                                <include reference="fZd-7d-mRW"/>
                                 <include reference="Etu-ql-7w6"/>
                                 <include reference="Zmj-0m-DqA"/>
                                 <include reference="e58-B3-b8x"/>
@@ -246,6 +257,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="Wy2-QD-3wS"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Vs1-fK-X1W" id="OlG-gX-YVP"/>
+                        <outlet property="ingredient1" destination="RzZ-hV-FyA" id="njK-1Z-n08"/>
+                        <segue destination="pEd-RP-jZV" kind="show" identifier="resultsSegue" id="aab-Zf-21w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -345,7 +361,7 @@
                                 <connections>
                                     <outlet property="recipeImg" destination="UbP-mE-0pn" id="pyT-nR-V16"/>
                                     <outlet property="recipeName" destination="mLW-Uo-yxX" id="xG6-qq-IWA"/>
-                                    <segue destination="7fd-jb-A9o" kind="show" id="biL-wa-I5P"/>
+                                    <segue destination="7fd-jb-A9o" kind="show" identifier="RecipeDetailView" id="biL-wa-I5P"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -371,8 +387,63 @@
                     <view key="view" contentMode="scaleToFill" id="1L3-Q6-ciz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="waC-HJ-0Gf">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7fd-jb-A9o" id="9Lb-6i-OLE"/>
+                                </connections>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-kg-Qsl">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bPc-kg-Qsl" firstAttribute="centerY" secondItem="1L3-Q6-ciz" secondAttribute="centerY" id="1mu-25-0bs"/>
+                            <constraint firstItem="waC-HJ-0Gf" firstAttribute="width" secondItem="1L3-Q6-ciz" secondAttribute="width" id="6iG-th-C2d"/>
+                            <constraint firstItem="waC-HJ-0Gf" firstAttribute="bottom" secondItem="Oz6-1u-pUS" secondAttribute="top" id="JVm-ZL-aQh"/>
+                            <constraint firstItem="waC-HJ-0Gf" firstAttribute="top" secondItem="mNd-aw-drw" secondAttribute="bottom" id="Nc8-x5-fxc"/>
+                            <constraint firstItem="bPc-kg-Qsl" firstAttribute="centerX" secondItem="1L3-Q6-ciz" secondAttribute="centerX" id="R6k-My-cfR"/>
+                            <constraint firstItem="waC-HJ-0Gf" firstAttribute="leading" secondItem="1L3-Q6-ciz" secondAttribute="leading" id="yke-6h-yug"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="waC-HJ-0Gf"/>
+                                <exclude reference="bPc-kg-Qsl"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="6iG-th-C2d"/>
+                                <exclude reference="JVm-ZL-aQh"/>
+                                <exclude reference="Nc8-x5-fxc"/>
+                                <exclude reference="yke-6h-yug"/>
+                                <exclude reference="1mu-25-0bs"/>
+                                <exclude reference="R6k-My-cfR"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="waC-HJ-0Gf"/>
+                                <include reference="bPc-kg-Qsl"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="6iG-th-C2d"/>
+                                <include reference="JVm-ZL-aQh"/>
+                                <include reference="Nc8-x5-fxc"/>
+                                <include reference="yke-6h-yug"/>
+                                <include reference="1mu-25-0bs"/>
+                                <include reference="R6k-My-cfR"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="bPc-kg-Qsl" id="YE7-PW-55q"/>
+                        <outlet property="webView" destination="waC-HJ-0Gf" id="4P6-xb-IRG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RfV-Cz-fhh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

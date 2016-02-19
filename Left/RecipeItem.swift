@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class RecipeItem: NSObject {
-    let name: String
-    let photo: UIImage?
-    let url: String
+    var name: String
+    var photo: UIImage?
+    var url: String
     
     init(name: String, photo: UIImage?, url: String) {
         self.name = name
