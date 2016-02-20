@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesViewController: UITableViewController {
+class FavoritesViewController: UIViewController {
     
     var favorites = [RecipeItem]()
 

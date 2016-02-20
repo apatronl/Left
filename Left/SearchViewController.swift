@@ -16,8 +16,8 @@ class SearchViewController: UIViewController {
     let apiKey: String = "570024717057c65d605c4d54f84f2300"
     let rq: RequestHandler = RequestHandler()
     var data = [RecipeItem]()
+    let bgColor: UIColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue:245.0/255.0, alpha: 1.0)
     
-    @IBOutlet weak var ingredient1: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func resignKeyboard(sender: AnyObject) {
@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
 
     @IBAction func searchButtonPressed(sender: UIButton) {
         
-        Alamofire.request(.GET, "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q=chocolate").validate().responseJSON { response in
+        Alamofire.request(.GET, "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q=butter,cheese").validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
@@ -70,6 +70,7 @@ class SearchViewController: UIViewController {
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
+        view.backgroundColor = bgColor
     }
 
     override func didReceiveMemoryWarning() {
