@@ -22,8 +22,6 @@ class RequestHandler {
             case .Success:
                 if let value = response.result.value {
                     json = JSON(value)
-//                    print("JSON: \(json)")
-//                    print(json!["count"])
                 }
             case .Failure(let error):
                 print(error)
