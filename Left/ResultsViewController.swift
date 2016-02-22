@@ -10,11 +10,6 @@ import UIKit
 
 class ResultsViewController: UITableViewController {
     
-    var recipes: [RecipeItem] = [
-        RecipeItem(name:"Slutty Brownies", photo: "http://static.food2fork.com/BrownieFeature193f.jpg".urlToImg(), url: "http://whatsgabycooking.com/slutty-brownies/"),
-        RecipeItem(name: "Easy Ice Cream Cake", photo: "http://static.food2fork.com/easyicecreamcake_300d8c35460.jpg".urlToImg(), url: "http://www.realsimple.com/food-recipes/browse-all-recipes/easy-ice-cream-cake-10000001817861/index.html"),
-        RecipeItem(name: "Too Much Chocolate Cake", photo: "http://static.food2fork.com/518798fb0d.jpg".urlToImg(), url: "http://allrecipes.com/Recipe/Too-Much-Chocolate-Cake/Detail.aspx") ]
-    
     var data = [RecipeItem]()
 
     @IBOutlet weak var resultsTable: UITableView!
