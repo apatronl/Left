@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class SearchViewController: UIViewController {
 
-//    var ingredients = [NSString]()
+    var ingredients = [String]()
     let apiKey: String = "570024717057c65d605c4d54f84f2300"
     let rq: RequestHandler = RequestHandler()
     var data = [RecipeItem]()
