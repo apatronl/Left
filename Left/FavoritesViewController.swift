@@ -10,6 +10,8 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
+    //TODO Actually save favorites, add "favorite" button in RecipeView
+    
     var favorites = [RecipeItem]()
 
     override func viewDidLoad() {

@@ -67,6 +67,7 @@ class SearchViewController: UIViewController {
         navigationItem.titleView = UIImageView(image: image)
 
         navigationItem.title = "Left"
+        
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
