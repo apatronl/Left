@@ -64,7 +64,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ingredient #2" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dul-bJ-R7s">
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ingredient #2" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dul-bJ-R7s">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="0.82015413851351349" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,6 +185,9 @@
                                         <include reference="igd-Y4-lmZ"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="add:" destination="9pv-A4-QxB" eventType="touchUpInside" id="whW-jI-5O5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -298,6 +301,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Vs1-fK-X1W" id="OlG-gX-YVP"/>
+                        <outlet property="ingredient2" destination="dul-bJ-R7s" id="n6I-oq-0yy"/>
                         <segue destination="pEd-RP-jZV" kind="show" identifier="resultsSegue" id="aab-Zf-21w"/>
                     </connections>
                 </viewController>

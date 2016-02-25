@@ -12,6 +12,10 @@ import SwiftyJSON
 
 class SearchViewController: UIViewController {
 
+    @IBOutlet weak var ingredient2: UITextField!
+    @IBAction func add(sender: UIButton) {
+        ingredient2.hidden = false
+    }
     var ingredients = [String]()
     let apiKey: String = "570024717057c65d605c4d54f84f2300"
     let rq: RequestHandler = RequestHandler()
