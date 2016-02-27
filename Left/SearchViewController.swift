@@ -18,14 +18,30 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var ingredient4: UITextField!
     @IBOutlet weak var ingredient5: UITextField!
     
-    @IBAction func add(sender: UIButton) {
-        ingredient2.hidden = false
-    }
     var ingredients = [String]()
     let apiKey: String = "570024717057c65d605c4d54f84f2300"
     let rq: RequestHandler = RequestHandler()
     var data = [RecipeItem]()
     let bgColor: UIColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue:245.0/255.0, alpha: 1.0)
+    var numOfIngredients: Int = 1
+    
+    @IBAction func add(sender: UIButton) {
+        if (numOfIngredients <= 5) {
+            numOfIngredients++
+        }
+        switch numOfIngredients {
+        case 2:
+            ingredient2.hidden = false
+        case 3:
+            ingredient3.hidden = false
+        case 4:
+            ingredient4.hidden = false
+        case 5:
+            ingredient5.hidden = false
+        default:
+            break
+        }
+    }
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
