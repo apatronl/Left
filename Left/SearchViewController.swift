@@ -39,7 +39,10 @@ class SearchViewController: UIViewController {
         case 5:
             ingredient5.hidden = false
         default:
-            break
+            let alert = UIAlertController(title: "Oops!", message: "You cannot use more than 5 ingredients", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Got it", style: .Default) { _ in }
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true) {}
         }
     }
     
