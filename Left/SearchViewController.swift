@@ -12,7 +12,12 @@ import SwiftyJSON
 
 class SearchViewController: UIViewController {
 
+    @IBOutlet weak var ingredient1: UITextField!
     @IBOutlet weak var ingredient2: UITextField!
+    @IBOutlet weak var ingredient3: UITextField!
+    @IBOutlet weak var ingredient4: UITextField!
+    @IBOutlet weak var ingredient5: UITextField!
+    
     @IBAction func add(sender: UIButton) {
         ingredient2.hidden = false
     }
