@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var ingredient5: UITextField!
     
     var ingredients = [String]()
+    let url: String = "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q="
     let apiKey: String = "570024717057c65d605c4d54f84f2300"
     let rq: RequestHandler = RequestHandler()
     var data = [RecipeItem]()
@@ -53,8 +54,41 @@ class SearchViewController: UIViewController {
     }
 
     @IBAction func searchButtonPressed(sender: UIButton) {
+        if let ing1 = ingredient1.text {
+            ingredients.append(ing1)
+        }
+//        if (ingredient2.hidden == false) {
+//            if let ing2 = ingredient2.text {
+//                ingredients.append(ing2)
+//            }
+//        }
+//        if (ingredient3.hidden == true) {
+//            if let ing3 = ingredient3.text {
+//                ingredients.append(ing3)
+//            }
+//        }
+//        if (ingredient4.hidden == true) {
+//            if let ing4 = ingredient4.text {
+//                ingredients.append(ing4)
+//            }
+//        }
+//        if (ingredient5.hidden == true) {
+//            if let ing5 = ingredient5.text {
+//                ingredients.append(ing5)
+//            }
+//        }
+        let length: Int = ingredients.count
+        var urlWithIngredients: String = "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q="
+        for i in 0...length - 1 {
+            if (i == 0) {
+                urlWithIngredients += ingredients.first!
+                urlWithIngredients = urlWithIngredients.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+            }
+        }
+        ingredients.removeAll()
+        print(urlWithIngredients)
         
-        Alamofire.request(.GET, "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q=butter,cheese").validate().responseJSON { response in
+        Alamofire.request(.GET, urlWithIngredients).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
@@ -86,6 +120,7 @@ class SearchViewController: UIViewController {
             let destinationVC = segue.destinationViewController as! ResultsViewController
             destinationVC.data = data
         }
+        data.removeAll()
     }
  
     override func viewDidLoad() {
