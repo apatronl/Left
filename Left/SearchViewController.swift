@@ -57,31 +57,34 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         if let ing1 = ingredient1.text {
             ingredients.append(ing1)
         }
-//        if (ingredient2.hidden == false) {
-//            if let ing2 = ingredient2.text {
-//                ingredients.append(ing2)
-//            }
-//        }
-//        if (ingredient3.hidden == true) {
-//            if let ing3 = ingredient3.text {
-//                ingredients.append(ing3)
-//            }
-//        }
-//        if (ingredient4.hidden == true) {
-//            if let ing4 = ingredient4.text {
-//                ingredients.append(ing4)
-//            }
-//        }
-//        if (ingredient5.hidden == true) {
-//            if let ing5 = ingredient5.text {
-//                ingredients.append(ing5)
-//            }
-//        }
+        if (ingredient2.hidden == false) {
+            if let ing2 = ingredient2.text {
+                ingredients.append(ing2)
+            }
+        }
+        if (ingredient3.hidden == false) {
+            if let ing3 = ingredient3.text {
+                ingredients.append(ing3)
+            }
+        }
+        if (ingredient4.hidden == false) {
+            if let ing4 = ingredient4.text {
+                ingredients.append(ing4)
+            }
+        }
+        if (ingredient5.hidden == false) {
+            if let ing5 = ingredient5.text {
+                ingredients.append(ing5)
+            }
+        }
         let length: Int = ingredients.count
         var urlWithIngredients: String = "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q="
         for i in 0...length - 1 {
             if (i == 0) {
                 urlWithIngredients += ingredients.first!
+                urlWithIngredients = urlWithIngredients.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+            } else {
+                urlWithIngredients += "," + ingredients[i]
                 urlWithIngredients = urlWithIngredients.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
             }
         }
