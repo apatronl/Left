@@ -19,8 +19,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var ingredient5: UITextField!
     
     var ingredients = [String]()
-    let url: String = "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q="
     let apiKey: String = "570024717057c65d605c4d54f84f2300"
+    let url: String = "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q="
     let rq: RequestHandler = RequestHandler()
     var data = [RecipeItem]()
     let bgColor: UIColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue:245.0/255.0, alpha: 1.0)
