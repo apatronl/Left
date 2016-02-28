@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var ingredient1: UITextField!
     @IBOutlet weak var ingredient2: UITextField!
@@ -19,8 +19,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var ingredient5: UITextField!
     
     var ingredients = [String]()
-    let apiKey: String = "570024717057c65d605c4d54f84f2300"
-    let url: String = "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q="
+    static let apiKey: String = "570024717057c65d605c4d54f84f2300"
+    let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
     let rq: RequestHandler = RequestHandler()
     var data = [RecipeItem]()
     let bgColor: UIColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue:245.0/255.0, alpha: 1.0)
@@ -135,6 +135,11 @@ class SearchViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         view.backgroundColor = bgColor
+        ingredient1.delegate = self
+        ingredient2.delegate = self
+        ingredient3.delegate = self
+        ingredient4.delegate = self
+        ingredient5.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -143,6 +148,15 @@ class SearchViewController: UIViewController {
     
     func DismissKeyboard(){
         view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        ingredient1.resignFirstResponder()
+        ingredient2.resignFirstResponder()
+        ingredient3.resignFirstResponder()
+        ingredient4.resignFirstResponder()
+        ingredient5.resignFirstResponder()
+        return true;
     }
 }
 
