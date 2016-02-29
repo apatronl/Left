@@ -42,6 +42,7 @@ class ResultsViewController: UITableViewController {
             let destinationVC = segue.destinationViewController as! RecipeViewController
             if let selectedRecipe = sender as? RecipeCell {
                 let indexPath = tableView.indexPathForCell(selectedRecipe)
+                destinationVC.recipe = data[indexPath!.row]
                 destinationVC.recipeName = data[indexPath!.row].name
                 destinationVC.recipeURL = data[indexPath!.row].url
             }

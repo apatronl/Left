@@ -28,6 +28,7 @@
 		EDA728FD1BB45F0A00A0FA26 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA728FC1BB45F0A00A0FA26 /* ResultsViewController.swift */; };
 		EDA728FF1BB462DC00A0FA26 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA728FE1BB462DC00A0FA26 /* RecipeViewController.swift */; };
 		EDB9B6911BB0596500B88EBF /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B6901BB0596500B88EBF /* NavViewController.swift */; };
+		EDC8E1F71C83D29800EA30E8 /* FavoriteRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8E1F61C83D29800EA30E8 /* FavoriteRecipeCell.swift */; };
 		EDDBB4571C70430100962B54 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDBB4561C70430100962B54 /* RecipeCell.swift */; };
 		EDF1B9571BEAFAE000750317 /* RecipeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF1B9561BEAFAE000750317 /* RecipeItem.swift */; };
 /* End PBXBuildFile section */
@@ -212,6 +213,7 @@
 		EDA728FC1BB45F0A00A0FA26 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		EDA728FE1BB462DC00A0FA26 /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		EDB9B6901BB0596500B88EBF /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
+		EDC8E1F61C83D29800EA30E8 /* FavoriteRecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeCell.swift; sourceTree = "<group>"; };
 		EDDBB4561C70430100962B54 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		EDF1B9561BEAFAE000750317 /* RecipeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -357,6 +359,7 @@
 			children = (
 				EDF1B9561BEAFAE000750317 /* RecipeItem.swift */,
 				EDDBB4561C70430100962B54 /* RecipeCell.swift */,
+				EDC8E1F61C83D29800EA30E8 /* FavoriteRecipeCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				EDA728FD1BB45F0A00A0FA26 /* ResultsViewController.swift in Sources */,
 				ED4FF2D51C6EB04C00FF7439 /* RequestHandler.swift in Sources */,
 				ED80399D1BAC9D40009487B5 /* SearchViewController.swift in Sources */,
+				EDC8E1F71C83D29800EA30E8 /* FavoriteRecipeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

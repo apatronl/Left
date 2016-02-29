@@ -8,22 +8,31 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
-    
-    //TODO Actually save favorites, add "favorite" button in RecipeView
+class FavoritesViewController: UITableViewController, UpdateFavorites {
     
     var favorites = [RecipeItem]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var FavoritesTable: UITableView!
+    
+    func passBackRecipe(recipe: RecipeItem) {
+        favorites.append(recipe)
+        self.loadView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
-
-
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favorites.count
+    }
+    
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
+//        -> UITableViewCell {
+//            let cell = tableView.dequeueReusableCellWithIdentifier("RecipeCell", forIndexPath: indexPath)
+//                as! RecipeCell
+//            let recipe = favorites[indexPath.row] as RecipeItem
+//            cell.recipe = recipe
+//            return cell
+//    }
 }
 

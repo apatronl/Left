@@ -10,8 +10,10 @@ import UIKit
 
 class RecipeViewController: UIViewController, UIWebViewDelegate {
     
+    var recipe: RecipeItem?
     var recipeName: String?
     var recipeURL: String?
+    var delegate: UpdateFavorites?
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -19,15 +21,17 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.hidden = true
-        self.navigationItem.title = recipeName
+        self.navigationItem.title = recipe?.name
     
-        let url = NSURL(string: recipeURL!)
+        let url = NSURL(string: (recipe?.url)!)
         let requestObj = NSURLRequest(URL: url!)
         webView.loadRequest(requestObj)
-        
-        
     }
-
+    
+    @IBAction func addButtonPressed(sender: UIBarButtonItem) {
+        delegate?.passBackRecipe(recipe!)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,16 +46,8 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+protocol UpdateFavorites {
+    func passBackRecipe(recipe: RecipeItem)
 }

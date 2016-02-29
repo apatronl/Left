@@ -78,7 +78,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             }
         }
         let length: Int = ingredients.count
-        var urlWithIngredients: String = "http://food2fork.com/api/search?key=570024717057c65d605c4d54f84f2300&q="
+        var urlWithIngredients: String = url
         for i in 0...length - 1 {
             if (i == 0) {
                 urlWithIngredients += ingredients.first!
