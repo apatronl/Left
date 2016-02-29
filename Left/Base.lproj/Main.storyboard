@@ -242,30 +242,30 @@
                                 <exclude reference="BYI-h9-5Lo"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GdP-p4-qkS"/>
-                                <exclude reference="K7A-1R-tRw"/>
-                                <exclude reference="kbH-ZA-7PY"/>
-                                <exclude reference="7oX-UY-6rL"/>
-                                <exclude reference="ar2-Zu-IOn"/>
-                                <exclude reference="iEg-fP-E6L"/>
-                                <exclude reference="OOh-vz-Xey"/>
-                                <exclude reference="PSq-uQ-NfW"/>
-                                <exclude reference="rQg-Xe-2PX"/>
-                                <exclude reference="Gsz-eh-jFd"/>
-                                <exclude reference="aGa-ua-sbN"/>
-                                <exclude reference="C9h-QA-Hne"/>
-                                <exclude reference="OOQ-Kt-WCr"/>
-                                <exclude reference="h8M-On-ZP7"/>
-                                <exclude reference="BmN-h9-dUo"/>
-                                <exclude reference="OCr-hC-hUG"/>
-                                <exclude reference="zSp-2D-UvK"/>
                                 <exclude reference="CRG-sP-P7O"/>
                                 <exclude reference="Vbd-3g-H3k"/>
                                 <exclude reference="fZd-7d-mRW"/>
+                                <exclude reference="BmN-h9-dUo"/>
+                                <exclude reference="OCr-hC-hUG"/>
+                                <exclude reference="zSp-2D-UvK"/>
                                 <exclude reference="CXg-zz-0uH"/>
                                 <exclude reference="V5d-bP-s8A"/>
                                 <exclude reference="mbZ-l0-tCg"/>
+                                <exclude reference="OOh-vz-Xey"/>
+                                <exclude reference="PSq-uQ-NfW"/>
+                                <exclude reference="rQg-Xe-2PX"/>
+                                <exclude reference="C9h-QA-Hne"/>
+                                <exclude reference="OOQ-Kt-WCr"/>
+                                <exclude reference="h8M-On-ZP7"/>
+                                <exclude reference="7oX-UY-6rL"/>
+                                <exclude reference="ar2-Zu-IOn"/>
+                                <exclude reference="iEg-fP-E6L"/>
                                 <exclude reference="RWB-Jk-dnO"/>
+                                <exclude reference="Gsz-eh-jFd"/>
+                                <exclude reference="aGa-ua-sbN"/>
+                                <exclude reference="GdP-p4-qkS"/>
+                                <exclude reference="K7A-1R-tRw"/>
+                                <exclude reference="kbH-ZA-7PY"/>
                                 <exclude reference="IvU-xY-JfL"/>
                             </mask>
                         </variation>
@@ -281,30 +281,30 @@
                                 <include reference="BYI-h9-5Lo"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GdP-p4-qkS"/>
-                                <include reference="K7A-1R-tRw"/>
-                                <include reference="kbH-ZA-7PY"/>
-                                <include reference="7oX-UY-6rL"/>
-                                <include reference="ar2-Zu-IOn"/>
-                                <include reference="iEg-fP-E6L"/>
-                                <include reference="OOh-vz-Xey"/>
-                                <include reference="PSq-uQ-NfW"/>
-                                <include reference="rQg-Xe-2PX"/>
-                                <include reference="Gsz-eh-jFd"/>
-                                <include reference="aGa-ua-sbN"/>
-                                <include reference="C9h-QA-Hne"/>
-                                <include reference="OOQ-Kt-WCr"/>
-                                <include reference="h8M-On-ZP7"/>
-                                <include reference="BmN-h9-dUo"/>
-                                <include reference="OCr-hC-hUG"/>
-                                <include reference="zSp-2D-UvK"/>
                                 <include reference="CRG-sP-P7O"/>
                                 <include reference="Vbd-3g-H3k"/>
                                 <include reference="fZd-7d-mRW"/>
+                                <include reference="BmN-h9-dUo"/>
+                                <include reference="OCr-hC-hUG"/>
+                                <include reference="zSp-2D-UvK"/>
                                 <include reference="CXg-zz-0uH"/>
                                 <include reference="V5d-bP-s8A"/>
                                 <include reference="mbZ-l0-tCg"/>
+                                <include reference="OOh-vz-Xey"/>
+                                <include reference="PSq-uQ-NfW"/>
+                                <include reference="rQg-Xe-2PX"/>
+                                <include reference="C9h-QA-Hne"/>
+                                <include reference="OOQ-Kt-WCr"/>
+                                <include reference="h8M-On-ZP7"/>
+                                <include reference="7oX-UY-6rL"/>
+                                <include reference="ar2-Zu-IOn"/>
+                                <include reference="iEg-fP-E6L"/>
                                 <include reference="RWB-Jk-dnO"/>
+                                <include reference="Gsz-eh-jFd"/>
+                                <include reference="aGa-ua-sbN"/>
+                                <include reference="GdP-p4-qkS"/>
+                                <include reference="K7A-1R-tRw"/>
+                                <include reference="kbH-ZA-7PY"/>
                                 <include reference="IvU-xY-JfL"/>
                             </mask>
                         </variation>
@@ -434,7 +434,7 @@
             </objects>
             <point key="canvasLocation" x="2304" y="-334"/>
         </scene>
-        <!--Recipe View Controller-->
+        <!--Title-->
         <scene sceneID="6l7-WK-GDW">
             <objects>
                 <viewController id="7fd-jb-A9o" customClass="RecipeViewController" customModule="Left" customModuleProvider="target" sceneMemberID="viewController">
@@ -497,6 +497,9 @@
                         </variation>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="1tJ-ck-usK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jfy-Re-KcP"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="bPc-kg-Qsl" id="YE7-PW-55q"/>
