@@ -29,7 +29,9 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
+        print(recipe!.name)
         delegate?.passBackRecipe(recipe!)
+        print(delegate)
     }
     
     override func didReceiveMemoryWarning() {

@@ -413,7 +413,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVl-EP-vgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2304" y="-334"/>
+            <point key="canvasLocation" x="2358" y="-334"/>
         </scene>
         <!--Title-->
         <scene sceneID="6l7-WK-GDW">
@@ -562,15 +562,75 @@
         <scene sceneID="hvW-wv-Frm">
             <objects>
                 <tableViewController id="vCn-fc-9mM" customClass="FavoritesViewController" customModule="Left" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2js-Nf-nlA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" id="2js-Nf-nlA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" id="LqP-fm-oM6" customClass="RecipeCell" customModule="Left" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteRecipeCell" rowHeight="105" id="LqP-fm-oM6" customClass="FavoriteRecipeCell" customModule="Left" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LqP-fm-oM6" id="Frb-Df-Knd">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-AQ-siw">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GbG-Zh-TUm">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="leadingMargin" secondItem="NAc-AQ-siw" secondAttribute="leading" id="C2z-SH-uN0">
+                                            <variation key="widthClass=compact" constant="-4"/>
+                                        </constraint>
+                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="height" secondItem="Frb-Df-Knd" secondAttribute="height" multiplier="0.9" id="Idf-Qo-Ul5"/>
+                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="centerY" secondItem="Frb-Df-Knd" secondAttribute="centerY" id="Q9o-Ow-Utz"/>
+                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="trailing" secondItem="Frb-Df-Knd" secondAttribute="trailingMargin" id="REV-Gd-l8Q"/>
+                                        <constraint firstItem="NAc-AQ-siw" firstAttribute="centerY" secondItem="Frb-Df-Knd" secondAttribute="centerY" id="Z5Z-7M-bDv"/>
+                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="width" secondItem="Frb-Df-Knd" secondAttribute="width" multiplier="0.55" id="lcb-9h-P7p"/>
+                                        <constraint firstItem="NAc-AQ-siw" firstAttribute="width" secondItem="Frb-Df-Knd" secondAttribute="width" multiplier="0.4" id="oBm-zN-BZ2"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="NAc-AQ-siw"/>
+                                            <exclude reference="GbG-Zh-TUm"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="C2z-SH-uN0"/>
+                                            <exclude reference="Z5Z-7M-bDv"/>
+                                            <exclude reference="oBm-zN-BZ2"/>
+                                            <exclude reference="Idf-Qo-Ul5"/>
+                                            <exclude reference="Q9o-Ow-Utz"/>
+                                            <exclude reference="REV-Gd-l8Q"/>
+                                            <exclude reference="lcb-9h-P7p"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="NAc-AQ-siw"/>
+                                            <include reference="GbG-Zh-TUm"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="C2z-SH-uN0"/>
+                                            <include reference="Z5Z-7M-bDv"/>
+                                            <include reference="oBm-zN-BZ2"/>
+                                            <include reference="Idf-Qo-Ul5"/>
+                                            <include reference="Q9o-Ow-Utz"/>
+                                            <include reference="REV-Gd-l8Q"/>
+                                            <include reference="lcb-9h-P7p"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="FavoriteRecipeCell"/>
+                                <connections>
+                                    <outlet property="recipeImg" destination="GbG-Zh-TUm" id="orx-aB-fzA"/>
+                                    <outlet property="recipeName" destination="NAc-AQ-siw" id="4JP-KE-Ca1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

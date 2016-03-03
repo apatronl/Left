@@ -20,7 +20,6 @@ class RecipeCell: UITableViewCell {
                 recipeImg.contentMode = UIViewContentMode.ScaleAspectFit
                 recipeImg.image = photo
             }
-            
         }
     }
 }

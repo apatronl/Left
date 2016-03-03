@@ -12,9 +12,11 @@ class FavoritesViewController: UITableViewController, UpdateFavorites {
     
     var favorites = [RecipeItem]()
     @IBOutlet weak var FavoritesTable: UITableView!
+    var rvc: RecipeViewController = RecipeViewController()
     
     func passBackRecipe(recipe: RecipeItem) {
         favorites.append(recipe)
+        print(recipe.name)
         self.loadView()
     }
     
@@ -26,13 +28,13 @@ class FavoritesViewController: UITableViewController, UpdateFavorites {
         return favorites.count
     }
     
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
-//        -> UITableViewCell {
-//            let cell = tableView.dequeueReusableCellWithIdentifier("RecipeCell", forIndexPath: indexPath)
-//                as! RecipeCell
-//            let recipe = favorites[indexPath.row] as RecipeItem
-//            cell.recipe = recipe
-//            return cell
-//    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
+        -> UITableViewCell {
+            let cell = tableView.dequeueReusableCellWithIdentifier("FavoriteRecipeCell", forIndexPath: indexPath)
+                as! FavoriteRecipeCell
+            let recipe = favorites[indexPath.row] as RecipeItem
+            cell.recipe = recipe
+            return cell
+    }
 }
 
