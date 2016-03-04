@@ -13,7 +13,7 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     var recipe: RecipeItem?
     var recipeName: String?
     var recipeURL: String?
-    var delegate: UpdateFavorites?
+    var favoriteVC: FavoritesViewController?
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -22,16 +22,15 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         activityIndicator.hidden = true
         self.navigationItem.title = recipe?.name
-    
+        favoriteVC = (self.tabBarController?.viewControllers![1] as! NavViewController).viewControllers[0] as? FavoritesViewController
+        
         let url = NSURL(string: (recipe?.url)!)
         let requestObj = NSURLRequest(URL: url!)
         webView.loadRequest(requestObj)
     }
     
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
-        print(recipe!.name)
-        delegate?.passBackRecipe(recipe!)
-        print(delegate)
+        favoriteVC?.favorites.append(recipe!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,8 +47,4 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
     }
-}
-
-protocol UpdateFavorites {
-    func passBackRecipe(recipe: RecipeItem)
 }

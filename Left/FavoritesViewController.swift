@@ -8,17 +8,14 @@
 
 import UIKit
 
-class FavoritesViewController: UITableViewController, UpdateFavorites {
+class FavoritesViewController: UITableViewController {
     
-    var favorites = [RecipeItem]()
-    @IBOutlet weak var FavoritesTable: UITableView!
-    var rvc: RecipeViewController = RecipeViewController()
-    
-    func passBackRecipe(recipe: RecipeItem) {
-        favorites.append(recipe)
-        print(recipe.name)
-        self.loadView()
+    var favorites = [RecipeItem]() {
+        didSet {
+            tableView.reloadData()
+        }
     }
+    @IBOutlet weak var FavoritesTable: UITableView!
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
