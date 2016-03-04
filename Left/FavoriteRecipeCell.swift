@@ -10,7 +10,6 @@ import UIKit
 
 class FavoriteRecipeCell: UITableViewCell {
     
-    
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeImg: UIImageView!
     
@@ -18,7 +17,8 @@ class FavoriteRecipeCell: UITableViewCell {
         didSet {
             recipeName.text = recipe.name
             if let photo = recipe.photo {
-                recipeImg.contentMode = UIViewContentMode.ScaleAspectFit
+                recipeImg.contentMode = UIViewContentMode.ScaleAspectFill
+                recipeImg.clipsToBounds = true
                 recipeImg.image = photo
             }
         }

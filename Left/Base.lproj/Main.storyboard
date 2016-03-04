@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Search-->
@@ -385,11 +384,11 @@
                                             <exclude reference="UbP-mE-0pn"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="nWX-qY-1On"/>
-                                            <exclude reference="v96-VG-VJv"/>
                                             <exclude reference="EWT-fx-FI0"/>
                                             <exclude reference="oqW-8o-r1D"/>
                                             <exclude reference="v6H-f4-LAh"/>
+                                            <exclude reference="nWX-qY-1On"/>
+                                            <exclude reference="v96-VG-VJv"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -398,11 +397,11 @@
                                             <include reference="UbP-mE-0pn"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="nWX-qY-1On"/>
-                                            <include reference="v96-VG-VJv"/>
                                             <include reference="EWT-fx-FI0"/>
                                             <include reference="oqW-8o-r1D"/>
                                             <include reference="v6H-f4-LAh"/>
+                                            <include reference="nWX-qY-1On"/>
+                                            <include reference="v96-VG-VJv"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -577,7 +576,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteRecipeCell" rowHeight="105" id="LqP-fm-oM6" customClass="FavoriteRecipeCell" customModule="Left" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteRecipeCell" rowHeight="95" id="LqP-fm-oM6" customClass="FavoriteRecipeCell" customModule="Left" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LqP-fm-oM6" id="Frb-Df-Knd">
@@ -590,20 +589,33 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GbG-Zh-TUm">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="GbG-Zh-TUm">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="95" id="W9i-A3-8wQ"/>
+                                                <constraint firstAttribute="width" constant="95" id="kL6-oF-ZK0"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="W9i-A3-8wQ"/>
+                                                    <exclude reference="kL6-oF-ZK0"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="W9i-A3-8wQ"/>
+                                                    <include reference="kL6-oF-ZK0"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="leadingMargin" secondItem="NAc-AQ-siw" secondAttribute="leading" id="C2z-SH-uN0">
-                                            <variation key="widthClass=compact" constant="-4"/>
-                                        </constraint>
-                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="height" secondItem="Frb-Df-Knd" secondAttribute="height" multiplier="0.9" id="Idf-Qo-Ul5"/>
-                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="centerY" secondItem="Frb-Df-Knd" secondAttribute="centerY" id="Q9o-Ow-Utz"/>
-                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="trailing" secondItem="Frb-Df-Knd" secondAttribute="trailingMargin" id="REV-Gd-l8Q"/>
-                                        <constraint firstItem="NAc-AQ-siw" firstAttribute="centerY" secondItem="Frb-Df-Knd" secondAttribute="centerY" id="Z5Z-7M-bDv"/>
-                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="width" secondItem="Frb-Df-Knd" secondAttribute="width" multiplier="0.55" id="lcb-9h-P7p"/>
-                                        <constraint firstItem="NAc-AQ-siw" firstAttribute="width" secondItem="Frb-Df-Knd" secondAttribute="width" multiplier="0.4" id="oBm-zN-BZ2"/>
+                                        <constraint firstItem="NAc-AQ-siw" firstAttribute="leading" secondItem="GbG-Zh-TUm" secondAttribute="trailing" constant="7" id="3G9-m5-1TM"/>
+                                        <constraint firstItem="NAc-AQ-siw" firstAttribute="top" secondItem="Frb-Df-Knd" secondAttribute="topMargin" constant="35" id="6t1-tz-3VR"/>
+                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="centerY" secondItem="Frb-Df-Knd" secondAttribute="centerY" id="Qhw-CX-vgo"/>
+                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="leading" secondItem="Frb-Df-Knd" secondAttribute="leading" id="clC-qc-tWS"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="NAc-AQ-siw" secondAttribute="trailing" constant="-6" id="xsD-BB-jxA"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="NAc-AQ-siw" secondAttribute="bottom" constant="32.5" id="zqC-UO-RBP"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
@@ -611,13 +623,12 @@
                                             <exclude reference="GbG-Zh-TUm"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="C2z-SH-uN0"/>
-                                            <exclude reference="Z5Z-7M-bDv"/>
-                                            <exclude reference="oBm-zN-BZ2"/>
-                                            <exclude reference="Idf-Qo-Ul5"/>
-                                            <exclude reference="Q9o-Ow-Utz"/>
-                                            <exclude reference="REV-Gd-l8Q"/>
-                                            <exclude reference="lcb-9h-P7p"/>
+                                            <exclude reference="Qhw-CX-vgo"/>
+                                            <exclude reference="clC-qc-tWS"/>
+                                            <exclude reference="3G9-m5-1TM"/>
+                                            <exclude reference="6t1-tz-3VR"/>
+                                            <exclude reference="xsD-BB-jxA"/>
+                                            <exclude reference="zqC-UO-RBP"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -626,13 +637,12 @@
                                             <include reference="GbG-Zh-TUm"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="C2z-SH-uN0"/>
-                                            <include reference="Z5Z-7M-bDv"/>
-                                            <include reference="oBm-zN-BZ2"/>
-                                            <include reference="Idf-Qo-Ul5"/>
-                                            <include reference="Q9o-Ow-Utz"/>
-                                            <include reference="REV-Gd-l8Q"/>
-                                            <include reference="lcb-9h-P7p"/>
+                                            <include reference="Qhw-CX-vgo"/>
+                                            <include reference="clC-qc-tWS"/>
+                                            <include reference="3G9-m5-1TM"/>
+                                            <include reference="6t1-tz-3VR"/>
+                                            <include reference="xsD-BB-jxA"/>
+                                            <include reference="zqC-UO-RBP"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
