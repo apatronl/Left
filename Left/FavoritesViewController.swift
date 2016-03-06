@@ -10,11 +10,8 @@ import UIKit
 
 class FavoritesViewController: UITableViewController {
     
-    var favorites = [RecipeItem]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var favoritesManager = FavoritesManager()
+    
     @IBOutlet weak var FavoritesTable: UITableView!
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -22,14 +19,14 @@ class FavoritesViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favorites.count
+        return favoritesManager.favoriteRecipes.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("FavoriteRecipeCell", forIndexPath: indexPath)
                 as! FavoriteRecipeCell
-            let recipe = favorites[indexPath.row] as RecipeItem
+            let recipe = favoritesManager.favoriteRecipes[indexPath.row] as RecipeItem
             cell.recipe = recipe
             return cell
     }

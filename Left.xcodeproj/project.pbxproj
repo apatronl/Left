@@ -16,6 +16,7 @@
 		ED4FF3221C6EBA9500FF7439 /* Freddy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED4FF3171C6EBA0900FF7439 /* Freddy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED4FF3311C6EDDCD00FF7439 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4FF3301C6EDDCD00FF7439 /* SwiftyJSON.framework */; };
 		ED4FF3341C6EDEC400FF7439 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4FF3331C6EDEC400FF7439 /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55E2461C8A490D0079E254 /* FavoritesManager.swift */; };
 		ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399A1BAC9D40009487B5 /* AppDelegate.swift */; };
 		ED80399D1BAC9D40009487B5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399C1BAC9D40009487B5 /* SearchViewController.swift */; };
 		ED80399F1BAC9D40009487B5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399E1BAC9D40009487B5 /* FavoritesViewController.swift */; };
@@ -195,6 +196,7 @@
 		ED4FF3081C6EBA0900FF7439 /* Freddy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Freddy.xcodeproj; path = Vendor/Freddy/Freddy.xcodeproj; sourceTree = "<group>"; };
 		ED4FF3301C6EDDCD00FF7439 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		ED4FF3331C6EDEC400FF7439 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		ED55E2461C8A490D0079E254 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		ED8039971BAC9D40009487B5 /* Left.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Left.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED80399A1BAC9D40009487B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED80399C1BAC9D40009487B5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				EDF1B9561BEAFAE000750317 /* RecipeItem.swift */,
 				EDDBB4561C70430100962B54 /* RecipeCell.swift */,
 				EDC8E1F61C83D29800EA30E8 /* FavoriteRecipeCell.swift */,
+				ED55E2461C8A490D0079E254 /* FavoritesManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				EDF1B9571BEAFAE000750317 /* RecipeItem.swift in Sources */,
 				EDDBB4571C70430100962B54 /* RecipeCell.swift in Sources */,
 				EDA728FF1BB462DC00A0FA26 /* RecipeViewController.swift in Sources */,
+				ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */,
 				ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */,
 				EDA728FD1BB45F0A00A0FA26 /* ResultsViewController.swift in Sources */,
 				ED4FF2D51C6EB04C00FF7439 /* RequestHandler.swift in Sources */,

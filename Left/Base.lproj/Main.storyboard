@@ -577,10 +577,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteRecipeCell" rowHeight="95" id="LqP-fm-oM6" customClass="FavoriteRecipeCell" customModule="Left" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="105"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LqP-fm-oM6" id="Frb-Df-Knd">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="104.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="94.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-AQ-siw">
@@ -623,12 +623,12 @@
                                             <exclude reference="GbG-Zh-TUm"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="Qhw-CX-vgo"/>
-                                            <exclude reference="clC-qc-tWS"/>
                                             <exclude reference="3G9-m5-1TM"/>
                                             <exclude reference="6t1-tz-3VR"/>
                                             <exclude reference="xsD-BB-jxA"/>
                                             <exclude reference="zqC-UO-RBP"/>
+                                            <exclude reference="Qhw-CX-vgo"/>
+                                            <exclude reference="clC-qc-tWS"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -637,12 +637,12 @@
                                             <include reference="GbG-Zh-TUm"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="Qhw-CX-vgo"/>
-                                            <include reference="clC-qc-tWS"/>
                                             <include reference="3G9-m5-1TM"/>
                                             <include reference="6t1-tz-3VR"/>
                                             <include reference="xsD-BB-jxA"/>
                                             <include reference="zqC-UO-RBP"/>
+                                            <include reference="Qhw-CX-vgo"/>
+                                            <include reference="clC-qc-tWS"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

@@ -30,7 +30,11 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
-        favoriteVC?.favorites.append(recipe!)
+//        favoriteVC?.favorites.append(recipe!)
+        favoriteVC?.favoritesManager.favoriteRecipes.append(recipe!)
+        favoriteVC?.tableView.reloadData()
+        print(favoriteVC?.favoritesManager.favoriteRecipes.count)
+        favoriteVC?.favoritesManager.save()
     }
     
     override func didReceiveMemoryWarning() {
