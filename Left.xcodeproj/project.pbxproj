@@ -32,6 +32,7 @@
 		EDC8E1F71C83D29800EA30E8 /* FavoriteRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8E1F61C83D29800EA30E8 /* FavoriteRecipeCell.swift */; };
 		EDDBB4571C70430100962B54 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDBB4561C70430100962B54 /* RecipeCell.swift */; };
 		EDF1B9571BEAFAE000750317 /* RecipeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF1B9561BEAFAE000750317 /* RecipeItem.swift */; };
+		EDFFC02D1C8F4CAB00063604 /* FavoriteRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFC02C1C8F4CAB00063604 /* FavoriteRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,7 @@
 		EDC8E1F61C83D29800EA30E8 /* FavoriteRecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeCell.swift; sourceTree = "<group>"; };
 		EDDBB4561C70430100962B54 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		EDF1B9561BEAFAE000750317 /* RecipeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeItem.swift; sourceTree = "<group>"; };
+		EDFFC02C1C8F4CAB00063604 /* FavoriteRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 				ED4FF2D41C6EB04C00FF7439 /* RequestHandler.swift */,
 				EDA728FE1BB462DC00A0FA26 /* RecipeViewController.swift */,
 				ED80399E1BAC9D40009487B5 /* FavoritesViewController.swift */,
+				EDFFC02C1C8F4CAB00063604 /* FavoriteRecipeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFFC02D1C8F4CAB00063604 /* FavoriteRecipeViewController.swift in Sources */,
 				EDB9B6911BB0596500B88EBF /* NavViewController.swift in Sources */,
 				ED80399F1BAC9D40009487B5 /* FavoritesViewController.swift in Sources */,
 				EDF1B9571BEAFAE000750317 /* RecipeItem.swift in Sources */,
