@@ -14,6 +14,10 @@ class FavoritesViewController: UITableViewController {
     
     @IBOutlet weak var FavoritesTable: UITableView!
     
+    override func viewDidLoad() {
+        self.navigationItem.leftBarButtonItem = editButtonItem()
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -34,7 +38,8 @@ class FavoritesViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             favoritesManager.favoriteRecipes.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            favoritesManager.save()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         }
     }
 }

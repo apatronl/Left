@@ -659,11 +659,9 @@
                             <outlet property="delegate" destination="vCn-fc-9mM" id="6go-xQ-sQY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="zFc-dU-Tc0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Eq9-8O-1da"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Favorites" id="zFc-dU-Tc0"/>
                     <connections>
-                        <outlet property="FavoritesTable" destination="2js-Nf-nlA" id="M3S-4V-nIu"/>
+                        <outlet property="FavoritesTable" destination="2js-Nf-nlA" id="ZRF-Lo-6NM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rty-wD-M3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
