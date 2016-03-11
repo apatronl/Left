@@ -42,5 +42,15 @@ class FavoritesViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "FavoriteRecipeDetailView") {
+            let destinationVC = segue.destinationViewController as! FavoriteRecipeViewController
+            if let selectedRecipe = sender as? FavoriteRecipeCell {
+                let indexPath = tableView.indexPathForCell(selectedRecipe)
+                destinationVC.recipe = favoritesManager.favoriteRecipes[indexPath!.row]
+            }
+        }
+    }
 }
 

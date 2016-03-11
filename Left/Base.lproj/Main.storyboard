@@ -328,7 +328,7 @@
         <scene sceneID="X4e-jb-4yF">
             <objects>
                 <tableViewController id="pEd-RP-jZV" customClass="ResultsViewController" customModule="Left" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="JhB-Vw-Wd6">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" id="JhB-Vw-Wd6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -443,7 +443,7 @@
                                     <outlet property="delegate" destination="7fd-jb-A9o" id="9Lb-6i-OLE"/>
                                 </connections>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-kg-Qsl">
+                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-kg-Qsl">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                                 <color key="color" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -571,7 +571,7 @@
         <scene sceneID="hvW-wv-Frm">
             <objects>
                 <tableViewController id="vCn-fc-9mM" customClass="FavoritesViewController" customModule="Left" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" id="2js-Nf-nlA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" id="2js-Nf-nlA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -608,10 +608,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="NAc-AQ-siw" firstAttribute="leading" secondItem="GbG-Zh-TUm" secondAttribute="trailing" constant="7" id="3G9-m5-1TM"/>
-                                        <constraint firstItem="NAc-AQ-siw" firstAttribute="top" secondItem="Frb-Df-Knd" secondAttribute="topMargin" constant="35" id="6t1-tz-3VR"/>
                                         <constraint firstItem="GbG-Zh-TUm" firstAttribute="height" secondItem="Frb-Df-Knd" secondAttribute="height" id="8i6-NY-FR6"/>
                                         <constraint firstItem="GbG-Zh-TUm" firstAttribute="centerY" secondItem="Frb-Df-Knd" secondAttribute="centerY" id="Qhw-CX-vgo"/>
-                                        <constraint firstItem="GbG-Zh-TUm" firstAttribute="leading" secondItem="Frb-Df-Knd" secondAttribute="leading" id="clC-qc-tWS"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="GbG-Zh-TUm" secondAttribute="leading" id="SuM-vH-ZFv">
+                                            <variation key="widthClass=compact" constant="8"/>
+                                        </constraint>
+                                        <constraint firstItem="NAc-AQ-siw" firstAttribute="centerY" secondItem="Frb-Df-Knd" secondAttribute="centerY" id="s7g-ys-YK9"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="NAc-AQ-siw" secondAttribute="trailing" constant="-6" id="xsD-BB-jxA"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="NAc-AQ-siw" secondAttribute="bottom" constant="32.5" id="zqC-UO-RBP"/>
                                     </constraints>
@@ -621,13 +623,13 @@
                                             <exclude reference="GbG-Zh-TUm"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="3G9-m5-1TM"/>
-                                            <exclude reference="6t1-tz-3VR"/>
-                                            <exclude reference="xsD-BB-jxA"/>
-                                            <exclude reference="zqC-UO-RBP"/>
                                             <exclude reference="8i6-NY-FR6"/>
                                             <exclude reference="Qhw-CX-vgo"/>
-                                            <exclude reference="clC-qc-tWS"/>
+                                            <exclude reference="SuM-vH-ZFv"/>
+                                            <exclude reference="3G9-m5-1TM"/>
+                                            <exclude reference="s7g-ys-YK9"/>
+                                            <exclude reference="xsD-BB-jxA"/>
+                                            <exclude reference="zqC-UO-RBP"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -636,13 +638,13 @@
                                             <include reference="GbG-Zh-TUm"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="3G9-m5-1TM"/>
-                                            <include reference="6t1-tz-3VR"/>
-                                            <include reference="xsD-BB-jxA"/>
-                                            <include reference="zqC-UO-RBP"/>
                                             <include reference="8i6-NY-FR6"/>
                                             <include reference="Qhw-CX-vgo"/>
-                                            <include reference="clC-qc-tWS"/>
+                                            <include reference="SuM-vH-ZFv"/>
+                                            <include reference="3G9-m5-1TM"/>
+                                            <include reference="s7g-ys-YK9"/>
+                                            <include reference="xsD-BB-jxA"/>
+                                            <include reference="zqC-UO-RBP"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -650,7 +652,7 @@
                                 <connections>
                                     <outlet property="recipeImg" destination="GbG-Zh-TUm" id="orx-aB-fzA"/>
                                     <outlet property="recipeName" destination="NAc-AQ-siw" id="4JP-KE-Ca1"/>
-                                    <segue destination="McC-m2-sic" kind="show" id="tff-BO-DfZ"/>
+                                    <segue destination="McC-m2-sic" kind="show" identifier="FavoriteRecipeDetailView" id="tff-BO-DfZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -668,10 +670,10 @@
             </objects>
             <point key="canvasLocation" x="2358" y="384"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite Recipe View Controller-->
         <scene sceneID="sHh-tg-UwF">
             <objects>
-                <viewController id="McC-m2-sic" sceneMemberID="viewController">
+                <viewController id="McC-m2-sic" customClass="FavoriteRecipeViewController" customModule="Left" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rTZ-CU-WRE"/>
                         <viewControllerLayoutGuide type="bottom" id="Vh8-54-oGO"/>
@@ -684,19 +686,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uJp-fd-SG3">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ulV-eb-w9d" firstAttribute="leading" secondItem="ZW6-FB-8I7" secondAttribute="leading" id="4yg-3N-Ap7"/>
                             <constraint firstItem="ulV-eb-w9d" firstAttribute="width" secondItem="ZW6-FB-8I7" secondAttribute="width" id="AZE-lJ-jok"/>
+                            <constraint firstItem="uJp-fd-SG3" firstAttribute="centerY" secondItem="ulV-eb-w9d" secondAttribute="centerY" id="Ax9-IZ-2ZQ"/>
                             <constraint firstItem="ulV-eb-w9d" firstAttribute="bottom" secondItem="Vh8-54-oGO" secondAttribute="top" id="G9a-Kr-FJ3"/>
                             <constraint firstItem="ulV-eb-w9d" firstAttribute="top" secondItem="rTZ-CU-WRE" secondAttribute="bottom" id="ab7-G0-5Bf"/>
+                            <constraint firstItem="uJp-fd-SG3" firstAttribute="centerX" secondItem="ulV-eb-w9d" secondAttribute="centerX" id="buM-3f-lPa"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ulV-eb-w9d"/>
+                                <exclude reference="uJp-fd-SG3"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Ax9-IZ-2ZQ"/>
+                                <exclude reference="buM-3f-lPa"/>
                                 <exclude reference="4yg-3N-Ap7"/>
                                 <exclude reference="AZE-lJ-jok"/>
                                 <exclude reference="G9a-Kr-FJ3"/>
@@ -706,8 +717,11 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ulV-eb-w9d"/>
+                                <include reference="uJp-fd-SG3"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Ax9-IZ-2ZQ"/>
+                                <include reference="buM-3f-lPa"/>
                                 <include reference="4yg-3N-Ap7"/>
                                 <include reference="AZE-lJ-jok"/>
                                 <include reference="G9a-Kr-FJ3"/>
@@ -715,6 +729,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="uJp-fd-SG3" id="OX1-Nl-D6O"/>
+                        <outlet property="webView" destination="ulV-eb-w9d" id="ceN-FA-Ou4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4B3-CP-Jg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

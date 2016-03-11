@@ -7,3 +7,31 @@
 //
 
 import UIKit
+
+class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
+    
+    var recipe: RecipeItem?
+    
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        activityIndicator.hidden = true
+        self.navigationItem.title = recipe?.name
+        let url = NSURL(string: (recipe?.url)!)
+        let requesObj = NSURLRequest(URL: url!)
+        webView.loadRequest(requesObj)
+    }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        activityIndicator.hidden = true
+        activityIndicator.stopAnimating()
+    }
+    
+}
