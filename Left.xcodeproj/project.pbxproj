@@ -308,8 +308,7 @@
 				ED8039A01BAC9D40009487B5 /* Main.storyboard */,
 				EDDBB4551C70429D00962B54 /* Model */,
 				EDDBB4481C70428D00962B54 /* Controller */,
-				ED80399A1BAC9D40009487B5 /* AppDelegate.swift */,
-				EDB9B6901BB0596500B88EBF /* NavViewController.swift */,
+				EDC974391C94D331000C1C24 /* Other */,
 				ED8039A31BAC9D40009487B5 /* Assets.xcassets */,
 				ED8039A51BAC9D40009487B5 /* LaunchScreen.storyboard */,
 				EDB9B6941BB05C9B00B88EBF /* Supporting Files */,
@@ -344,6 +343,15 @@
 				ED8039A81BAC9D40009487B5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDC974391C94D331000C1C24 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				EDB9B6901BB0596500B88EBF /* NavViewController.swift */,
+				ED80399A1BAC9D40009487B5 /* AppDelegate.swift */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 		EDDBB4481C70428D00962B54 /* Controller */ = {

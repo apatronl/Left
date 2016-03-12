@@ -14,11 +14,18 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var forwardButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        webView.delegate = self
         activityIndicator.hidden = true
         self.navigationItem.title = recipe?.name
+        loadWeb()
+    }
+    
+    func loadWeb() {
         let url = NSURL(string: (recipe?.url)!)
         let requesObj = NSURLRequest(URL: url!)
         webView.loadRequest(requesObj)
@@ -29,7 +36,6 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
             webView.goBack()
         }
     }
-    
     
     @IBAction func forward(sender: UIBarButtonItem) {
         if webView.canGoForward {
@@ -45,6 +51,16 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
+        if (webView.canGoBack) {
+            backButton.enabled = true
+        } else {
+            backButton.enabled = false
+        }
+        if (webView.canGoForward) {
+            forwardButton.enabled = true
+        } else {
+            forwardButton.enabled = false
+        }
     }
     
 }

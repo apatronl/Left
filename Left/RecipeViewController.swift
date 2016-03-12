@@ -17,13 +17,18 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var forwardButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.hidden = true
         self.navigationItem.title = recipe?.name
         favoriteVC = (self.tabBarController?.viewControllers![1] as! NavViewController).viewControllers[0] as? FavoritesViewController
-        
+        loadWeb()
+    }
+    
+    func loadWeb() {
         let url = NSURL(string: (recipe?.url)!)
         let requestObj = NSURLRequest(URL: url!)
         webView.loadRequest(requestObj)
@@ -47,11 +52,6 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func webViewDidStartLoad(webView: UIWebView) {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
@@ -60,5 +60,15 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
+        if (webView.canGoBack) {
+            backButton.enabled = true
+        } else {
+            backButton.enabled = false
+        }
+        if (webView.canGoForward) {
+            forwardButton.enabled = true
+        } else {
+            forwardButton.enabled = false
+        }
     }
 }

@@ -435,7 +435,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="waC-HJ-0Gf">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="waC-HJ-0Gf">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
@@ -524,6 +524,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="bPc-kg-Qsl" id="YE7-PW-55q"/>
+                        <outlet property="backButton" destination="BZ9-G5-aWC" id="qdb-Lm-05B"/>
+                        <outlet property="forwardButton" destination="lr2-SQ-wJE" id="BrV-cd-Gi2"/>
                         <outlet property="webView" destination="waC-HJ-0Gf" id="4P6-xb-IRG"/>
                     </connections>
                 </viewController>
@@ -692,7 +694,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rty-wD-M3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2358" y="384"/>
+            <point key="canvasLocation" x="1587" y="360"/>
         </scene>
         <!--Favorite Recipe View Controller-->
         <scene sceneID="sHh-tg-UwF">
@@ -717,13 +719,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2s6-IX-rS2">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem image="back" id="Mt1-r8-aJf">
+                                    <barButtonItem enabled="NO" image="back" id="Mt1-r8-aJf">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="back:" destination="McC-m2-sic" id="hk4-fa-zN6"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="forward" id="4W3-os-h1o">
+                                    <barButtonItem enabled="NO" image="forward" id="4W3-os-h1o">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="forward:" destination="McC-m2-sic" id="eEL-v9-Ih9"/>
@@ -783,12 +785,14 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="uJp-fd-SG3" id="OX1-Nl-D6O"/>
+                        <outlet property="backButton" destination="Mt1-r8-aJf" id="mxh-3e-Ejh"/>
+                        <outlet property="forwardButton" destination="4W3-os-h1o" id="MWs-tz-QSQ"/>
                         <outlet property="webView" destination="ulV-eb-w9d" id="ceN-FA-Ou4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4B3-CP-Jg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3309" y="423"/>
+            <point key="canvasLocation" x="2358" y="360"/>
         </scene>
     </scenes>
     <resources>
