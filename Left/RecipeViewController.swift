@@ -35,6 +35,18 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         favoriteVC?.favoritesManager.save()
     }
     
+    @IBAction func back(sender: UIBarButtonItem) {
+        if webView.canGoBack {
+            webView.goBack()
+        }
+    }
+    
+    @IBAction func forward(sender: UIBarButtonItem) {
+        if webView.canGoForward {
+            webView.goForward()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

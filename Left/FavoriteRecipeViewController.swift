@@ -24,6 +24,19 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
         webView.loadRequest(requesObj)
     }
     
+    @IBAction func back(sender: UIBarButtonItem) {
+        if webView.canGoBack {
+            webView.goBack()
+        }
+    }
+    
+    
+    @IBAction func forward(sender: UIBarButtonItem) {
+        if webView.canGoForward {
+            webView.goForward()
+        }
+    }
+    
     func webViewDidStartLoad(webView: UIWebView) {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()

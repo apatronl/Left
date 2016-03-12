@@ -59,22 +59,30 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
         if (ingredient2.hidden == false) {
             if let ing2 = ingredient2.text {
-                ingredients.append(ing2)
+                if (ing2 != "") {
+                    ingredients.append(ing2)
+                }
             }
         }
         if (ingredient3.hidden == false) {
             if let ing3 = ingredient3.text {
-                ingredients.append(ing3)
+                if (ing3 != "") {
+                    ingredients.append(ing3)
+                }
             }
         }
         if (ingredient4.hidden == false) {
             if let ing4 = ingredient4.text {
-                ingredients.append(ing4)
+                if (ing4 != "") {
+                    ingredients.append(ing4)
+                }
             }
         }
         if (ingredient5.hidden == false) {
             if let ing5 = ingredient5.text {
-                ingredients.append(ing5)
+                if (ing5 != "") {
+                    ingredients.append(ing5)
+                }
             }
         }
         let length: Int = ingredients.count
