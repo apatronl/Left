@@ -449,13 +449,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-QR-bub">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem image="back" id="BZ9-G5-aWC">
+                                    <barButtonItem enabled="NO" image="back" id="BZ9-G5-aWC">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="back:" destination="7fd-jb-A9o" id="fGq-au-4qC"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="forward" id="lr2-SQ-wJE">
+                                    <barButtonItem enabled="NO" image="forward" id="lr2-SQ-wJE">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="forward:" destination="7fd-jb-A9o" id="aoM-xc-ZgT"/>
@@ -562,7 +562,7 @@
         <scene sceneID="WIP-lD-G6g">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SkW-ZP-GWW" customClass="NavViewController" customModule="Left" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Left" image="food.png" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Left" image="LeftTabBar" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jmw-7H-Z9Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -796,9 +796,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LeftTabBar" width="25" height="25"/>
         <image name="add.png" width="32" height="32"/>
         <image name="back" width="22" height="22"/>
-        <image name="food.png" width="30" height="30"/>
         <image name="forward" width="22" height="22"/>
     </resources>
 </document>

@@ -137,9 +137,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let image = UIImage(named: "leftLogo.png")
-        navigationItem.titleView = UIImageView(image: image)
-
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        imageView.contentMode = .ScaleAspectFit
+        let image = UIImage(named: "LeftLogoNavBar.png")
+        imageView.image = image
+        navigationItem.titleView = imageView
         navigationItem.title = "Left"
         
         //Looks for single or multiple taps.
