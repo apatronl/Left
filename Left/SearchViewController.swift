@@ -18,9 +18,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ingredient4: UITextField!
     @IBOutlet weak var ingredient5: UITextField!
     
+    
+    //    food2fork.com not working
+    //    static let apiKey: String = "570024717057c65d605c4d54f84f2300"
+    //    let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
+    
     var ingredients = [String]()
-    static let apiKey: String = "570024717057c65d605c4d54f84f2300"
-    let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
+    
+    //    switched to edamam.com
+    static let appKey: String = "f4b2d1504f9002b21dc8da278d093cf3"
+    static let appID: String = "82104c57"
+    let url: String = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&from=0&to=100&q="
     let rq: RequestHandler = RequestHandler()
     var data = [RecipeItem]()
     let bgColor: UIColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue:245.0/255.0, alpha: 1.0)
@@ -106,21 +114,33 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     var res = JSON(value)
                     print(Int(String(res["count"]))!)
                     let count = Int(String(res["count"]))!
-//                    self.activityIndicator.hidden = false
-//                    self.activityIndicator.startAnimating()
-                    if count > 0 {
+                    // checking because edamam plan gives at most 100 results (but count might be > 100)
+                    if count > 0 && count < 100 {
                         for i in 0...count - 1 {
-                            let name: String = res["recipes"][i]["title"].string!
-                            let url: String = res["recipes"][i]["source_url"].string!
-                            let photo: UIImage? = res["recipes"][i]["image_url"].string!.urlToImg()
-                            let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
-                            self.data.append(curr)
+                            if let name = res["hits"][i]["recipe"]["label"].string {
+                                let url: String = res["hits"][i]["recipe"]["url"].string!
+                                let photo: UIImage? = res["hits"][i]["recipe"]["image"].string!.urlToImg()
+                                let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
+                                self.data.append(curr)
+                            }
+                        }
+                    } else {
+                        for i in 0...99 {
+                            if let name = res["hits"][i]["recipe"]["label"].string {
+                                let url: String = res["hits"][i]["recipe"]["url"].string!
+                                let photo: UIImage? = res["hits"][i]["recipe"]["image"].string!.urlToImg()
+                                let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
+                                self.data.append(curr)
+                            }
                         }
                     }
                 }
-//                self.activityIndicator.stopAnimating()
                 self.performSegueWithIdentifier("resultsSegue", sender: self)
             case .Failure(let error):
+                let alert = UIAlertController(title: "Oops!", message: "Connection failed. Make sure you are connected to the internet.", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "Ok", style: .Default) { _ in }
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true) {}
                 print(error)
             }
         }
