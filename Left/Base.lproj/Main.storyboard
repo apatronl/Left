@@ -156,7 +156,7 @@
                                     <constraint firstAttribute="width" constant="25" id="c8U-3M-e0u"/>
                                     <constraint firstAttribute="height" constant="25" id="igd-Y4-lmZ"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="add.png"/>
+                                <state key="normal" title="Button" image="add"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="c8U-3M-e0u"/>
@@ -797,7 +797,7 @@
     </scenes>
     <resources>
         <image name="LeftTabBar" width="25" height="25"/>
-        <image name="add.png" width="32" height="32"/>
+        <image name="add" width="25" height="25"/>
         <image name="back" width="22" height="22"/>
         <image name="forward" width="22" height="22"/>
     </resources>
