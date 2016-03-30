@@ -43,6 +43,10 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    @IBAction func reload(sender: UIBarButtonItem) {
+        webView.reload()
+    }
+    
     func webViewDidStartLoad(webView: UIWebView) {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()

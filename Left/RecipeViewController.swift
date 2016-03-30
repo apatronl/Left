@@ -52,6 +52,10 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    @IBAction func reload(sender: UIBarButtonItem) {
+        webView.reload()
+    }
+    
     func webViewDidStartLoad(webView: UIWebView) {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
@@ -69,6 +73,31 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
             forwardButton.enabled = true
         } else {
             forwardButton.enabled = false
+        }
+    }
+    
+    func animateActivityIndicator(on on: Bool) {
+        
+        var originalIndicatorPosition: CGPoint {
+            return CGPointMake(webView.center.x, webView.center.y)
+        }
+        
+        if on {
+            let originalPosition = originalIndicatorPosition
+            let animationStart = CGPointMake(originalPosition.x, originalPosition.y)
+            activityIndicator.frame.origin = animationStart
+            UIView.animateWithDuration(0.7, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
+                self.activityIndicator.frame.origin = originalPosition
+                self.activityIndicator.alpha = 1.0
+                }, completion: nil)
+        }
+        else {
+            let originalPosition = originalIndicatorPosition
+            let animationEnd = CGPointMake(originalPosition.x, originalPosition.y + 50)
+            UIView.animateWithDuration(0.7, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
+                self.activityIndicator.frame.origin = animationEnd
+                self.activityIndicator.alpha = 0.0
+                }, completion: nil)
         }
     }
 }

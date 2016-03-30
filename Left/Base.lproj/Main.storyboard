@@ -435,7 +435,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waC-HJ-0Gf">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="waC-HJ-0Gf">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
@@ -449,17 +449,29 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-QR-bub">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
+                                    <barButtonItem systemItem="refresh" id="pt3-ke-11E">
+                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="reload:" destination="7fd-jb-A9o" id="j3X-DR-DaW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="acU-Se-FPv"/>
                                     <barButtonItem enabled="NO" image="back" id="BZ9-G5-aWC">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="back:" destination="7fd-jb-A9o" id="fGq-au-4qC"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="43" style="plain" systemItem="fixedSpace" id="2Lc-VK-wL9"/>
                                     <barButtonItem enabled="NO" image="forward" id="lr2-SQ-wJE">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="forward:" destination="7fd-jb-A9o" id="aoM-xc-ZgT"/>
                                         </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Kzr-sm-3Uu"/>
+                                    <barButtonItem systemItem="action" id="a5J-Ed-1Cr">
+                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -708,7 +720,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ulV-eb-w9d">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ulV-eb-w9d">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
@@ -719,17 +731,29 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2s6-IX-rS2">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
+                                    <barButtonItem systemItem="refresh" id="F0j-x5-x7G">
+                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="reload:" destination="McC-m2-sic" id="Ban-Zy-Xy8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MHz-8t-1ea"/>
                                     <barButtonItem enabled="NO" image="back" id="Mt1-r8-aJf">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="back:" destination="McC-m2-sic" id="hk4-fa-zN6"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="43" style="plain" systemItem="fixedSpace" id="J07-Hs-xGv"/>
                                     <barButtonItem enabled="NO" image="forward" id="4W3-os-h1o">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="forward:" destination="McC-m2-sic" id="eEL-v9-Ih9"/>
                                         </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9mZ-L8-Xbv"/>
+                                    <barButtonItem systemItem="action" id="jGe-JP-gNh">
+                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
