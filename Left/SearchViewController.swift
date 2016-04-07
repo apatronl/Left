@@ -29,14 +29,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     static let appKey: String = "f4b2d1504f9002b21dc8da278d093cf3"
     static let appID: String = "82104c57"
     let url: String = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&from=0&to=100&q="
-    let rq: RequestHandler = RequestHandler()
+    //let rq: RequestHandler = RequestHandler()
     var data = [RecipeItem]()
     let bgColor: UIColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue:245.0/255.0, alpha: 1.0)
     var numOfIngredients: Int = 1
     
     @IBAction func add(sender: UIButton) {
         if (numOfIngredients <= 5) {
-            numOfIngredients++
+            numOfIngredients += 1
         }
         switch numOfIngredients {
         case 2:
