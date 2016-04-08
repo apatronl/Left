@@ -11,8 +11,13 @@ import UIKit
 class ResultsViewController: UITableViewController {
     
     var data = [RecipeItem]()
+    var favoriteVC: FavoritesViewController?
 
     @IBOutlet weak var resultsTable: UITableView!
+    
+    override func viewDidLoad() {
+        favoriteVC = (self.tabBarController?.viewControllers![1] as! NavViewController).viewControllers[0] as? FavoritesViewController
+    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -29,6 +34,26 @@ class ResultsViewController: UITableViewController {
             let recipe = data[indexPath.row] as RecipeItem
             cell.recipe = recipe
             return cell
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let favoriteClosure = { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            print("Add to favorites pressed!")
+            self.favoriteVC?.favoritesManager.favoriteRecipes.append(self.data[indexPath.row])
+            self.favoriteVC?.tableView.reloadData()
+            self.favoriteVC?.favoritesManager.save()
+        }
+        let favoriteAction = UITableViewRowAction(style: .Default, title: "\u{2605}\n Favorite", handler: favoriteClosure)
+        favoriteAction.backgroundColor = UIColor.lightGrayColor()
+        return [favoriteAction]
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // Intentionally left blank. Required to use UITableViewRowActions
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
