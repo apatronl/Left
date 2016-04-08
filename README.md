@@ -9,4 +9,4 @@ HTTP requests are handled using the [Alamofire](https://github.com/Alamofire/Ala
 To parse the information obtained from the requests, I used the [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) library.
 
 #Recipe Information
-All the results shown in this app were obtained using the [Edamam](https://edamam.com) recipe search API.
+All the results shown in this app are obtained using the [Edamam](https://edamam.com) recipe search API.
