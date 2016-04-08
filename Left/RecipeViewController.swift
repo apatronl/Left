@@ -25,6 +25,7 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         activityIndicator.hidden = true
         self.navigationItem.title = recipe?.name
         favoriteVC = (self.tabBarController?.viewControllers![1] as! NavViewController).viewControllers[0] as? FavoritesViewController
+        self.navigationItem.backBarButtonItem?.title = "Results"
         loadWeb()
     }
     
@@ -56,6 +57,10 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         webView.reload()
     }
     
+    @IBAction func activityButtonPressed(sender: UIBarButtonItem) {
+        showActivityViewController()
+    }
+    
     func webViewDidStartLoad(webView: UIWebView) {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
@@ -76,28 +81,8 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
-    func animateActivityIndicator(on on: Bool) {
-        
-        var originalIndicatorPosition: CGPoint {
-            return CGPointMake(webView.center.x, webView.center.y)
-        }
-        
-        if on {
-            let originalPosition = originalIndicatorPosition
-            let animationStart = CGPointMake(originalPosition.x, originalPosition.y)
-            activityIndicator.frame.origin = animationStart
-            UIView.animateWithDuration(0.7, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
-                self.activityIndicator.frame.origin = originalPosition
-                self.activityIndicator.alpha = 1.0
-                }, completion: nil)
-        }
-        else {
-            let originalPosition = originalIndicatorPosition
-            let animationEnd = CGPointMake(originalPosition.x, originalPosition.y + 50)
-            UIView.animateWithDuration(0.7, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
-                self.activityIndicator.frame.origin = animationEnd
-                self.activityIndicator.alpha = 0.0
-                }, completion: nil)
-        }
+    func showActivityViewController() {
+        let activityViewController = UIActivityViewController(activityItems: ["I found this recipe on Left app ", recipeURL!], applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: {})
     }
 }

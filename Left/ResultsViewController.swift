@@ -19,12 +19,6 @@ class ResultsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (data.count == 0) {
-            let alert = UIAlertController(title: "😢", message: "No results found...", preferredStyle: .Alert)
-            let action = UIAlertAction(title: "Ok", style: .Default) { _ in }
-            alert.addAction(action)
-            self.presentViewController(alert, animated: true) {}
-        }
         return data.count
     }
     

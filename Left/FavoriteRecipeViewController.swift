@@ -47,6 +47,9 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
         webView.reload()
     }
     
+    @IBAction func activityButtonPressed(sender: UIBarButtonItem) {
+        showActivityViewController()
+    }
     func webViewDidStartLoad(webView: UIWebView) {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
@@ -65,6 +68,11 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
         } else {
             forwardButton.enabled = false
         }
+    }
+    
+    func showActivityViewController() {
+        let activityViewController = UIActivityViewController(activityItems: ["I found this recipe on Left app ", (recipe?.url)!], applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: {})
     }
     
 }

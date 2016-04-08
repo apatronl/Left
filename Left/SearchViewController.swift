@@ -48,10 +48,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         case 5:
             ingredient5.hidden = false
         default:
-            let alert = UIAlertController(title: "Oops!", message: "You cannot use more than 5 ingredients", preferredStyle: .Alert)
-            let action = UIAlertAction(title: "Got it", style: .Default) { _ in }
-            alert.addAction(action)
-            self.presentViewController(alert, animated: true) {}
+            showAlert("moreThanFiveIngredients")
         }
     }
     
@@ -134,13 +131,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                             }
                         }
                     }
+                    if (count > 0) {
+                        self.performSegueWithIdentifier("resultsSegue", sender: self)
+                    } else {
+                        self.showAlert("noResults")
+                    }
                 }
-                self.performSegueWithIdentifier("resultsSegue", sender: self)
             case .Failure(let error):
-                let alert = UIAlertController(title: "Oops!", message: "Connection failed. Make sure you are connected to the internet.", preferredStyle: .Alert)
-                let action = UIAlertAction(title: "Ok", style: .Default) { _ in }
-                alert.addAction(action)
-                self.presentViewController(alert, animated: true) {}
+                self.showAlert("searchFailure")
                 print(error)
             }
         }
@@ -165,7 +163,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         navigationItem.title = "Left"
         
         //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.DismissKeyboard))
         view.addGestureRecognizer(tap)
         view.backgroundColor = bgColor
         ingredient1.delegate = self
@@ -190,6 +188,31 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         ingredient4.resignFirstResponder()
         ingredient5.resignFirstResponder()
         return true;
+    }
+    
+    func showAlert(alertType: String) {
+        switch alertType {
+        case "moreThanFiveIngredients":
+            let alert = UIAlertController(title: "Oops!", message: "You cannot use more than 5 ingredients", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Got it", style: .Default) { _ in }
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true) {}
+            
+        case "noResults":
+            let alert = UIAlertController(title: "😢", message: "No results found...", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Ok", style: .Default) { _ in }
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true) {}
+            
+        case "searchFailure":
+            let alert = UIAlertController(title: "Something went wrong", message: "Are you sure you are connected to the Internet? 🔌🌎", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Ok", style: .Default) { _ in }
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true) {}
+            
+        default:
+            break
+        }
     }
 }
 
