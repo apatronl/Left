@@ -12,6 +12,8 @@
 		ED4502B01C778B86004D2B6D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4502AF1C778B86004D2B6D /* add.png */; };
 		ED4FF2D51C6EB04C00FF7439 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF2D41C6EB04C00FF7439 /* RequestHandler.swift */; };
 		ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55E2461C8A490D0079E254 /* FavoritesManager.swift */; };
+		ED7F2F7C1CB84F7300BCD86A /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F2F7B1CB84F7200BCD86A /* RoundButton.swift */; };
+		ED7F2F7E1CB854BB00BCD86A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7F2F7D1CB854BB00BCD86A /* iAd.framework */; };
 		ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399A1BAC9D40009487B5 /* AppDelegate.swift */; };
 		ED80399D1BAC9D40009487B5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399C1BAC9D40009487B5 /* SearchViewController.swift */; };
 		ED80399F1BAC9D40009487B5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399E1BAC9D40009487B5 /* FavoritesViewController.swift */; };
@@ -79,6 +81,8 @@
 		ED4502AF1C778B86004D2B6D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		ED4FF2D41C6EB04C00FF7439 /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		ED55E2461C8A490D0079E254 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		ED7F2F7B1CB84F7200BCD86A /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		ED7F2F7D1CB854BB00BCD86A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		ED8039971BAC9D40009487B5 /* Left.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Left.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED80399A1BAC9D40009487B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED80399C1BAC9D40009487B5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED7F2F7E1CB854BB00BCD86A /* iAd.framework in Frameworks */,
 				4314A8DC3F75B39771E35C28 /* Pods_Left.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +139,7 @@
 		7FD72D86C2EDDD7C19A2992F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED7F2F7D1CB854BB00BCD86A /* iAd.framework */,
 				7D5DD3B6F266E7307E942358 /* Pods_Left.framework */,
 			);
 			name = Frameworks;
@@ -231,6 +237,7 @@
 		EDDBB4551C70429D00962B54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED7F2F7B1CB84F7200BCD86A /* RoundButton.swift */,
 				EDF1B9561BEAFAE000750317 /* RecipeItem.swift */,
 				EDDBB4561C70430100962B54 /* RecipeCell.swift */,
 				EDC8E1F61C83D29800EA30E8 /* FavoriteRecipeCell.swift */,
@@ -459,6 +466,7 @@
 				EDF1B9571BEAFAE000750317 /* RecipeItem.swift in Sources */,
 				EDDBB4571C70430100962B54 /* RecipeCell.swift in Sources */,
 				EDA728FF1BB462DC00A0FA26 /* RecipeViewController.swift in Sources */,
+				ED7F2F7C1CB84F7300BCD86A /* RoundButton.swift in Sources */,
 				ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */,
 				ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */,
 				EDA728FD1BB45F0A00A0FA26 /* ResultsViewController.swift in Sources */,

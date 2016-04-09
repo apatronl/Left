@@ -32,6 +32,13 @@ class FavoritesViewController: UITableViewController {
                 as! FavoriteRecipeCell
             let recipe = favoritesManager.favoriteRecipes[indexPath.row] as RecipeItem
             cell.recipe = recipe
+            
+            let background = UIImageView(image: recipe.photo)
+            cell.backgroundView = background
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
+            visualEffectView.frame = CGRectMake(0, 0, cell.bounds.width, cell.bounds.height)
+            background.addSubview(visualEffectView)
+            
             return cell
     }
     
@@ -52,5 +59,31 @@ class FavoritesViewController: UITableViewController {
             }
         }
     }
+    
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        let itemToMove = favoritesManager.favoriteRecipes[fromIndexPath.row]
+        favoritesManager.favoriteRecipes.removeAtIndex(fromIndexPath.row)
+        favoritesManager.favoriteRecipes.insert(itemToMove, atIndex: toIndexPath.row)
+        favoritesManager.save()
+    }
+    
+    func blurImage(imageView: UIImageView) -> UIImageView {
+        let blur = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
+        let blurView = UIVisualEffectView(effect: blur)
+        blurView.frame = imageView.frame
+        imageView.addSubview(blurView)
+        return imageView
+    }
+    
+//    let blur = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
+//    let blurView = UIVisualEffectView(effect: blur)
+//    blurView.frame = cell.frame
+//    cell.backgroundView = UIImageView(image: recipe.photo)
+//    cell.backgroundView?.contentMode = .ScaleToFill
+//    cell.backgroundView?.addSubview(blurView)
 }
 

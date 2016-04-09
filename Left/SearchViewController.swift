@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import iAd
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
 
@@ -155,6 +156,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //self.canDisplayBannerAds = true
+        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.contentMode = .ScaleAspectFit
         let image = UIImage(named: "LeftLogoNavBar.png")
@@ -225,3 +228,18 @@ extension String {
         return nil
     }
 }
+
+//override func viewDidLoad() {
+//    super.viewDidLoad()
+//    
+//    var button = UIButton.buttonWithType(.Custom) as UIButton
+//    button.frame = CGRectMake(160, 100, 50, 50)
+//    button.layer.cornerRadius = 0.5 * button.bounds.size.width
+//    button.setImage(UIImage(named:"thumbsUp.png"), forState: .Normal)
+//    button.addTarget(self, action: "thumbsUpButtonPressed", forControlEvents: .TouchUpInside)
+//    view.addSubview(button)
+//}
+//
+//func thumbsUpButtonPressed() {
+//    println("thumbs up button pressed")
+//}
