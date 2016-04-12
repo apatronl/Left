@@ -61,33 +61,33 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func searchButtonPressed(sender: UIButton) {
         if let ing1 = ingredient1.text {
-            ingredients.append(ing1)
+            ingredients.append(ing1.trim())
         }
         if (ingredient2.hidden == false) {
             if let ing2 = ingredient2.text {
                 if (ing2 != "") {
-                    ingredients.append(ing2)
+                    ingredients.append(ing2.trim())
                 }
             }
         }
         if (ingredient3.hidden == false) {
             if let ing3 = ingredient3.text {
                 if (ing3 != "") {
-                    ingredients.append(ing3)
+                    ingredients.append(ing3.trim())
                 }
             }
         }
         if (ingredient4.hidden == false) {
             if let ing4 = ingredient4.text {
                 if (ing4 != "") {
-                    ingredients.append(ing4)
+                    ingredients.append(ing4.trim())
                 }
             }
         }
         if (ingredient5.hidden == false) {
             if let ing5 = ingredient5.text {
                 if (ing5 != "") {
-                    ingredients.append(ing5)
+                    ingredients.append(ing5.trim())
                 }
             }
         }
