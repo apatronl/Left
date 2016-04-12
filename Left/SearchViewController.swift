@@ -219,16 +219,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension String {
-    func urlToImg() -> UIImage? {
-        let url = NSURL(string: self)
-        if let data = NSData(contentsOfURL: url!) {
-            return UIImage(data: data)
-        }
-        return nil
-    }
-}
-
 //override func viewDidLoad() {
 //    super.viewDidLoad()
 //    
