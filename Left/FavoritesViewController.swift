@@ -78,12 +78,5 @@ class FavoritesViewController: UITableViewController {
         imageView.addSubview(blurView)
         return imageView
     }
-    
-//    let blur = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
-//    let blurView = UIVisualEffectView(effect: blur)
-//    blurView.frame = cell.frame
-//    cell.backgroundView = UIImageView(image: recipe.photo)
-//    cell.backgroundView?.contentMode = .ScaleToFill
-//    cell.backgroundView?.addSubview(blurView)
 }
 

@@ -74,5 +74,4 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
         let activityViewController = UIActivityViewController(activityItems: ["I found this recipe on Left app ", (recipe?.url)!], applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: {})
     }
-    
 }

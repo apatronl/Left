@@ -34,6 +34,13 @@ class ResultsViewController: UITableViewController {
                 as! RecipeCell
             let recipe = data[indexPath.row] as RecipeItem
             cell.recipe = recipe
+            
+            let background = UIImageView(image: recipe.photo)
+            cell.backgroundView = background
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
+            visualEffectView.frame = CGRectMake(0, 0, cell.bounds.width, cell.bounds.height)
+            background.addSubview(visualEffectView)
+            
             return cell
     }
     
