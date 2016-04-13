@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class RecipeViewController: UIViewController, UIWebViewDelegate {
     
@@ -39,6 +40,7 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         favoriteVC?.favoritesManager.favoriteRecipes.append(recipe!)
         favoriteVC?.tableView.reloadData()
         favoriteVC?.favoritesManager.save()
+        self.navigationController?.view.makeToast("Added to favorites!", duration: 1.0, position: .Center, style: ToastManager.shared.style)
     }
     
     @IBAction func back(sender: UIBarButtonItem) {

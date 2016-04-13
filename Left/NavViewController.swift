@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class NavViewController: UINavigationController {
+    
+    let toastColor: UIColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 0.8)
 
     override func viewDidLoad() {
 //        let myNavBarColor: UIColor = UIColor(red: 36.0/255.0, green: 193.0/255.0, blue:223.0/255.0, alpha: 1.0)
@@ -16,6 +19,16 @@ class NavViewController: UINavigationController {
         UINavigationBar.appearance().barTintColor = myNavBarColor
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+        
+        var style = ToastStyle()
+        style.messageFont = UIFont(name: "HelveticaNeue-Thin", size: 15.0)!
+        style.messageColor = UIColor.whiteColor()
+        style.messageAlignment = .Center
+        style.backgroundColor = self.toastColor
+        
+        ToastManager.shared.style = style
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

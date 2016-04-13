@@ -19,7 +19,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ingredient4: UITextField!
     @IBOutlet weak var ingredient5: UITextField!
     
-    
     //    food2fork.com not working
     //    static let apiKey: String = "570024717057c65d605c4d54f84f2300"
     //    let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
@@ -52,8 +51,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             showAlert("moreThanFiveIngredients")
         }
     }
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func resignKeyboard(sender: AnyObject) {
         sender.resignFirstResponder()

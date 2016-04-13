@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class ResultsViewController: UITableViewController {
     
@@ -46,6 +47,8 @@ class ResultsViewController: UITableViewController {
             self.favoriteVC?.favoritesManager.favoriteRecipes.append(self.data[indexPath.row])
             self.favoriteVC?.tableView.reloadData()
             self.favoriteVC?.favoritesManager.save()
+            
+            self.navigationController?.view.makeToast("Added to favorites!", duration: 1.0, position: .Center, style: ToastManager.shared.style)
         }
         let favoriteAction = UITableViewRowAction(style: .Default, title: "\u{2605}\n Favorite", handler: favoriteClosure)
         favoriteAction.backgroundColor = UIColor.lightGrayColor()
