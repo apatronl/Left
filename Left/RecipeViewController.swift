@@ -8,6 +8,7 @@
 
 import UIKit
 import Toast_Swift
+import TUSafariActivity
 
 class RecipeViewController: UIViewController, UIWebViewDelegate {
     
@@ -23,6 +24,7 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.hidden = true
         activityIndicator.hidden = true
         self.navigationItem.title = recipe?.name
         favoriteVC = (self.tabBarController?.viewControllers![1] as! NavViewController).viewControllers[0] as? FavoritesViewController
@@ -63,6 +65,11 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         showActivityViewController()
     }
     
+    
+    @IBAction func openInSafari(sender: UIBarButtonItem) {
+        UIApplication.sharedApplication().openURL(NSURL(string: recipeURL!)!)
+    }
+    
     func webViewDidStartLoad(webView: UIWebView) {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
@@ -84,7 +91,10 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     }
     
     func showActivityViewController() {
-        let activityViewController = UIActivityViewController(activityItems: ["I found this recipe on Left app ", recipeURL!], applicationActivities: nil)
+        //let safariActivity = TUSafariActivity()
+        let activityViewController = UIActivityViewController(activityItems: ["I found this recipe on Left App ", NSURL(string: recipeURL!)!], applicationActivities: nil)
+        activityViewController.view.tintColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
         presentViewController(activityViewController, animated: true, completion: {})
+        
     }
 }

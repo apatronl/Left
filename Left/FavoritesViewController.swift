@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class FavoritesViewController: UITableViewController {
     
@@ -49,6 +50,13 @@ class FavoritesViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         }
     }
+    
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let recipe = favoritesManager.favoriteRecipes[indexPath.row]
+//        let safari = SFSafariViewController(URL: NSURL(string: recipe.url)!)
+//        safari.view.tintColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
+//        presentViewController(safari, animated: true, completion: nil)
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "FavoriteRecipeDetailView") {

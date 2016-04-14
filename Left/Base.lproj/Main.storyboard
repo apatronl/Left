@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -24,7 +23,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="0.45075602799999998" green="0.48172455310000001" blue="0.62745100259999997" alpha="0.24540751690000001" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app was made with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="mm5-hZ-pPN">
@@ -602,27 +601,34 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-QR-bub">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="refresh" id="pt3-ke-11E">
-                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="reload:" destination="7fd-jb-A9o" id="j3X-DR-DaW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="acU-Se-FPv"/>
                                     <barButtonItem enabled="NO" image="back" id="BZ9-G5-aWC">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="back:" destination="7fd-jb-A9o" id="fGq-au-4qC"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="43" style="plain" systemItem="fixedSpace" id="2Lc-VK-wL9"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2Lc-VK-wL9"/>
                                     <barButtonItem enabled="NO" image="forward" id="lr2-SQ-wJE">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="forward:" destination="7fd-jb-A9o" id="aoM-xc-ZgT"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="acU-Se-FPv"/>
+                                    <barButtonItem systemItem="refresh" id="pt3-ke-11E">
+                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="reload:" destination="7fd-jb-A9o" id="j3X-DR-DaW"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Kzr-sm-3Uu"/>
+                                    <barButtonItem image="safari" id="r1c-3x-SeB">
+                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="openInSafari:" destination="7fd-jb-A9o" id="4Cb-qM-ohS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LDq-vD-emD"/>
                                     <barButtonItem systemItem="action" id="a5J-Ed-1Cr">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -848,7 +854,7 @@
                                 <connections>
                                     <outlet property="recipeImg" destination="GbG-Zh-TUm" id="orx-aB-fzA"/>
                                     <outlet property="recipeName" destination="NAc-AQ-siw" id="4JP-KE-Ca1"/>
-                                    <segue destination="McC-m2-sic" kind="show" identifier="FavoriteRecipeDetailView" id="tff-BO-DfZ"/>
+                                    <segue destination="McC-m2-sic" kind="show" identifier="FavoriteRecipeDetailView" id="Kld-Qt-C7N"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -985,6 +991,7 @@
         <image name="add" width="25" height="25"/>
         <image name="back" width="22" height="22"/>
         <image name="forward" width="22" height="22"/>
+        <image name="safari" width="50" height="50"/>
         <image name="settings" width="25" height="25"/>
     </resources>
 </document>

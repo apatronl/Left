@@ -2,11 +2,13 @@ PODS:
   - Alamofire (3.3.1)
   - SwiftyJSON (2.3.2)
   - Toast-Swift (1.1.0)
+  - TUSafariActivity (1.0.4)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - Toast-Swift (~> 1.1.0)
+  - TUSafariActivity (~> 1.0)
 
 EXTERNAL SOURCES:
   SwiftyJSON:
@@ -21,7 +23,8 @@ SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toast-Swift: d11df96d64d449dc63cb330ea871f30b1eca18c1
+  TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
 
-PODFILE CHECKSUM: 8c09a11252e4194f400a4a32044a7c287dc24d5b
+PODFILE CHECKSUM: 38c51758d4273fa165c84f09758cff7b40766cc5
 
 COCOAPODS: 1.0.0.beta.6

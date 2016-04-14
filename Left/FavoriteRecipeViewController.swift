@@ -19,6 +19,7 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.hidden = true
         webView.delegate = self
         activityIndicator.hidden = true
         self.navigationItem.title = recipe?.name
@@ -71,7 +72,8 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
     }
     
     func showActivityViewController() {
-        let activityViewController = UIActivityViewController(activityItems: ["I found this recipe on Left app ", (recipe?.url)!], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: ["I found this recipe on Left app ", NSURL(string: (recipe?.url)!)!], applicationActivities: nil)
+        activityViewController.view.tintColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
         presentViewController(activityViewController, animated: true, completion: {})
     }
 }
