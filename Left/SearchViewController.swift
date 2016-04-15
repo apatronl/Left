@@ -152,7 +152,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //self.canDisplayBannerAds = true
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -161,6 +160,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         imageView.image = image
         navigationItem.titleView = imageView
         navigationItem.title = "Left"
+        
+        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        backgroundImage.image = UIImage(named: "kitchen")
+        backgroundImage.alpha = 0.3
+        self.view.insertSubview(backgroundImage, atIndex: 0)
         
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.DismissKeyboard))

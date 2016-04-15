@@ -19,16 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TUSafariActivity-TUSafariActivity.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>TUSafariActivity.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Toast-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +27,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>505DAC6A601BDF094DCFD1D590543868</key>
+		<key>13A3463D3A913426A6DF2C8F3811791A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6156AFB2FB8EB67070517B4C8AA057CC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>69B48328513D11200D2240826A09F92E</key>
+		<key>5F5BC2F14C6C8C14BDD71BA99B701E03</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9F81659B0C7E4B35C1D3AFAEBCA0D6F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EC717FB120A8DC0D22CEB3841EE373A4</key>
+		<key>CC4F5FB4B26649A419F25E41BAD6C6A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

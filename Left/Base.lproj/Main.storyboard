@@ -187,7 +187,7 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="What do you have Left today?" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
                                 <rect key="frame" x="67" y="28" width="467" height="42"/>
-                                <color key="backgroundColor" red="0.45075602799999998" green="0.48172455310000001" blue="0.62745100259999997" alpha="0.24540751690000001" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81710620005472223" green="0.81920099214915321" blue="0.88117967357397509" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69" id="de1-JS-E7l"/>
@@ -208,10 +208,12 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ingredient #1" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vAg-aZ-aon">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.45075602804570464" green="0.48172455306623274" blue="0.62745100259999997" alpha="0.24540751689189189" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.36871337890625" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="lIO-2l-bDK"/>
                                 </constraints>
+                                <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                                 <variation key="default">
@@ -227,11 +229,12 @@
                             </textField>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ingredient #2" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dul-bJ-R7s">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="0.82015413851351349" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.37" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="wyg-TE-QYc"/>
                                 </constraints>
+                                <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                                 <variation key="default">
@@ -247,10 +250,12 @@
                             </textField>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ingredient #3" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="efG-PO-wYd">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.45075602799999998" green="0.48172455310000001" blue="0.62745100259999997" alpha="0.24540751690000001" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.37" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="gMw-Ya-qhc"/>
                                 </constraints>
+                                <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                                 <variation key="default">
@@ -266,10 +271,12 @@
                             </textField>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ingredient #4" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0QO-6k-Zvb">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="0.81999999999999995" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.37" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="V6X-41-ZOE"/>
                                 </constraints>
+                                <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                                 <variation key="default">
@@ -308,11 +315,13 @@
                             </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ingredient #5" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BYI-h9-5Lo">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.45075602799999998" green="0.48172455310000001" blue="0.62745100259999997" alpha="0.24540751690000001" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.37" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="56I-aa-fdL"/>
                                     <constraint firstAttribute="height" constant="37" id="wfb-hQ-1WP"/>
                                 </constraints>
+                                <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                                 <variation key="default">
@@ -328,27 +337,30 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7N-Ew-qdL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7N-Ew-qdL">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="0.78988070099999996" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="CsA-NM-YW5"/>
-                                    <constraint firstAttribute="height" constant="34" id="Jsb-5w-Idy"/>
+                                    <constraint firstAttribute="width" constant="64" id="NJp-fu-Ztt">
+                                        <variation key="widthClass=compact" constant="80"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="64" id="Tv7-Gg-oaD">
+                                        <variation key="widthClass=compact" constant="80"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                <state key="normal" title="Search">
+                                <state key="normal" image="search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="CsA-NM-YW5"/>
-                                        <exclude reference="Jsb-5w-Idy"/>
+                                        <exclude reference="NJp-fu-Ztt"/>
+                                        <exclude reference="Tv7-Gg-oaD"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="CsA-NM-YW5"/>
-                                        <include reference="Jsb-5w-Idy"/>
+                                        <include reference="NJp-fu-Ztt"/>
+                                        <include reference="Tv7-Gg-oaD"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -364,7 +376,6 @@
                             <constraint firstItem="BYI-h9-5Lo" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="CXg-zz-0uH"/>
                             <constraint firstItem="gfb-br-Mm9" firstAttribute="centerX" secondItem="vAg-aZ-aon" secondAttribute="centerX" id="Gsz-eh-jFd"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="K7A-1R-tRw"/>
-                            <constraint firstItem="R7N-Ew-qdL" firstAttribute="centerX" secondItem="BYI-h9-5Lo" secondAttribute="centerX" id="MMR-O3-Q2J"/>
                             <constraint firstItem="0QO-6k-Zvb" firstAttribute="top" secondItem="efG-PO-wYd" secondAttribute="bottom" id="OCr-hC-hUG"/>
                             <constraint firstItem="efG-PO-wYd" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="OOQ-Kt-WCr"/>
                             <constraint firstItem="dul-bJ-R7s" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="OOh-vz-Xey"/>
@@ -372,15 +383,16 @@
                             <constraint firstItem="BYI-h9-5Lo" firstAttribute="top" secondItem="0QO-6k-Zvb" secondAttribute="bottom" constant="1.5" id="V5d-bP-s8A">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="R7N-Ew-qdL" secondAttribute="bottom" constant="78" id="Yrz-kX-OWt"/>
                             <constraint firstItem="gfb-br-Mm9" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="23" id="aGa-ua-sbN"/>
                             <constraint firstItem="vAg-aZ-aon" firstAttribute="top" secondItem="gfb-br-Mm9" secondAttribute="bottom" constant="22" id="ar2-Zu-IOn"/>
+                            <constraint firstItem="R7N-Ew-qdL" firstAttribute="centerX" secondItem="BYI-h9-5Lo" secondAttribute="centerX" id="gst-vL-Vyk"/>
                             <constraint firstItem="efG-PO-wYd" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="h8M-On-ZP7"/>
                             <constraint firstItem="vAg-aZ-aon" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="iEg-fP-E6L"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="leading" secondItem="vAg-aZ-aon" secondAttribute="leading" id="kbH-ZA-7PY"/>
                             <constraint firstItem="BYI-h9-5Lo" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="mbZ-l0-tCg"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="q69-ZO-MPi"/>
                             <constraint firstItem="dul-bJ-R7s" firstAttribute="top" secondItem="vAg-aZ-aon" secondAttribute="bottom" id="rQg-Xe-2PX"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="R7N-Ew-qdL" secondAttribute="bottom" constant="75" id="z6c-cO-Mmc"/>
                             <constraint firstItem="0QO-6k-Zvb" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="zSp-2D-UvK"/>
                         </constraints>
                         <variation key="default">
@@ -394,28 +406,28 @@
                                 <exclude reference="R7N-Ew-qdL"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="BmN-h9-dUo"/>
-                                <exclude reference="OCr-hC-hUG"/>
-                                <exclude reference="zSp-2D-UvK"/>
-                                <exclude reference="CXg-zz-0uH"/>
-                                <exclude reference="V5d-bP-s8A"/>
-                                <exclude reference="mbZ-l0-tCg"/>
+                                <exclude reference="K7A-1R-tRw"/>
+                                <exclude reference="kbH-ZA-7PY"/>
+                                <exclude reference="q69-ZO-MPi"/>
+                                <exclude reference="7oX-UY-6rL"/>
+                                <exclude reference="ar2-Zu-IOn"/>
+                                <exclude reference="iEg-fP-E6L"/>
+                                <exclude reference="Gsz-eh-jFd"/>
+                                <exclude reference="aGa-ua-sbN"/>
                                 <exclude reference="OOh-vz-Xey"/>
                                 <exclude reference="PSq-uQ-NfW"/>
                                 <exclude reference="rQg-Xe-2PX"/>
                                 <exclude reference="C9h-QA-Hne"/>
                                 <exclude reference="OOQ-Kt-WCr"/>
                                 <exclude reference="h8M-On-ZP7"/>
-                                <exclude reference="7oX-UY-6rL"/>
-                                <exclude reference="ar2-Zu-IOn"/>
-                                <exclude reference="iEg-fP-E6L"/>
-                                <exclude reference="MMR-O3-Q2J"/>
-                                <exclude reference="Gsz-eh-jFd"/>
-                                <exclude reference="aGa-ua-sbN"/>
-                                <exclude reference="K7A-1R-tRw"/>
-                                <exclude reference="kbH-ZA-7PY"/>
-                                <exclude reference="q69-ZO-MPi"/>
-                                <exclude reference="z6c-cO-Mmc"/>
+                                <exclude reference="BmN-h9-dUo"/>
+                                <exclude reference="OCr-hC-hUG"/>
+                                <exclude reference="zSp-2D-UvK"/>
+                                <exclude reference="CXg-zz-0uH"/>
+                                <exclude reference="V5d-bP-s8A"/>
+                                <exclude reference="mbZ-l0-tCg"/>
+                                <exclude reference="gst-vL-Vyk"/>
+                                <exclude reference="Yrz-kX-OWt"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -429,28 +441,28 @@
                                 <include reference="R7N-Ew-qdL"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="BmN-h9-dUo"/>
-                                <include reference="OCr-hC-hUG"/>
-                                <include reference="zSp-2D-UvK"/>
-                                <include reference="CXg-zz-0uH"/>
-                                <include reference="V5d-bP-s8A"/>
-                                <include reference="mbZ-l0-tCg"/>
+                                <include reference="K7A-1R-tRw"/>
+                                <include reference="kbH-ZA-7PY"/>
+                                <include reference="q69-ZO-MPi"/>
+                                <include reference="7oX-UY-6rL"/>
+                                <include reference="ar2-Zu-IOn"/>
+                                <include reference="iEg-fP-E6L"/>
+                                <include reference="Gsz-eh-jFd"/>
+                                <include reference="aGa-ua-sbN"/>
                                 <include reference="OOh-vz-Xey"/>
                                 <include reference="PSq-uQ-NfW"/>
                                 <include reference="rQg-Xe-2PX"/>
                                 <include reference="C9h-QA-Hne"/>
                                 <include reference="OOQ-Kt-WCr"/>
                                 <include reference="h8M-On-ZP7"/>
-                                <include reference="7oX-UY-6rL"/>
-                                <include reference="ar2-Zu-IOn"/>
-                                <include reference="iEg-fP-E6L"/>
-                                <include reference="MMR-O3-Q2J"/>
-                                <include reference="Gsz-eh-jFd"/>
-                                <include reference="aGa-ua-sbN"/>
-                                <include reference="K7A-1R-tRw"/>
-                                <include reference="kbH-ZA-7PY"/>
-                                <include reference="q69-ZO-MPi"/>
-                                <include reference="z6c-cO-Mmc"/>
+                                <include reference="BmN-h9-dUo"/>
+                                <include reference="OCr-hC-hUG"/>
+                                <include reference="zSp-2D-UvK"/>
+                                <include reference="CXg-zz-0uH"/>
+                                <include reference="V5d-bP-s8A"/>
+                                <include reference="mbZ-l0-tCg"/>
+                                <include reference="gst-vL-Vyk"/>
+                                <include reference="Yrz-kX-OWt"/>
                             </mask>
                         </variation>
                     </view>
@@ -473,7 +485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="-334"/>
+            <point key="canvasLocation" x="1586.25" y="-334.5"/>
         </scene>
         <!--Results-->
         <scene sceneID="X4e-jb-4yF">
@@ -601,6 +613,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-QR-bub">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
+                                    <barButtonItem systemItem="refresh" id="pt3-ke-11E">
+                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="reload:" destination="7fd-jb-A9o" id="j3X-DR-DaW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Kzr-sm-3Uu"/>
                                     <barButtonItem enabled="NO" image="back" id="BZ9-G5-aWC">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -612,20 +631,6 @@
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="forward:" destination="7fd-jb-A9o" id="aoM-xc-ZgT"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="acU-Se-FPv"/>
-                                    <barButtonItem systemItem="refresh" id="pt3-ke-11E">
-                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="reload:" destination="7fd-jb-A9o" id="j3X-DR-DaW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Kzr-sm-3Uu"/>
-                                    <barButtonItem image="safari" id="r1c-3x-SeB">
-                                        <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="openInSafari:" destination="7fd-jb-A9o" id="4Cb-qM-ohS"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="LDq-vD-emD"/>
@@ -908,7 +913,7 @@
                                             <action selector="back:" destination="McC-m2-sic" id="hk4-fa-zN6"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="43" style="plain" systemItem="fixedSpace" id="J07-Hs-xGv"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="J07-Hs-xGv"/>
                                     <barButtonItem enabled="NO" image="forward" id="4W3-os-h1o">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -991,7 +996,7 @@
         <image name="add" width="25" height="25"/>
         <image name="back" width="22" height="22"/>
         <image name="forward" width="22" height="22"/>
-        <image name="safari" width="50" height="50"/>
-        <image name="settings" width="25" height="25"/>
+        <image name="search" width="128" height="128"/>
+        <image name="settings" width="26" height="26"/>
     </resources>
 </document>
