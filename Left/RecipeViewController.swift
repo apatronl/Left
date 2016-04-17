@@ -69,11 +69,13 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
         if (webView.canGoBack) {

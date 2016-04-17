@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		4314A8DC3F75B39771E35C28 /* Pods_Left.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5DD3B6F266E7307E942358 /* Pods_Left.framework */; };
 		ED2DA1ED1C73EEC300E921BE /* leftLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2DA1EC1C73EEC300E921BE /* leftLogo.png */; };
-		ED2E694C1CC15A5B00EE892F /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2E694B1CC15A5B00EE892F /* search@2x.png */; };
 		ED4502B01C778B86004D2B6D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4502AF1C778B86004D2B6D /* add.png */; };
 		ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55E2461C8A490D0079E254 /* FavoritesManager.swift */; };
-		ED7F2F7C1CB84F7300BCD86A /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F2F7B1CB84F7200BCD86A /* RoundButton.swift */; };
 		ED7F2F7E1CB854BB00BCD86A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7F2F7D1CB854BB00BCD86A /* iAd.framework */; };
 		ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399A1BAC9D40009487B5 /* AppDelegate.swift */; };
 		ED80399D1BAC9D40009487B5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399C1BAC9D40009487B5 /* SearchViewController.swift */; };
@@ -33,7 +31,6 @@
 		EDDBB4571C70430100962B54 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDBB4561C70430100962B54 /* RecipeCell.swift */; };
 		EDDCC5241CBD626D00CE43DF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCC5231CBD626D00CE43DF /* Utils.swift */; };
 		EDF1B9571BEAFAE000750317 /* RecipeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF1B9561BEAFAE000750317 /* RecipeItem.swift */; };
-		EDFD95A21CC08F3200F4D301 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD95A11CC08F3200F4D301 /* Stack.swift */; };
 		EDFFC02D1C8F4CAB00063604 /* FavoriteRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFC02C1C8F4CAB00063604 /* FavoriteRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,10 +78,8 @@
 		2A50E7E22FE4711A4AEB04DF /* Pods-Left.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Left.release.xcconfig"; path = "Pods/Target Support Files/Pods-Left/Pods-Left.release.xcconfig"; sourceTree = "<group>"; };
 		7D5DD3B6F266E7307E942358 /* Pods_Left.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Left.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2DA1EC1C73EEC300E921BE /* leftLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftLogo.png; sourceTree = "<group>"; };
-		ED2E694B1CC15A5B00EE892F /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		ED4502AF1C778B86004D2B6D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		ED55E2461C8A490D0079E254 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
-		ED7F2F7B1CB84F7200BCD86A /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		ED7F2F7D1CB854BB00BCD86A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		ED8039971BAC9D40009487B5 /* Left.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Left.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED80399A1BAC9D40009487B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +106,6 @@
 		EDDBB4561C70430100962B54 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		EDDCC5231CBD626D00CE43DF /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EDF1B9561BEAFAE000750317 /* RecipeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeItem.swift; sourceTree = "<group>"; };
-		EDFD95A11CC08F3200F4D301 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		EDFFC02C1C8F4CAB00063604 /* FavoriteRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,7 +202,6 @@
 		EDB9B6941BB05C9B00B88EBF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ED2E694B1CC15A5B00EE892F /* search@2x.png */,
 				ED8FA7171C97B00200917804 /* foodTabBar.png */,
 				ED8FA7151C97AE7800917804 /* LeftLogoNavBar.png */,
 				ED4502AF1C778B86004D2B6D /* add.png */,
@@ -245,8 +238,6 @@
 		EDDBB4551C70429D00962B54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EDFD95A11CC08F3200F4D301 /* Stack.swift */,
-				ED7F2F7B1CB84F7200BCD86A /* RoundButton.swift */,
 				EDF1B9561BEAFAE000750317 /* RecipeItem.swift */,
 				EDDBB4561C70430100962B54 /* RecipeCell.swift */,
 				EDC8E1F61C83D29800EA30E8 /* FavoriteRecipeCell.swift */,
@@ -374,7 +365,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED2E694C1CC15A5B00EE892F /* search@2x.png in Resources */,
 				ED8039A71BAC9D40009487B5 /* LaunchScreen.storyboard in Resources */,
 				ED4502B01C778B86004D2B6D /* add.png in Resources */,
 				ED8FA7161C97AE7800917804 /* LeftLogoNavBar.png in Resources */,
@@ -471,7 +461,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFFC02D1C8F4CAB00063604 /* FavoriteRecipeViewController.swift in Sources */,
-				EDFD95A21CC08F3200F4D301 /* Stack.swift in Sources */,
 				EDB9B6911BB0596500B88EBF /* NavViewController.swift in Sources */,
 				ED80399F1BAC9D40009487B5 /* FavoritesViewController.swift in Sources */,
 				EDDCC5241CBD626D00CE43DF /* Utils.swift in Sources */,
@@ -479,7 +468,6 @@
 				EDDBB4571C70430100962B54 /* RecipeCell.swift in Sources */,
 				EDA5D5AF1CC0735400417A28 /* SafariActivity.swift in Sources */,
 				EDA728FF1BB462DC00A0FA26 /* RecipeViewController.swift in Sources */,
-				ED7F2F7C1CB84F7300BCD86A /* RoundButton.swift in Sources */,
 				ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */,
 				ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */,
 				EDA728FD1BB45F0A00A0FA26 /* ResultsViewController.swift in Sources */,

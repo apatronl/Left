@@ -52,6 +52,30 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func remove(sender: UIButton) {
+            switch numOfIngredients {
+        case 2:
+            ingredient2.hidden = true
+            numOfIngredients -= 1
+        case 3:
+            ingredient3.hidden = true
+            numOfIngredients -= 1
+        case 4:
+            ingredient4.hidden = true
+            numOfIngredients -= 1
+        case 5:
+            ingredient5.hidden = true
+            numOfIngredients -= 1
+        case 6:
+            ingredient5.hidden = true
+            numOfIngredients -= 1
+        default:
+            showAlert("atLeastOneIngredient")
+        }
+        
+    }
+    
+    
     @IBAction func resignKeyboard(sender: AnyObject) {
         sender.resignFirstResponder()
     }
@@ -213,24 +237,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             let action = UIAlertAction(title: "Ok", style: .Default) { _ in }
             alert.addAction(action)
             self.presentViewController(alert, animated: true) {}
+        case "atLeastOneIngredient":
+            let alert = UIAlertController(title: "Hey", message: "Please provide at least one ingredient!", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Ok", style: .Default) { _ in }
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true) {}
             
         default:
             break
         }
     }
 }
-
-//override func viewDidLoad() {
-//    super.viewDidLoad()
-//    
-//    var button = UIButton.buttonWithType(.Custom) as UIButton
-//    button.frame = CGRectMake(160, 100, 50, 50)
-//    button.layer.cornerRadius = 0.5 * button.bounds.size.width
-//    button.setImage(UIImage(named:"thumbsUp.png"), forState: .Normal)
-//    button.addTarget(self, action: "thumbsUpButtonPressed", forControlEvents: .TouchUpInside)
-//    view.addSubview(button)
-//}
-//
-//func thumbsUpButtonPressed() {
-//    println("thumbs up button pressed")
-//}

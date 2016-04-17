@@ -58,7 +58,7 @@ class ResultsViewController: UITableViewController {
             self.navigationController?.view.makeToast("Added to favorites!", duration: 1.0, position: .Center, style: ToastManager.shared.style)
         }
         let favoriteAction = UITableViewRowAction(style: .Default, title: "\u{2605}\n Favorite", handler: favoriteClosure)
-        favoriteAction.backgroundColor = UIColor.lightGrayColor()
+        favoriteAction.backgroundColor = UIColor(red: 243.0/255.0, green: 220.0/255.0, blue: 68.0/255.0, alpha: 1.0)
         return [favoriteAction]
     }
     
