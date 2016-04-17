@@ -56,18 +56,23 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             switch numOfIngredients {
         case 2:
             ingredient2.hidden = true
+            ingredient2.text = ""
             numOfIngredients -= 1
         case 3:
             ingredient3.hidden = true
+            ingredient3.text = ""
             numOfIngredients -= 1
         case 4:
             ingredient4.hidden = true
+            ingredient4.text = ""
             numOfIngredients -= 1
         case 5:
             ingredient5.hidden = true
+            ingredient5.text = ""
             numOfIngredients -= 1
         case 6:
             ingredient5.hidden = true
+            ingredient5.text = ""
             numOfIngredients -= 1
         default:
             showAlert("atLeastOneIngredient")
