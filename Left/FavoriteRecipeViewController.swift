@@ -60,7 +60,7 @@ class FavoriteRecipeViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true  
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
         updateNavButtons()
