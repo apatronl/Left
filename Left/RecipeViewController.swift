@@ -27,10 +27,10 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         self.navigationItem.title = recipe?.name
         favoriteVC = (self.tabBarController?.viewControllers![1] as! NavViewController).viewControllers[0] as? FavoritesViewController
         self.navigationItem.backBarButtonItem?.title = "Results"
-        loadWeb()
+        loadRecipe()
     }
     
-    func loadWeb() {
+    func loadRecipe() {
         let url = NSURL(string: (recipe?.url)!)
         let requestObj = NSURLRequest(URL: url!)
         webView.loadRequest(requestObj)
@@ -63,11 +63,6 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         showActivityViewController()
     }
     
-    
-    @IBAction func openInSafari(sender: UIBarButtonItem) {
-        UIApplication.sharedApplication().openURL(NSURL(string: recipeURL!)!)
-    }
-    
     func webViewDidStartLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         activityIndicator.hidden = false
@@ -78,6 +73,10 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
+        updateNavButtons()
+    }
+    
+    func updateNavButtons() {
         if (webView.canGoBack) {
             backButton.enabled = true
         } else {
@@ -91,8 +90,13 @@ class RecipeViewController: UIViewController, UIWebViewDelegate {
     }
     
     func showActivityViewController() {
-        //let safariActivity = TUSafariActivity()
-        let activityViewController = UIActivityViewController(activityItems: ["I found this recipe on Left App ", NSURL(string: recipeURL!)!], applicationActivities: [SafariActivity()])
+        var activityItems: [AnyObject] = ["I found this recipe on Left app "]
+        var activities: [UIActivity] = []
+        if let url = webView.request?.URL {
+            activityItems.append(url)
+            activities.append(SafariActivity())
+        }
+        let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: activities)
         activityViewController.view.tintColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
         presentViewController(activityViewController, animated: true, completion: {})
         
