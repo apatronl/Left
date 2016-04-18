@@ -11,4 +11,6 @@ To parse the information obtained from the requests, I used the [SwiftyJSON](htt
 #Recipe Information
 All the results shown in this app are obtained using the [Edamam](https://edamam.com) recipe search API.
 
-![image](left3.png)
+<p align="center">
+<img src="left3.png" width="350"/>
+</p>
