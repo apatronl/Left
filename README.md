@@ -13,4 +13,5 @@ All the results shown in this app are obtained using the [Edamam](https://edamam
 
 <p align="center">
 <img src="left3.png" width="350"/>
+<img src="left4.png" width="350"/>
 </p>
