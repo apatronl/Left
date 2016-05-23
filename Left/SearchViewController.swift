@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
     
-    //    static let appKey: String = "f4b2d1504f9002b21dc8da278d093cf3"
+    //    static let appKey: String = "{YOUR_API_KEY}"
     //    static let appID: String = "82104c57"
     //    let url: String = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&from=0&to=100&q="
 
@@ -23,7 +23,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ingredient5: UITextField!
     @IBOutlet weak var progressView: UIProgressView!
     
-    static let apiKey: String = "{YOUR API KEY}"
+    static let apiKey: String = "{YOUR_API_KEY}"
     let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
     
     var ingredients = [String]()
