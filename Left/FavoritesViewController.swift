@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class FavoritesViewController: UITableViewController {
     
@@ -17,6 +16,7 @@ class FavoritesViewController: UITableViewController {
     
     override func viewDidLoad() {
         self.navigationItem.leftBarButtonItem = editButtonItem()
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

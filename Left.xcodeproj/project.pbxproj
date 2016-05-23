@@ -11,7 +11,6 @@
 		ED2DA1ED1C73EEC300E921BE /* leftLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2DA1EC1C73EEC300E921BE /* leftLogo.png */; };
 		ED4502B01C778B86004D2B6D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4502AF1C778B86004D2B6D /* add.png */; };
 		ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55E2461C8A490D0079E254 /* FavoritesManager.swift */; };
-		ED7F2F7E1CB854BB00BCD86A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7F2F7D1CB854BB00BCD86A /* iAd.framework */; };
 		ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399A1BAC9D40009487B5 /* AppDelegate.swift */; };
 		ED80399D1BAC9D40009487B5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399C1BAC9D40009487B5 /* SearchViewController.swift */; };
 		ED80399F1BAC9D40009487B5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399E1BAC9D40009487B5 /* FavoritesViewController.swift */; };
@@ -22,6 +21,8 @@
 		ED8039BD1BAC9D40009487B5 /* LeftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8039BC1BAC9D40009487B5 /* LeftUITests.swift */; };
 		ED8FA7161C97AE7800917804 /* LeftLogoNavBar.png in Resources */ = {isa = PBXBuildFile; fileRef = ED8FA7151C97AE7800917804 /* LeftLogoNavBar.png */; };
 		ED8FA7181C97B00200917804 /* foodTabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = ED8FA7171C97B00200917804 /* foodTabBar.png */; };
+		ED95AEA91CE29D6A00894668 /* MoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AEA81CE29D6A00894668 /* MoreCell.swift */; };
+		ED95AEAB1CE2A0A100894668 /* RecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AEAA1CE2A0A100894668 /* RecipeDataSource.swift */; };
 		ED9E35F21C76CF1200180C9F /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9E35F11C76CF1200180C9F /* food.png */; };
 		EDA5D5AF1CC0735400417A28 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA5D5AE1CC0735400417A28 /* SafariActivity.swift */; };
 		EDA728FD1BB45F0A00A0FA26 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA728FC1BB45F0A00A0FA26 /* ResultsViewController.swift */; };
@@ -97,6 +98,8 @@
 		ED8039BE1BAC9D40009487B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED8FA7151C97AE7800917804 /* LeftLogoNavBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftLogoNavBar.png; sourceTree = "<group>"; };
 		ED8FA7171C97B00200917804 /* foodTabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodTabBar.png; sourceTree = "<group>"; };
+		ED95AEA81CE29D6A00894668 /* MoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreCell.swift; sourceTree = "<group>"; };
+		ED95AEAA1CE2A0A100894668 /* RecipeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDataSource.swift; sourceTree = "<group>"; };
 		ED9E35F11C76CF1200180C9F /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
 		EDA5D5AE1CC0735400417A28 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		EDA728FC1BB45F0A00A0FA26 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED7F2F7E1CB854BB00BCD86A /* iAd.framework in Frameworks */,
 				4314A8DC3F75B39771E35C28 /* Pods_Left.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				EDA728FC1BB45F0A00A0FA26 /* ResultsViewController.swift */,
+				ED95AEAA1CE2A0A100894668 /* RecipeDataSource.swift */,
 				ED80399C1BAC9D40009487B5 /* SearchViewController.swift */,
 				EDA728FE1BB462DC00A0FA26 /* RecipeViewController.swift */,
 				ED80399E1BAC9D40009487B5 /* FavoritesViewController.swift */,
@@ -238,6 +241,7 @@
 		EDDBB4551C70429D00962B54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED95AEA81CE29D6A00894668 /* MoreCell.swift */,
 				EDF1B9561BEAFAE000750317 /* RecipeItem.swift */,
 				EDDBB4561C70430100962B54 /* RecipeCell.swift */,
 				EDC8E1F61C83D29800EA30E8 /* FavoriteRecipeCell.swift */,
@@ -328,7 +332,7 @@
 				TargetAttributes = {
 					ED8039961BAC9D40009487B5 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 5U48XLFTQZ;
+						DevelopmentTeam = MBTYQ8R5C4;
 					};
 					ED8039AC1BAC9D40009487B5 = {
 						CreatedOnToolsVersion = 7.0;
@@ -444,8 +448,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/AlamoFire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);
@@ -460,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED95AEA91CE29D6A00894668 /* MoreCell.swift in Sources */,
 				EDFFC02D1C8F4CAB00063604 /* FavoriteRecipeViewController.swift in Sources */,
 				EDB9B6911BB0596500B88EBF /* NavViewController.swift in Sources */,
 				ED80399F1BAC9D40009487B5 /* FavoritesViewController.swift in Sources */,
@@ -472,6 +475,7 @@
 				ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */,
 				EDA728FD1BB45F0A00A0FA26 /* ResultsViewController.swift in Sources */,
 				ED80399D1BAC9D40009487B5 /* SearchViewController.swift in Sources */,
+				ED95AEAB1CE2A0A100894668 /* RecipeDataSource.swift in Sources */,
 				EDC8E1F71C83D29800EA30E8 /* FavoriteRecipeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,19 +619,16 @@
 			baseConfigurationReference = 258BEFE3AFDF0EA894BD2B98 /* Pods-Left.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Left/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apatron.Left;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlePatron.Left;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -638,19 +639,16 @@
 			baseConfigurationReference = 2A50E7E22FE4711A4AEB04DF /* Pods-Left.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Left/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apatron.Left;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlePatron.Left;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

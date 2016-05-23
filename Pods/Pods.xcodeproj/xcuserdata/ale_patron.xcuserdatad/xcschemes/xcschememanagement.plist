@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireNetworkActivityIndicator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Cosmos.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Left.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13A3463D3A913426A6DF2C8F3811791A</key>
+		<key>228FFC4E78F899B58C33C57F31513A8E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F5BC2F14C6C8C14BDD71BA99B701E03</key>
+		<key>608B49B5DDACC601EE8044A1931993F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC4F5FB4B26649A419F25E41BAD6C6A8</key>
+		<key>C14FFA6CD5A818910650C109CF2B8D84</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D705CD31A70164F418F90B0FF9352298</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4F3ABE8B0838EA314EE72EC9E210698</key>
 		<dict>
 			<key>primary</key>
 			<true/>

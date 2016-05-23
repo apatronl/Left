@@ -1,10 +1,15 @@
 PODS:
   - Alamofire (3.3.1)
+  - AlamofireNetworkActivityIndicator (1.0.1):
+    - Alamofire (~> 3.3)
+  - Cosmos (1.2.2)
   - SwiftyJSON (2.3.2)
   - Toast-Swift (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - AlamofireNetworkActivityIndicator (~> 1.0)
+  - Cosmos (~> 1.2)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - Toast-Swift (~> 1.1.0)
 
@@ -19,9 +24,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AlamofireNetworkActivityIndicator: 49a6e39afb947136f7b1872bae2d684957c26697
+  Cosmos: 87c49100c69d2cb2eebfa4eb8d1e801fe29ff774
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toast-Swift: d11df96d64d449dc63cb330ea871f30b1eca18c1
 
-PODFILE CHECKSUM: 490b9d583ebd9dc82da555273767874e03448c47
+PODFILE CHECKSUM: 1ed09e5f7c02bff23d13d5da41f2f07673f2f15d
 
 COCOAPODS: 1.0.0.beta.6

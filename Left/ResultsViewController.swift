@@ -8,41 +8,107 @@
 
 import UIKit
 import Toast_Swift
+import Alamofire
+import SwiftyJSON
 
 class ResultsViewController: UITableViewController {
     
-    var data = [RecipeItem]()
     var favoriteVC: FavoritesViewController?
-
+    var dataSource: RecipeDataSource!
+    
     @IBOutlet weak var resultsTable: UITableView!
     
     override func viewDidLoad() {
         favoriteVC = (self.tabBarController?.viewControllers![1] as! NavViewController).viewControllers[0] as? FavoritesViewController
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        switch section {
+        case 0:
+            return dataSource.recipes.count
+        case 1:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return 95
+            
+        case 1:
+            return 45
+            
+        default:
+            return 0
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier("RecipeCell", forIndexPath: indexPath)
-                as! RecipeCell
-            let recipe = data[indexPath.row] as RecipeItem
-            cell.recipe = recipe
-            
-            let background = UIImageView(image: recipe.photo)
-            cell.backgroundView = background
-            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
-            visualEffectView.frame = CGRectMake(0, 0, cell.bounds.width, cell.bounds.height)
-            background.addSubview(visualEffectView)
-            
-            return cell
+            switch indexPath.section {
+            case 0:
+                let cell = tableView.dequeueReusableCellWithIdentifier("RecipeCell", forIndexPath: indexPath)
+                    as! RecipeCell
+                
+                let recipe = dataSource.recipes[indexPath.row] as RecipeItem
+                cell.recipe = recipe
+                
+                let background = UIImageView(image: recipe.photo)
+                cell.backgroundView = background
+                let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
+                visualEffectView.frame = CGRectMake(0, 0, cell.bounds.width, cell.bounds.height)
+                background.addSubview(visualEffectView)
+                
+                return cell
+                
+            default:
+                let cell = tableView.dequeueReusableCellWithIdentifier(MoreCell.reuseIdentifier, forIndexPath: indexPath) as! MoreCell
+                cell.layoutMargins = UIEdgeInsetsZero
+                return cell
+            }
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.section {
+        case 1:
+            Alamofire.request(.GET, dataSource.url + "&page=" + String(dataSource.page)).validate().responseJSON { response in
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        var res = JSON(value)
+                        print(Int(String(res["count"]))!)
+                        let count = Int(String(res["count"]))!
+                        if count > 0 {
+                            for i in 0...count - 1 {
+                                if let name = res["recipes"][i]["title"].string {
+                                    let url: String = res["recipes"][i]["source_url"].string!
+                                    let photo: UIImage? = res["recipes"][i]["image_url"].string!.urlToImg()
+                                    let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
+                                    self.dataSource.recipes.append(curr)
+                                }
+                            }
+                        }
+                        self.tableView.reloadData()
+                    }
+                    self.dataSource.page += 1
+                case .Failure(let error):
+                    print(error)
+                }
+            }
+        default:
+            return
+        }
+    }
+    
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -51,7 +117,7 @@ class ResultsViewController: UITableViewController {
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let favoriteClosure = { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
             print("Add to favorites pressed!")
-            self.favoriteVC?.favoritesManager.favoriteRecipes.append(self.data[indexPath.row])
+            self.favoriteVC?.favoritesManager.favoriteRecipes.append(self.dataSource.recipes[indexPath.row])
             self.favoriteVC?.tableView.reloadData()
             self.favoriteVC?.favoritesManager.save()
             
@@ -71,11 +137,10 @@ class ResultsViewController: UITableViewController {
             let destinationVC = segue.destinationViewController as! RecipeViewController
             if let selectedRecipe = sender as? RecipeCell {
                 let indexPath = tableView.indexPathForCell(selectedRecipe)
-                destinationVC.recipe = data[indexPath!.row]
-                destinationVC.recipeName = data[indexPath!.row].name
-                destinationVC.recipeURL = data[indexPath!.row].url
+                destinationVC.recipe = dataSource.recipes[indexPath!.row]
+                destinationVC.recipeName = dataSource.recipes[indexPath!.row].name
+                destinationVC.recipeURL = dataSource.recipes[indexPath!.row].url
             }
         }
     }
-    
 }

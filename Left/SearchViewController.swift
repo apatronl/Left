@@ -9,28 +9,26 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import iAd
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
+    
+    //    static let appKey: String = "f4b2d1504f9002b21dc8da278d093cf3"
+    //    static let appID: String = "82104c57"
+    //    let url: String = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&from=0&to=100&q="
 
     @IBOutlet weak var ingredient1: UITextField!
     @IBOutlet weak var ingredient2: UITextField!
     @IBOutlet weak var ingredient3: UITextField!
     @IBOutlet weak var ingredient4: UITextField!
     @IBOutlet weak var ingredient5: UITextField!
+    @IBOutlet weak var progressView: UIProgressView!
     
-    //    food2fork.com not working
-    //    static let apiKey: String = "570024717057c65d605c4d54f84f2300"
-    //    let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
+    static let apiKey: String = "{YOUR API KEY}"
+    let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
     
     var ingredients = [String]()
     
-    //    switched to edamam.com
-    static let appKey: String = "f4b2d1504f9002b21dc8da278d093cf3"
-    static let appID: String = "82104c57"
-    let url: String = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&from=0&to=100&q="
-    //let rq: RequestHandler = RequestHandler()
-    var data = [RecipeItem]()
+    var dataSource = RecipeDataSource()
     let bgColor: UIColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue:245.0/255.0, alpha: 1.0)
     var numOfIngredients: Int = 1
     
@@ -86,6 +84,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func searchButtonPressed(sender: UIButton) {
+        dataSource.recipes.removeAll()
         if let ing1 = ingredient1.text {
             ingredients.append(ing1.trim())
         }
@@ -131,30 +130,32 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         ingredients.removeAll()
         print(urlWithIngredients)
         
-        Alamofire.request(.GET, urlWithIngredients).validate().responseJSON { response in
+        dataSource.url = urlWithIngredients
+        self.progressView.hidden = false
+        
+// MARK: - Food2Fork Request Handling
+        
+        let request = Alamofire.request(.GET, urlWithIngredients)
+        request.progress { _, _, _ in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.progressView.setProgress(Float(request.progress.fractionCompleted), animated: true)
+            }
+        }
+        
+        request.responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
                     var res = JSON(value)
                     print(Int(String(res["count"]))!)
                     let count = Int(String(res["count"]))!
-                    // checking because edamam plan gives at most 100 results (but count might be > 100)
-                    if count > 0 && count < 100 {
+                    if count > 0 {
                         for i in 0...count - 1 {
-                            if let name = res["hits"][i]["recipe"]["label"].string {
-                                let url: String = res["hits"][i]["recipe"]["url"].string!
-                                let photo: UIImage? = res["hits"][i]["recipe"]["image"].string!.urlToImg()
+                            if let name = res["recipes"][i]["title"].string {
+                                let url: String = res["recipes"][i]["source_url"].string!
+                                let photo: UIImage? = res["recipes"][i]["image_url"].string!.urlToImg()
                                 let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
-                                self.data.append(curr)
-                            }
-                        }
-                    } else {
-                        for i in 0...99 {
-                            if let name = res["hits"][i]["recipe"]["label"].string {
-                                let url: String = res["hits"][i]["recipe"]["url"].string!
-                                let photo: UIImage? = res["hits"][i]["recipe"]["image"].string!.urlToImg()
-                                let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
-                                self.data.append(curr)
+                                self.dataSource.recipes.append(curr)
                             }
                         }
                     }
@@ -168,20 +169,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 self.showAlert("searchFailure")
                 print(error)
             }
+            self.progressView.setProgress(0.0, animated: true)
+            self.progressView.hidden = true
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "resultsSegue" {
             let destinationVC = segue.destinationViewController as! ResultsViewController
-            destinationVC.data = data
+            destinationVC.dataSource = dataSource
         }
-        data.removeAll()
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.canDisplayBannerAds = true
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.contentMode = .ScaleAspectFit
@@ -253,3 +254,72 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
+
+//        Alamofire.request(.GET, urlWithIngredients).validate().responseJSON { response in
+//            switch response.result {
+//            case .Success:
+//                if let value = response.result.value {
+//                    var res = JSON(value)
+//                    print(Int(String(res["count"]))!)
+//                    let count = Int(String(res["count"]))!
+//                    if count > 0 {
+//                        for i in 0...count - 1 {
+//                            if let name = res["recipes"][i]["title"].string {
+//                                let url: String = res["recipes"][i]["source_url"].string!
+//                                let photo: UIImage? = res["recipes"][i]["image_url"].string!.urlToImg()
+//                                let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
+//                                self.dataSource.recipes.append(curr)
+//                            }
+//                        }
+//                    }
+//                    if (count > 0) {
+//                        self.performSegueWithIdentifier("resultsSegue", sender: self)
+//                    } else {
+//                        self.showAlert("noResults")
+//                    }
+//                }
+//            case .Failure(let error):
+//                self.showAlert("searchFailure")
+//                print(error)
+//            }
+//        }
+
+// MARK: - Edamam API Request Handling
+//        Alamofire.request(.GET, urlWithIngredients).validate().responseJSON { response in
+//            switch response.result {
+//            case .Success:
+//                if let value = response.result.value {
+//                    var res = JSON(value)
+//                    print(Int(String(res["count"]))!)
+//                    let count = Int(String(res["count"]))!
+//                    // checking because edamam plan gives at most 100 results (but count might be > 100)
+//                    if count > 0 && count < 100 {
+//                        for i in 0...count - 1 {
+//                            if let name = res["hits"][i]["recipe"]["label"].string {
+//                                let url: String = res["hits"][i]["recipe"]["url"].string!
+//                                let photo: UIImage? = res["hits"][i]["recipe"]["image"].string!.urlToImg()
+//                                let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
+//                                self.data.append(curr)
+//                            }
+//                        }
+//                    } else {
+//                        for i in 0...99 {
+//                            if let name = res["hits"][i]["recipe"]["label"].string {
+//                                let url: String = res["hits"][i]["recipe"]["url"].string!
+//                                let photo: UIImage? = res["hits"][i]["recipe"]["image"].string!.urlToImg()
+//                                let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
+//                                self.data.append(curr)
+//                            }
+//                        }
+//                    }
+//                    if (count > 0) {
+//                        self.performSegueWithIdentifier("resultsSegue", sender: self)
+//                    } else {
+//                        self.showAlert("noResults")
+//                    }
+//                }
+//            case .Failure(let error):
+//                self.showAlert("searchFailure")
+//                print(error)
+//            }
+//        }
