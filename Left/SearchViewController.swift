@@ -23,7 +23,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ingredient5: UITextField!
     @IBOutlet weak var progressView: UIProgressView!
     
-    static let apiKey: String = "570024717057c65d605c4d54f84f2300"
+    static let apiKey: String = "{YOUR_API_KEY}"
     let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
     
     var ingredients = [String]()
