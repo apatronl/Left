@@ -1,6 +1,6 @@
 # Left
 Left is an iOS app that lets you search for recipes that use the ingredients you have "left." Simply input up to 5 ingredients and press 
-"Search" to see results. Find it on the App Store [here!](appsto.re/us/QIpFcb.i)
+"Search" to see results. Find it on the App Store [here!](https://appsto.re/us/QIpFcb.i)
 
 #HTTP Requests
 HTTP requests are handled using the [Alamofire](https://github.com/Alamofire/Alamofire) library.
