@@ -23,16 +23,6 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
-//        UIApplication.sharedApplication().statusBarStyle = .LightContent
-//        let view = UIView(frame:
-//            CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: 20.0)
-//        )
-//        view.backgroundColor = UIColor.LeftColor()
-//        self.view.addSubview(view)
-//        
-//        navigationController?.hidesBarsOnSwipe = true
-//        
         
         searchBar.sizeToFit()
         searchBar.tintColor = UIColor.whiteColor()
@@ -46,6 +36,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
+        navigationController?.hidesBarsOnSwipe = false
         loadRecipes()
     }
     
@@ -64,17 +55,16 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         // Handle delete button action
         cell.favoriteButton.layer.setValue(indexPath.row, forKey: "index")
         cell.favoriteButton.addTarget(self, action: #selector(ResultsCollectionView.saveRecipe(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-//        cell.deleteButton.addTarget(self, action: #selector(FavoritesCollectionView.deleteRecipe), forControlEvents: UIControlEvents.TouchUpInside)
-//        
-//        // Handle label tap action
-//        let labelTap = UITapGestureRecognizer(target: self, action: #selector(FavoritesCollectionView.openRecipeUrl))
-//        labelTap.numberOfTapsRequired = 1
-//        cell.recipeName.addGestureRecognizer(labelTap)
-//        
-//        // Handle photo tap action
-//        let photoTap = UITapGestureRecognizer(target: self, action: #selector(FavoritesCollectionView.openRecipeUrl))
-//        photoTap.numberOfTapsRequired = 1
-//        cell.recipePhoto.addGestureRecognizer(photoTap)
+
+        // Handle label tap action
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(ResultsCollectionView.openRecipeUrl))
+        labelTap.numberOfTapsRequired = 1
+        cell.recipeName.addGestureRecognizer(labelTap)
+        
+        // Handle photo tap action
+        let photoTap = UITapGestureRecognizer(target: self, action: #selector(ResultsCollectionView.openRecipeUrl))
+        photoTap.numberOfTapsRequired = 1
+        cell.recipePhoto.addGestureRecognizer(photoTap)
         
         cell.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
         cell.contentView.layer.borderWidth = 0.6
@@ -110,7 +100,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     
     // MARK: Helper
     func openRecipeUrl(sender: UITapGestureRecognizer) {
-        let cell = sender.view?.superview?.superview as! FavoriteRecipeCollectionCell
+        let cell = sender.view?.superview?.superview as! RecipeCollectionCell
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RecipeWebView") as! RecipeWebView
         webView.url = cell.recipe.url
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
@@ -131,12 +121,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     func saveRecipe(sender: UIButton) {
         let index: Int = (sender.layer.valueForKey("index")) as! Int
         let recipe = recipes[index]
-        
-//        let favoritesView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("FavoritesView") as! FavoritesCollectionView
         favoritesManager.addRecipe(recipe)
-//        if favoritesView.isViewLoaded() {
-//            favoritesView.collectionView.reloadData()
-//        }
     }
 
 }

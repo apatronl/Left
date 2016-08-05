@@ -7,7 +7,6 @@
 //
 
 import SwiftyJSON
-import Foundation
 
 struct JSONParser {
     
