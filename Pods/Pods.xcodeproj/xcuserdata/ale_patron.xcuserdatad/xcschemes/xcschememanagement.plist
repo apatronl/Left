@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Cosmos.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Left.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,7 +37,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>608B49B5DDACC601EE8044A1931993F9</key>
+		<key>31AF3D4ABB57469D765BB525C07B74C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>686EA540FF3156D0BCCEAE333F5A7B34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,17 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C14FFA6CD5A818910650C109CF2B8D84</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D705CD31A70164F418F90B0FF9352298</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E4F3ABE8B0838EA314EE72EC9E210698</key>
+		<key>B2D370DAED7437D01EC3989886092EFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

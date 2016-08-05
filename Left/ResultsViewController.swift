@@ -13,6 +13,7 @@ import SwiftyJSON
 
 class ResultsViewController: UITableViewController {
     
+    let hud = MBProgressHUD()
     var favoriteVC: FavoritesViewController?
     var dataSource: RecipeDataSource!
     
@@ -22,6 +23,14 @@ class ResultsViewController: UITableViewController {
         favoriteVC = (self.tabBarController?.viewControllers![1] as! NavViewController).viewControllers[0] as? FavoritesViewController
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        // Set up activity indicator
+        hud.labelText = "Loading..."
+        hud.labelFont = UIFont(name: "HelveticaNeue-Light", size: 15.0)!
+        hud.color = UIColor.whiteColor()
+        hud.labelColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
+        hud.activityIndicatorColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
+        UIApplication.sharedApplication().keyWindow?.addSubview(hud)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -61,12 +70,19 @@ class ResultsViewController: UITableViewController {
                 
                 let recipe = dataSource.recipes[indexPath.row] as RecipeItem
                 cell.recipe = recipe
+                if recipe.photo != nil {
+                    let background = UIImageView(image: recipe.photo)
+                    cell.backgroundView = background
+                    let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
+                    visualEffectView.frame = CGRectMake(0, 0, cell.bounds.width, cell.bounds.height)
+                    background.addSubview(visualEffectView)
+                }
                 
-                let background = UIImageView(image: recipe.photo)
-                cell.backgroundView = background
-                let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
-                visualEffectView.frame = CGRectMake(0, 0, cell.bounds.width, cell.bounds.height)
-                background.addSubview(visualEffectView)
+//                let background = UIImageView(image: recipe.photo)
+//                cell.backgroundView = background
+//                let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
+//                visualEffectView.frame = CGRectMake(0, 0, cell.bounds.width, cell.bounds.height)
+//                background.addSubview(visualEffectView)
                 
                 return cell
                 
@@ -80,6 +96,8 @@ class ResultsViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.section {
         case 1:
+            self.hud.show(true)
+            print("HUD!")
             Alamofire.request(.GET, dataSource.url + "&page=" + String(dataSource.page)).validate().responseJSON { response in
                 switch response.result {
                 case .Success:
@@ -100,7 +118,9 @@ class ResultsViewController: UITableViewController {
                         self.tableView.reloadData()
                     }
                     self.dataSource.page += 1
+                    self.hud.hide(true)
                 case .Failure(let error):
+                    self.hud.hide(true)
                     print(error)
                 }
             }

@@ -18,7 +18,10 @@ class RecipeCell: UITableViewCell {
             recipeName.text = recipe.name
             recipeImg.contentMode = UIViewContentMode.ScaleAspectFill
             recipeImg.clipsToBounds = true
-            recipeImg.image = recipe.photo
+            if recipe.photo != nil {
+                recipeImg.image = recipe.photo
+            }
+//            recipeImg.image = recipe.photo
         }
     }
 }

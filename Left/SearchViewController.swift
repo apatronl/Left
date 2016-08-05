@@ -21,10 +21,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ingredient3: UITextField!
     @IBOutlet weak var ingredient4: UITextField!
     @IBOutlet weak var ingredient5: UITextField!
-    @IBOutlet weak var progressView: UIProgressView!
     
-    static let apiKey: String = "{YOUR_API_KEY}"
+    static let apiKey: String = "YOUR_API_KEY"
     let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
+    let hud = MBProgressHUD()
     
     var ingredients = [String]()
     
@@ -84,6 +84,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func searchButtonPressed(sender: UIButton) {
+        hud.show(true)
         dataSource.recipes.removeAll()
         if let ing1 = ingredient1.text {
             ingredients.append(ing1.trim())
@@ -131,18 +132,52 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         print(urlWithIngredients)
         
         dataSource.url = urlWithIngredients
-        self.progressView.hidden = false
+//        self.progressView.hidden = false
+        
         
 // MARK: - Food2Fork Request Handling
         
-        let request = Alamofire.request(.GET, urlWithIngredients)
-        request.progress { _, _, _ in
-            dispatch_async(dispatch_get_main_queue()) {
-                self.progressView.setProgress(Float(request.progress.fractionCompleted), animated: true)
-            }
-        }
+//        let request = Alamofire.request(.GET, urlWithIngredients)
+//        request.progress { _, _, _ in
+//            dispatch_async(dispatch_get_main_queue()) {
+//                self.progressView.setProgress(Float(request.progress.fractionCompleted), animated: true)
+//            }
+//        }
         
-        request.responseJSON { response in
+//        request.responseJSON { response in
+//            switch response.result {
+//            case .Success:
+//                if let value = response.result.value {
+//                    var res = JSON(value)
+//                    print(Int(String(res["count"]))!)
+//                    let count = Int(String(res["count"]))!
+//                    if count > 0 {
+//                        for i in 0...count - 1 {
+//                            if let name = res["recipes"][i]["title"].string {
+//                                let url: String = res["recipes"][i]["source_url"].string!
+//                                let photo: UIImage? = res["recipes"][i]["image_url"].string!.urlToImg()
+//                                let curr: RecipeItem = RecipeItem(name: name, photo: photo, url: url)
+//                                self.dataSource.recipes.append(curr)
+//                            }
+//                        }
+//                    }
+//                    if (count > 0) {
+//                        self.performSegueWithIdentifier("resultsSegue", sender: self)
+//                    } else {
+//                        self.showAlert("noResults")
+//                    }
+//                }
+//            case .Failure(let error):
+//                self.showAlert("searchFailure")
+//                print(error)
+//            }
+//            self.progressView.setProgress(0.0, animated: true)
+//            self.progressView.hidden = true
+//        }
+        
+        ////////////////
+        
+        Alamofire.request(.GET, urlWithIngredients).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
@@ -165,13 +200,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                         self.showAlert("noResults")
                     }
                 }
+                self.hud.hide(true)
             case .Failure(let error):
+                self.hud.hide(true)
                 self.showAlert("searchFailure")
                 print(error)
             }
-            self.progressView.setProgress(0.0, animated: true)
-            self.progressView.hidden = true
         }
+
+        
+        ////////////////
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -196,6 +235,15 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         backgroundImage.alpha = 0.3
         self.view.insertSubview(backgroundImage, atIndex: 0)
         
+        // Set up activity indicator
+        hud.labelText = "Loading..."
+        hud.labelFont = UIFont(name: "HelveticaNeue-Light", size: 15.0)!
+        //hud.color = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
+        hud.labelColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
+        hud.activityIndicatorColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
+        hud.color = UIColor.whiteColor()
+        hud.opacity = 0.2
+        self.view.addSubview(hud)
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.DismissKeyboard))
         view.addGestureRecognizer(tap)

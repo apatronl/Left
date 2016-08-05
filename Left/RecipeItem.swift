@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class RecipeItem: NSObject {
+public class RecipeItem: NSObject {
     var name: String
     var photo: UIImage?
     var url: String
@@ -26,7 +26,7 @@ class RecipeItem: NSObject {
         aCoder.encodeObject(url, forKey: urlKey)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObjectForKey(nameKey) as! String
         photo = aDecoder.decodeObjectForKey(photoKey) as? UIImage
         url = aDecoder.decodeObjectForKey(urlKey) as! String

@@ -14,9 +14,7 @@ class NavViewController: UINavigationController {
     let toastColor: UIColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 0.8)
 
     override func viewDidLoad() {
-//        let myNavBarColor: UIColor = UIColor(red: 36.0/255.0, green: 193.0/255.0, blue:223.0/255.0, alpha: 1.0)
-        let myNavBarColor: UIColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 1.0)
-        UINavigationBar.appearance().barTintColor = myNavBarColor
+        UINavigationBar.appearance().barTintColor = UIColor.LeftColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
@@ -28,6 +26,9 @@ class NavViewController: UINavigationController {
         style.backgroundColor = self.toastColor
         
         ToastManager.shared.style = style
+        
+        //UITabBar.appearance().backgroundColor = myNavBarColor
+        UITabBar.appearance().tintColor = UIColor.LeftColor()
         
         super.viewDidLoad()
 

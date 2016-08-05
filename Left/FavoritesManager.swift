@@ -9,7 +9,30 @@
 import Foundation
 
 class FavoritesManager {
+    
+    // Singleton
+    static let sharedInstance = FavoritesManager()
+    
+    // TODO: make this var private once update is ready, rely on helper methods for access
     var favoriteRecipes = [RecipeItem]()
+    
+    func addRecipe(recipe: RecipeItem) {
+        favoriteRecipes.append(recipe)
+        save()
+    }
+    
+    func deleteRecipeAtIndex(index: Int) {
+        favoriteRecipes.removeAtIndex(index)
+        save()
+    }
+    
+    func recipeAtIndex(index: Int) -> RecipeItem? {
+        return favoriteRecipes[index]
+    }
+    
+    func recipeCount() -> Int {
+        return favoriteRecipes.count
+    }
     
     func archivePath() -> String? {
         let directoryList = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
