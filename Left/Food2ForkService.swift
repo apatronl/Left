@@ -11,7 +11,7 @@ import SwiftyJSON
 
 public struct Food2ForkService {
     
-    private static let apiKey: String = "YOUR_API_KEY"
+    private static let apiKey: String = "570024717057c65d605c4d54f84f2300"
     private static let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
     
     public static func recipesForIngredients(ingredients: String, completion: ([RecipeItem]) -> ()) {
