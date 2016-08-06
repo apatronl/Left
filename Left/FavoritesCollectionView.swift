@@ -16,7 +16,6 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.hidesBarsOnSwipe = false
         collectionView.reloadData()
     }
     
@@ -45,9 +44,6 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         let photoTap = UITapGestureRecognizer(target: self, action: #selector(FavoritesCollectionView.openRecipeUrl))
         photoTap.numberOfTapsRequired = 1
         cell.recipePhoto.addGestureRecognizer(photoTap)
-        
-        cell.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
-        cell.contentView.layer.borderWidth = 0.6
         
         return cell
     }
@@ -87,6 +83,7 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         let cell = sender.view?.superview?.superview as! FavoriteRecipeCollectionCell
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RecipeWebView") as! RecipeWebView
         webView.url = cell.recipe.url
+        
         self.navigationController?.pushViewController(webView, animated: true)
     }
     

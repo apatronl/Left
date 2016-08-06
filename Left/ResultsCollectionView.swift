@@ -14,8 +14,8 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let favoritesManager = FavoritesManager.sharedInstance
-    
+    private let favoritesManager = FavoritesManager.sharedInstance
+    private var recipesLoader: RecipesLoader?
     private var recipes = [RecipeItem]()
     lazy var searchBar = UISearchBar()
     
@@ -23,21 +23,26 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpSearchBar()
         
-        searchBar.sizeToFit()
-        searchBar.tintColor = UIColor.whiteColor()
-        searchBar.backgroundColor = UIColor.clearColor()
-        searchBar.backgroundImage = UIImage()
-        searchBar.placeholder = "Search with comma separated ingredients"
-        searchBar.subviews[0].subviews.flatMap(){ $0 as? UITextField }.first?.tintColor = UIColor.LeftColor()
-        searchBar.delegate = self
-        self.navigationItem.titleView = searchBar
+        // Add infinite scroll handler
+        collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
+            if let loader = self?.recipesLoader {
+                if loader.hasMoreRecipes() {
+                    self?.loadMoreRecipes() {
+                        scrollView.finishInfiniteScroll()
+                    }
+                } else {
+                    print("No more recipes!")
+                    scrollView.finishInfiniteScroll()
+                }
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        navigationController?.hidesBarsOnSwipe = false
-        loadRecipes()
+        super.viewDidAppear(animated)
+        loadRecipes("banana,chocolate,butter")
     }
     
     // MARK: Collection View Delegate
@@ -66,11 +71,6 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         photoTap.numberOfTapsRequired = 1
         cell.recipePhoto.addGestureRecognizer(photoTap)
         
-        cell.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
-        cell.contentView.layer.borderWidth = 0.6
-        
-        
-        
         return cell
     }
     
@@ -96,9 +96,93 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         return UIEdgeInsetsMake(10, 10, 10, 10)
     }
     
+    // TODO
     // MARK: Search Bar Delegate
     
+    // TODO: When search pressed, get ingredients and load recipes
+    func searchpressed() {
+        loadRecipes("banana,nutella")
+    }
+    
     // MARK: Helper
+    
+    func loadRecipes(ingredients: String) {
+        if (!loaded) {
+            print("Loading!")
+            recipesLoader = RecipesLoader(ingredients: ingredients)
+            recipesLoader!.load(completion: { recipes, error in
+                if let error = error {
+                    self.showAlert(.SearchFailure)
+                    print("Error! " + error.localizedDescription)
+                } else if (recipes.count == 0) {
+                    self.showAlert(.NoResults)
+                    self.recipesLoader!.setHasMore(false)
+                } else {
+                    // Food2Fork returns at most 30 recipes on each page
+                    if (recipes.count < 30) {
+                        self.recipesLoader!.setHasMore(false)
+                    }
+                    self.recipes = recipes
+                    self.collectionView.reloadData()
+                    print("Updated collection view!")
+                }
+            })
+        }
+        loaded = true
+    }
+    
+    private func loadMoreRecipes(handler: (Void -> Void)?) {
+        if let loader = recipesLoader {
+            loader.loadMore({ recipes, error in
+                if let error = error {
+                    self.handleResponse(nil, error: error, completion: handler)
+                } else {
+                    self.handleResponse(recipes, error: nil, completion: handler)
+                }
+            })
+        }
+    }
+    
+    // Handle response when loading more recipes with infinite scroll
+    private func handleResponse(data: [RecipeItem]?, error: NSError?, completion: (Void -> Void)?) {
+        if let _ = error {
+            completion?()
+            return
+        }
+        
+        if (data!.count == 0) {
+            self.recipesLoader?.setHasMore(false)
+            completion?()
+            return
+        }
+        
+        // Food2Fork returns at most 30 recipes on each page
+        if (data!.count < 30) {
+            self.recipesLoader?.setHasMore(false)
+        }
+        
+        var indexPaths = [NSIndexPath]()
+        let firstIndex = recipes.count
+        
+        for (i, recipe) in data!.enumerate() {
+            let indexPath = NSIndexPath(forItem: firstIndex + i, inSection: 0)
+            recipes.append(recipe)
+            indexPaths.append(indexPath)
+        }
+        
+        collectionView?.performBatchUpdates({ () -> Void in
+            self.collectionView?.insertItemsAtIndexPaths(indexPaths)
+            }, completion: { (finished) -> Void in
+                completion?()
+        });
+    }
+    
+    func saveRecipe(sender: UIButton) {
+        let index: Int = (sender.layer.valueForKey("index")) as! Int
+        let recipe = recipes[index]
+        favoritesManager.addRecipe(recipe)
+    }
+    
     func openRecipeUrl(sender: UITapGestureRecognizer) {
         let cell = sender.view?.superview?.superview as! RecipeCollectionCell
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RecipeWebView") as! RecipeWebView
@@ -107,21 +191,17 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         self.navigationController?.pushViewController(webView, animated: true)
     }
     
-    func loadRecipes() {
-        if (!loaded) {
-            print("Loading!")
-            Food2ForkService.recipesForIngredients("nutella,banana", completion: { [] recipes in
-                self.recipes = recipes
-                self.collectionView.reloadData()
-            })
-        }
-        loaded = true
-    }
+    // MARK: UI
     
-    func saveRecipe(sender: UIButton) {
-        let index: Int = (sender.layer.valueForKey("index")) as! Int
-        let recipe = recipes[index]
-        favoritesManager.addRecipe(recipe)
-    }
+    func setUpSearchBar() {
+        searchBar.sizeToFit()
+        searchBar.tintColor = UIColor.whiteColor()
+        searchBar.backgroundColor = UIColor.clearColor()
+        searchBar.backgroundImage = UIImage()
+        searchBar.placeholder = "Search with comma separated ingredients"
+        searchBar.subviews[0].subviews.flatMap(){ $0 as? UITextField }.first?.tintColor = UIColor.LeftColor()
+        searchBar.delegate = self
+        self.navigationItem.titleView = searchBar
 
+    }
 }

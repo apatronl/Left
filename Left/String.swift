@@ -1,12 +1,10 @@
 //
-//  Utils.swift
+//  String.swift
 //  Left
 //
-//  Created by Alejandrina Patron on 4/12/16.
+//  Created by Alejandrina Patron on 8/4/16.
 //  Copyright © 2016 Ale Patrón. All rights reserved.
 //
-
-import UIKit
 
 extension String {
     func urlToImg() -> UIImage? {
@@ -16,10 +14,9 @@ extension String {
         }
         return nil
     }
-}
-
-extension String {
+    
     func trim() -> String {
         return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
     }
+    
 }

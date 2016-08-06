@@ -14,15 +14,7 @@ struct JSONParser {
         return self.JSONObjectsFromData(data)?.map(self.parseRecipe) ?? []
     }
     
-//    static func parseRecipesArray(data: JSON?) -> [RecipeItem] {
-//        if let data = data {
-//            if let array = data["recipes"].array {
-//                return array.map(self.parseRecipe) ?? []
-//            }
-//        }
-//        return []
-//    }
-    
+    // MARK: Helper
     
     private static func parseRecipe(recipe: JSON) -> RecipeItem {
         
@@ -33,8 +25,6 @@ struct JSONParser {
         
         return RecipeItem(name: name, photo: photo, url: url)
     }
-    
-    // MARK: Helper
     
     private static func JSONObjectsFromData(data: JSON?) -> [JSON]? {
         if let data = data {

@@ -10,6 +10,7 @@
 #define BridgingHeader_h
 
 #import "MBProgressHUD.h"
+#import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
 
 
 #endif /* BridgingHeader_h */

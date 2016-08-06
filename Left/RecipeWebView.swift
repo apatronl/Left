@@ -20,18 +20,6 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
         openUrl()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let view = UIView(frame:
-            CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: 20.0)
-        )
-        view.backgroundColor = UIColor.LeftColor()
-        self.view.addSubview(view)
-        
-        navigationController?.hidesBarsOnSwipe = true
-    }
-    
     func openUrl() {
         let url = NSURL(string: (self.url))
         let requesObj = NSURLRequest(URL: url!)

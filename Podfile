@@ -6,4 +6,5 @@ target 'Left' do
 	pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 	pod 'Toast-Swift', '~> 1.1.0'
 	pod 'AlamofireNetworkActivityIndicator', '~> 1.0'
+	pod 'UIScrollView-InfiniteScroll'
 end
