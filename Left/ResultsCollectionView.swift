@@ -198,7 +198,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         searchBar.tintColor = UIColor.whiteColor()
         searchBar.backgroundColor = UIColor.clearColor()
         searchBar.backgroundImage = UIImage()
-        searchBar.placeholder = "Search with comma separated ingredients"
+        searchBar.placeholder = "What do you have left today?"
         searchBar.subviews[0].subviews.flatMap(){ $0 as? UITextField }.first?.tintColor = UIColor.LeftColor()
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
