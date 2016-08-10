@@ -11,7 +11,6 @@ import UIKit
 
 class RecipeCollectionCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipePhoto: UIImageView!
     @IBOutlet weak var favoriteButton: UIButton!

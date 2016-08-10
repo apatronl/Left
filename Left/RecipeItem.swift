@@ -13,6 +13,7 @@ public class RecipeItem: NSObject {
     var name: String
     var photo: UIImage?
     var url: String
+    var photoUrl: String?
     
     let nameKey = "name"
     let photoKey = "photo"
@@ -37,4 +38,11 @@ public class RecipeItem: NSObject {
         self.photo = photo
         self.url = url
     }
+    
+//    init(name: String, photoUrl: String?, photo: UIImage?, url: String) {
+//        self.name = name
+//        self.photoUrl = photoUrl
+//        self.photo = photo
+//        self.url = url
+//    }
 }

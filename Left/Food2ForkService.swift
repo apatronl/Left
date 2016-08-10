@@ -16,8 +16,9 @@ public struct Food2ForkService {
 
     public static func recipesForIngredients(ingredients: String, page: Int, completion: ([RecipeItem], NSError?) -> ()) {
         // TODO: make sure url is valid (no spaces, etc)
-        let urlString = url + ingredients + "&page=\(page)" 
-        
+        var urlString = url + ingredients + "&page=\(page)" 
+        urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        print(urlString)
         Alamofire.request(.GET, urlString).validate().responseJSON { response in
             switch response.result {
             case .Success :

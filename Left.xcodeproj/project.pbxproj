@@ -10,6 +10,7 @@
 		4314A8DC3F75B39771E35C28 /* Pods_Left.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5DD3B6F266E7307E942358 /* Pods_Left.framework */; };
 		ED204FB91D42D52E00299F99 /* ResultsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED204FB81D42D52E00299F99 /* ResultsCollectionView.swift */; };
 		ED204FBD1D42DA1C00299F99 /* FavoriteRecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED204FBC1D42DA1C00299F99 /* FavoriteRecipeCollectionCell.swift */; };
+		ED2391E61D561A7400ADF649 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2391E51D561A7400ADF649 /* SearchTableView.swift */; };
 		ED2DA1ED1C73EEC300E921BE /* leftLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2DA1EC1C73EEC300E921BE /* leftLogo.png */; };
 		ED4502B01C778B86004D2B6D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4502AF1C778B86004D2B6D /* add.png */; };
 		ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55E2461C8A490D0079E254 /* FavoritesManager.swift */; };
@@ -91,6 +92,7 @@
 		7D5DD3B6F266E7307E942358 /* Pods_Left.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Left.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED204FB81D42D52E00299F99 /* ResultsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCollectionView.swift; sourceTree = "<group>"; };
 		ED204FBC1D42DA1C00299F99 /* FavoriteRecipeCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeCollectionCell.swift; sourceTree = "<group>"; };
+		ED2391E51D561A7400ADF649 /* SearchTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		ED2DA1EC1C73EEC300E921BE /* leftLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftLogo.png; sourceTree = "<group>"; };
 		ED4502AF1C778B86004D2B6D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		ED55E2461C8A490D0079E254 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				ED204FB81D42D52E00299F99 /* ResultsCollectionView.swift */,
 				EDB819891D53EB7400B8C8EA /* RecipeWebView.swift */,
 				ED55E2461C8A490D0079E254 /* FavoritesManager.swift */,
+				ED2391E51D561A7400ADF649 /* SearchTableView.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				EDDF766E1D5456F20050674B /* UIViewController.swift in Sources */,
 				EDDF76691D5456360050674B /* RecipesLoader.swift in Sources */,
 				ED95AEAB1CE2A0A100894668 /* RecipeDataSource.swift in Sources */,
+				ED2391E61D561A7400ADF649 /* SearchTableView.swift in Sources */,
 				EDC8E1F71C83D29800EA30E8 /* FavoriteRecipeCell.swift in Sources */,
 				ED7A9F031D01FFFA007B9DFF /* MBProgressHUD.m in Sources */,
 				ED204FB91D42D52E00299F99 /* ResultsCollectionView.swift in Sources */,

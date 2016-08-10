@@ -22,7 +22,6 @@ struct JSONParser {
         let url: String = recipe["source_url"].string ?? ""
         let photo: UIImage? = recipe["image_url"].string!.urlToImg()
         
-        
         return RecipeItem(name: name, photo: photo, url: url)
     }
     

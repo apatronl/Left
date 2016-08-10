@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,13 +17,13 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     private let favoritesManager = FavoritesManager.sharedInstance
     private var recipesLoader: RecipesLoader?
     private var recipes = [RecipeItem]()
-    lazy var searchBar = UISearchBar()
+    var ingredients = [String]()
+    var addButton: UIBarButtonItem!
     
     private var loaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpSearchBar()
         
         // Add infinite scroll handler
         collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
@@ -38,11 +38,12 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
                 }
             }
         }
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        loadRecipes("banana,chocolate,butter")
+        
+        var ingredientsString = ""
+        for ingredient in ingredients {
+            ingredientsString += ingredient + ","
+        }
+        loadRecipes(ingredientsString)
     }
     
     // MARK: Collection View Delegate
@@ -96,27 +97,20 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         return UIEdgeInsetsMake(10, 10, 10, 10)
     }
     
-    // TODO
-    // MARK: Search Bar Delegate
-    
-    // TODO: When search pressed, get ingredients and load recipes
-    func searchpressed() {
-        loadRecipes("banana,nutella")
-    }
-    
     // MARK: Helper
     
     func loadRecipes(ingredients: String) {
         if (!loaded) {
-            print("Loading!")
             recipesLoader = RecipesLoader(ingredients: ingredients)
             recipesLoader!.load(completion: { recipes, error in
                 if let error = error {
                     self.showAlert(.SearchFailure)
+                    self.navigationItem.title = "Error"
                     print("Error! " + error.localizedDescription)
                 } else if (recipes.count == 0) {
                     self.showAlert(.NoResults)
                     self.recipesLoader!.setHasMore(false)
+                    self.navigationItem.title = "No Results"
                 } else {
                     // Food2Fork returns at most 30 recipes on each page
                     if (recipes.count < 30) {
@@ -124,7 +118,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
                     }
                     self.recipes = recipes
                     self.collectionView.reloadData()
-                    print("Updated collection view!")
+                    self.navigationItem.title = "Results"
                 }
             })
         }
@@ -193,15 +187,8 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     
     // MARK: UI
     
-    func setUpSearchBar() {
-        searchBar.sizeToFit()
-        searchBar.tintColor = UIColor.whiteColor()
-        searchBar.backgroundColor = UIColor.clearColor()
-        searchBar.backgroundImage = UIImage()
-        searchBar.placeholder = "What do you have left today?"
-        searchBar.subviews[0].subviews.flatMap(){ $0 as? UITextField }.first?.tintColor = UIColor.LeftColor()
-        searchBar.delegate = self
-        self.navigationItem.titleView = searchBar
-
+    override func prefersStatusBarHidden() -> Bool {
+        return false
     }
+    
 }
