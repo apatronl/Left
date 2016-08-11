@@ -18,11 +18,10 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     private let favoritesManager = FavoritesManager.sharedInstance
     private var recipesLoader: RecipesLoader?
     private var recipes = [RecipeItem]()
+    let hud = MBProgressHUD()
     var ingredients = [String]()
     var addButton: UIBarButtonItem!
     var manager = Nuke.ImageManager.shared
-    
-    private var loaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +39,9 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
                 }
             }
         }
+        
+        // Set up activity indicator
+        self.view.addSubview(hud)
         
         var ingredientsString = ""
         for ingredient in ingredients {
@@ -73,6 +75,12 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         let photoTap = UITapGestureRecognizer(target: self, action: #selector(ResultsCollectionView.openRecipeUrl))
         photoTap.numberOfTapsRequired = 1
         cell.recipePhoto.addGestureRecognizer(photoTap)
+        
+        if recipe.photo == nil {
+            recipe.photoUrl!.urlToImg({ recipePhoto in
+                recipe.photo = recipePhoto
+            })
+        }
         
         let imageView = cell.recipePhoto
         imageView.nk_setImageWith(NSURL(string: recipe.photoUrl!)!)
@@ -109,29 +117,30 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     // MARK: Helper
     
     func loadRecipes(ingredients: String) {
-        if (!loaded) {
-            recipesLoader = RecipesLoader(ingredients: ingredients)
-            recipesLoader!.load(completion: { recipes, error in
-                if let error = error {
-                    self.showAlert(.SearchFailure)
-                    self.navigationItem.title = "Error"
-                    print("Error! " + error.localizedDescription)
-                } else if (recipes.count == 0) {
-                    self.showAlert(.NoResults)
+        hud.show(true)
+        recipesLoader = RecipesLoader(ingredients: ingredients)
+        recipesLoader!.load(completion: { recipes, error in
+            if let error = error {
+                self.showAlert(.SearchFailure)
+                self.navigationItem.title = "Error"
+                self.hud.hide(true)
+                print("Error! " + error.localizedDescription)
+            } else if (recipes.count == 0) {
+                self.showAlert(.NoResults)
+                self.recipesLoader!.setHasMore(false)
+                self.navigationItem.title = "No Results"
+                self.hud.hide(true)
+            } else {
+                // Food2Fork returns at most 30 recipes on each page
+                if (recipes.count < 30) {
                     self.recipesLoader!.setHasMore(false)
-                    self.navigationItem.title = "No Results"
-                } else {
-                    // Food2Fork returns at most 30 recipes on each page
-                    if (recipes.count < 30) {
-                        self.recipesLoader!.setHasMore(false)
-                    }
-                    self.recipes = recipes
-                    self.collectionView.reloadData()
-                    self.navigationItem.title = "Results"
                 }
-            })
-        }
-        loaded = true
+                self.recipes = recipes
+                self.collectionView.reloadData()
+                self.navigationItem.title = "Results"
+                self.hud.hide(true)
+            }
+        })
     }
     
     private func loadMoreRecipes(handler: (Void -> Void)?) {

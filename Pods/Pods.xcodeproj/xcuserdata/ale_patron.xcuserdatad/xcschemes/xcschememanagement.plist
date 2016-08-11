@@ -29,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Toast-Swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>UIScrollView-InfiniteScroll.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +37,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>00C02C35B48BD8F7652042635BAA3CDA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>228FFC4E78F899B58C33C57F31513A8E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>585C6BD34655ABD5BCACE6D24EF61191</key>
+		<key>26B87CF93B10B7D814BC08ED4E675C37</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5864A240BE3F3A55552143350FD4590A</key>
+		<key>5F003BDCC8C5DDB0F647D71AA0F1FEB0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,16 +63,6 @@
 			<true/>
 		</dict>
 		<key>8F21E8D0CF87BE5407DBB09F1AC3D43F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A60320A6BA76BCA05F3A72C1CE589483</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BB552A2B6060E46F3F5819977CFA1E77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
