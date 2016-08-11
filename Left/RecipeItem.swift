@@ -39,10 +39,10 @@ public class RecipeItem: NSObject {
         self.url = url
     }
     
-//    init(name: String, photoUrl: String?, photo: UIImage?, url: String) {
-//        self.name = name
-//        self.photoUrl = photoUrl
-//        self.photo = photo
-//        self.url = url
-//    }
+    init(name: String, photoUrl: String?, photo: UIImage?, url: String) {
+        self.name = name
+        self.photoUrl = photoUrl
+        self.photo = photo
+        self.url = url
+    }
 }

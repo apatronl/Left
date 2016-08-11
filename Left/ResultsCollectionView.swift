@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Nuke
 
 class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -19,6 +20,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     private var recipes = [RecipeItem]()
     var ingredients = [String]()
     var addButton: UIBarButtonItem!
+    var manager = Nuke.ImageManager.shared
     
     private var loaded = false
     
@@ -72,6 +74,8 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         photoTap.numberOfTapsRequired = 1
         cell.recipePhoto.addGestureRecognizer(photoTap)
         
+        let imageView = cell.recipePhoto
+        imageView.nk_setImageWith(NSURL(string: recipe.photoUrl!)!)
         return cell
     }
     
@@ -83,6 +87,11 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         }
         
         return CGSizeMake(height, height)
+    }
+    
+    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        let recipeCell = cell as! RecipeCollectionCell
+        recipeCell.recipePhoto.nk_cancelLoading()
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {

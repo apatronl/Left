@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4314A8DC3F75B39771E35C28 /* Pods_Left.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5DD3B6F266E7307E942358 /* Pods_Left.framework */; };
+		ED0B10831D5CD8C000E1E18E /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED0B10821D5CD8C000E1E18E /* Nuke.framework */; };
 		ED204FB91D42D52E00299F99 /* ResultsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED204FB81D42D52E00299F99 /* ResultsCollectionView.swift */; };
 		ED204FBD1D42DA1C00299F99 /* FavoriteRecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED204FBC1D42DA1C00299F99 /* FavoriteRecipeCollectionCell.swift */; };
 		ED2391E61D561A7400ADF649 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2391E51D561A7400ADF649 /* SearchTableView.swift */; };
@@ -90,6 +91,7 @@
 		258BEFE3AFDF0EA894BD2B98 /* Pods-Left.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Left.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Left/Pods-Left.debug.xcconfig"; sourceTree = "<group>"; };
 		2A50E7E22FE4711A4AEB04DF /* Pods-Left.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Left.release.xcconfig"; path = "Pods/Target Support Files/Pods-Left/Pods-Left.release.xcconfig"; sourceTree = "<group>"; };
 		7D5DD3B6F266E7307E942358 /* Pods_Left.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Left.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED0B10821D5CD8C000E1E18E /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = "../../../Library/Developer/Xcode/DerivedData/Left-dxojikephqrgzbdhttxzzxkkhlvk/Build/Products/Debug-iphonesimulator/Nuke/Nuke.framework"; sourceTree = "<group>"; };
 		ED204FB81D42D52E00299F99 /* ResultsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCollectionView.swift; sourceTree = "<group>"; };
 		ED204FBC1D42DA1C00299F99 /* FavoriteRecipeCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeCollectionCell.swift; sourceTree = "<group>"; };
 		ED2391E51D561A7400ADF649 /* SearchTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0B10831D5CD8C000E1E18E /* Nuke.framework in Frameworks */,
 				4314A8DC3F75B39771E35C28 /* Pods_Left.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +170,7 @@
 		7FD72D86C2EDDD7C19A2992F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED0B10821D5CD8C000E1E18E /* Nuke.framework */,
 				ED7F2F7D1CB854BB00BCD86A /* iAd.framework */,
 				7D5DD3B6F266E7307E942358 /* Pods_Left.framework */,
 			);

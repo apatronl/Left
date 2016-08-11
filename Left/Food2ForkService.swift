@@ -15,7 +15,6 @@ public struct Food2ForkService {
     private static let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
 
     public static func recipesForIngredients(ingredients: String, page: Int, completion: ([RecipeItem], NSError?) -> ()) {
-        // TODO: make sure url is valid (no spaces, etc)
         var urlString = url + ingredients + "&page=\(page)" 
         urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
         print(urlString)

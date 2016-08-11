@@ -20,9 +20,8 @@ struct JSONParser {
         
         let name = recipe["title"].string ?? ""
         let url: String = recipe["source_url"].string ?? ""
-        let photo: UIImage? = recipe["image_url"].string!.urlToImg()
-        
-        return RecipeItem(name: name, photo: photo, url: url)
+        let photoURL: String = recipe["image_url"].string!
+        return RecipeItem(name: name, photoUrl: photoURL, photo: nil, url: url)
     }
     
     private static func JSONObjectsFromData(data: JSON?) -> [JSON]? {
