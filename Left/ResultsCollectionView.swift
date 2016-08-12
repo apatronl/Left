@@ -40,7 +40,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
             }
         }
         
-        // Set up activity indicator
+        // Add activity indicator
         self.view.addSubview(hud)
         
         var ingredientsString = ""
@@ -78,12 +78,15 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         
         if recipe.photo == nil {
             recipe.photoUrl!.urlToImg({ recipePhoto in
-                recipe.photo = recipePhoto
+                if let photo = recipePhoto {
+                    recipe.photo = photo
+                } else {
+                    recipe.photo = UIImage(named: "default")
+                }
             })
+            let imageView = cell.recipePhoto
+            imageView.nk_setImageWith(NSURL(string: recipe.photoUrl!)!)
         }
-        
-        let imageView = cell.recipePhoto
-        imageView.nk_setImageWith(NSURL(string: recipe.photoUrl!)!)
         return cell
     }
     
@@ -123,13 +126,11 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
             if let error = error {
                 self.showAlert(.SearchFailure)
                 self.navigationItem.title = "Error"
-                self.hud.hide(true)
                 print("Error! " + error.localizedDescription)
             } else if (recipes.count == 0) {
                 self.showAlert(.NoResults)
                 self.recipesLoader!.setHasMore(false)
                 self.navigationItem.title = "No Results"
-                self.hud.hide(true)
             } else {
                 // Food2Fork returns at most 30 recipes on each page
                 if (recipes.count < 30) {
@@ -138,8 +139,8 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
                 self.recipes = recipes
                 self.collectionView.reloadData()
                 self.navigationItem.title = "Results"
-                self.hud.hide(true)
             }
+            self.hud.hide(true)
         })
     }
     
@@ -200,13 +201,9 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RecipeWebView") as! RecipeWebView
         webView.url = cell.recipe.url
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
+        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .Plain, target: self, action: nil)
+        webView.navigationItem.title = cell.recipe.name
         self.navigationController?.pushViewController(webView, animated: true)
-    }
-    
-    // MARK: UI
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return false
     }
     
 }

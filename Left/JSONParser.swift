@@ -17,8 +17,7 @@ struct JSONParser {
     // MARK: Helper
     
     private static func parseRecipe(recipe: JSON) -> RecipeItem {
-        
-        let name = recipe["title"].string ?? ""
+        let name = (recipe["title"].string ?? "").verifyRecipeName()
         let url: String = recipe["source_url"].string ?? ""
         let photoURL: String = recipe["image_url"].string!
         return RecipeItem(name: name, photoUrl: photoURL, photo: nil, url: url)

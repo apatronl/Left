@@ -83,7 +83,7 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         let cell = sender.view?.superview?.superview as! FavoriteRecipeCollectionCell
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RecipeWebView") as! RecipeWebView
         webView.url = cell.recipe.url
-        
+        webView.navigationItem.title = cell.recipe.name
         self.navigationController?.pushViewController(webView, animated: true)
     }
     
