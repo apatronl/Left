@@ -155,7 +155,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cookies" translatesAutoresizingMaskIntoConstraints="NO" id="ffO-Jl-RgP">
+                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="ffO-Jl-RgP">
                                             <rect key="frame" x="0.0" y="49" width="244" height="195"/>
                                             <gestureRecognizers/>
                                         </imageView>
@@ -507,7 +507,6 @@
     </scenes>
     <resources>
         <image name="back" width="22" height="22"/>
-        <image name="cookies" width="800" height="450"/>
         <image name="default" width="600" height="450"/>
         <image name="forward" width="22" height="22"/>
         <image name="search-tab-bar" width="25" height="25"/>

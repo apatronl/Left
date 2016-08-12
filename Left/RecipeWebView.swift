@@ -14,14 +14,19 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     
+    let hud = MBProgressHUD()
     var url: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Add activity indicator
+        self.view.addSubview(hud)
         openUrl()
     }
     
     func openUrl() {
+        hud.show(true)
         let url = NSURL(string: (self.url))
         let requesObj = NSURLRequest(URL: url!)
         webView.loadRequest(requesObj)
@@ -49,14 +54,11 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     
     func webViewDidStartLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-//        activityIndicator.hidden = false
-//        activityIndicator.startAnimating()
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-//        activityIndicator.hidden = true
-//        activityIndicator.stopAnimating()
+        hud.hide(true)
         updateNavButtons()
     }
     
