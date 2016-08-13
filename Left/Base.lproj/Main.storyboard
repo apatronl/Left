@@ -226,11 +226,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZ4-f3-c8Y">
-                                                    <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="546" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-1Q-pSI">
+                                                    <rect key="frame" x="562" y="7" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="eWn-h3-pM2"/>
+                                                        <constraint firstAttribute="height" constant="30" id="gSP-7a-HKH"/>
+                                                    </constraints>
+                                                    <state key="normal" image="delete-ingredient"/>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YLo-1Q-pSI" firstAttribute="centerY" secondItem="fet-z4-Clu" secondAttribute="centerY" id="CEt-xN-yGL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YLo-1Q-pSI" secondAttribute="trailing" id="eK3-dz-F1L"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ingredientLabel" destination="yZ4-f3-c8Y" id="8Ao-7I-JRt"/>
@@ -278,14 +290,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="y7Z-cG-3cZ">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="u8d-xV-vFa">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="addButtonPressed:" destination="ULQ-a7-b4G" id="a02-Pn-6B4"/>
-                            </connections>
-                        </barButtonItem>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Bfv-Cw-QxZ">
-                            <rect key="frame" x="55" y="7" width="520" height="30"/>
+                            <rect key="frame" x="25.5" y="7" width="520" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -293,6 +299,12 @@
                                 <outlet property="delegate" destination="ULQ-a7-b4G" id="LCn-eI-UkE"/>
                             </connections>
                         </textField>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="u8d-xV-vFa">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="ULQ-a7-b4G" id="a02-Pn-6B4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchButton" destination="dOC-FT-U9N" id="7Gr-cN-Byx"/>
@@ -508,6 +520,7 @@
     <resources>
         <image name="back" width="22" height="22"/>
         <image name="default" width="600" height="450"/>
+        <image name="delete-ingredient" width="100" height="100"/>
         <image name="forward" width="22" height="22"/>
         <image name="search-tab-bar" width="25" height="25"/>
         <image name="star" width="104" height="104"/>

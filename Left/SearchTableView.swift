@@ -22,8 +22,10 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView(frame: CGRectZero)
+        
         textField.placeholder = textFieldPlaceholder
         textField.tintColor = UIColor.blackColor()
+        textField.delegate = self
         
         searchButtonEnabled()
         
@@ -41,18 +43,7 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
     // MARK: IBAction
     
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
-        if let ingredient = textField.text {
-            let trimmedIngredient = ingredient.trim()
-            if !trimmedIngredient.isEmpty {
-                print(trimmedIngredient)
-                self.ingredients.append(trimmedIngredient)
-                self.tableView.reloadData()
-                self.textField.text = ""
-                self.textField.placeholder = textFieldPlaceholder
-                dismissKeyboard()
-                searchButtonEnabled()
-            }
-        }
+        addIngreditent()
     }
     
     @IBAction func searchButtonPressed(sender: UIButton) {
@@ -80,6 +71,15 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
         }
     }
     
+    // MARK: Text Field Delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        addIngreditent()
+        return true
+    }
+    
+    
     // MARK: Helper
     
     func dismissKeyboard() {
@@ -94,6 +94,20 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
         } else {
             searchButton.enabled = false
             searchButton.backgroundColor = UIColor.lightGrayColor()
+        }
+    }
+    
+    func addIngreditent() {
+        if let ingredient = textField.text {
+            let trimmedIngredient = ingredient.trim()
+            if !trimmedIngredient.isEmpty {
+                self.ingredients.append(trimmedIngredient)
+                self.tableView.reloadData()
+                self.textField.text = ""
+                self.textField.placeholder = textFieldPlaceholder
+                dismissKeyboard()
+                searchButtonEnabled()
+            }
         }
     }
 }

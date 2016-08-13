@@ -14,22 +14,23 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     
+    private let favoritesManager = FavoritesManager.sharedInstance
     let hud = MBProgressHUD()
-    var url: String!
+    var recipe: RecipeItem!
+    var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // NOTE: saveButton visible when coming from Results but not from Favorites
+        if let saveButton = self.navigationItem.rightBarButtonItem {
+            saveButton.target = self
+            saveButton.action = #selector(RecipeWebView.saveButtonPressed(_:))
+        }
+        
         // Add activity indicator
         self.view.addSubview(hud)
         openUrl()
-    }
-    
-    func openUrl() {
-        hud.show(true)
-        let url = NSURL(string: (self.url))
-        let requesObj = NSURLRequest(URL: url!)
-        webView.loadRequest(requesObj)
     }
     
     @IBAction func refresh(sender: UIBarButtonItem) {
@@ -52,14 +53,18 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
         showActivityViewController()
     }
     
-    func webViewDidStartLoad(webView: UIWebView) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-    }
-    
     func webViewDidFinishLoad(webView: UIWebView) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         hud.hide(true)
         updateNavButtons()
+    }
+    
+    // MARK: Helper
+    
+    func openUrl() {
+        hud.show(true)
+        let url = NSURL(string: (self.recipe.url))
+        let requesObj = NSURLRequest(URL: url!)
+        webView.loadRequest(requesObj)
     }
     
     func updateNavButtons() {
@@ -74,6 +79,12 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
             forwardButton.enabled = false
         }
     }
+    
+    func saveButtonPressed(sender: UIBarButtonItem!) {
+        favoritesManager.addRecipe(self.recipe)
+    }
+    
+    // MARK: Safari Activity
     
     func showActivityViewController() {
         var activityItems: [AnyObject] = ["I found this recipe on Left app "]

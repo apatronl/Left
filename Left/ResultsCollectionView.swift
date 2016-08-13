@@ -1,5 +1,5 @@
 //
-//  RecipeCollection.swift
+//  ResultsCollectionView.swift
 //  Left
 //
 //  Created by Alejandrina Patron on 7/22/16.
@@ -199,7 +199,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     func openRecipeUrl(sender: UITapGestureRecognizer) {
         let cell = sender.view?.superview?.superview as! RecipeCollectionCell
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RecipeWebView") as! RecipeWebView
-        webView.url = cell.recipe.url
+        webView.recipe = cell.recipe
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .Plain, target: self, action: nil)
         webView.navigationItem.title = cell.recipe.name

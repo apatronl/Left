@@ -10,7 +10,7 @@ extension String {
     
     func verifyRecipeName() -> String {
         var verifiedString = self
-        verifiedString = verifiedString.stringByReplacingOccurrencesOfString("&amp", withString: "&")
+        verifiedString = verifiedString.stringByReplacingOccurrencesOfString("&amp;", withString: "&")
         verifiedString = verifiedString.stringByReplacingOccurrencesOfString("&#8217;", withString: "'")
         verifiedString = verifiedString.stringByReplacingOccurrencesOfString("&#8482;", withString: "®")
         verifiedString = verifiedString.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")

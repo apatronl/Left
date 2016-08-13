@@ -13,8 +13,7 @@ class FavoritesManager {
     // Singleton
     static let sharedInstance = FavoritesManager()
     
-    // TODO: make this var private once update is ready, rely on helper methods for access
-    var favoriteRecipes = [RecipeItem]()
+    private var favoriteRecipes = [RecipeItem]()
     
     func addRecipe(recipe: RecipeItem) {
         favoriteRecipes.append(recipe)
