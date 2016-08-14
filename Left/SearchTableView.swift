@@ -60,15 +60,12 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
         -> UITableViewCell {
             let cell  = tableView.dequeueReusableCellWithIdentifier("ingredientCell") as! IngredientCell
             cell.ingredient = ingredients[indexPath.row]
+            
+            // Handle delete button action
+            cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
+            cell.deleteButton.addTarget(self, action: #selector(SearchTableView.deleteIngredient(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            
             return cell
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            ingredients.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-            searchButtonEnabled()
-        }
     }
     
     // MARK: Text Field Delegate
@@ -110,6 +107,13 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
             }
         }
     }
+    
+    func deleteIngredient(sender: UIButton) {
+        let index: Int = (sender.layer.valueForKey("index")) as! Int
+        ingredients.removeAtIndex(index)
+        tableView.reloadData()
+        searchButtonEnabled()
+    }
 }
 
 // MARK: UITableViewCell
@@ -117,6 +121,7 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
 class IngredientCell: UITableViewCell {
     
     @IBOutlet weak var ingredientLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var ingredient: String! {
         didSet {
