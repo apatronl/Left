@@ -9,8 +9,6 @@
 import UIKit
 
 class NavViewController: UINavigationController {
-    
-    let toastColor: UIColor = UIColor(red: 153.0/255.0, green: 51.0/255.0, blue:255.0/255.0, alpha: 0.8)
 
     override func viewDidLoad() {
         UINavigationBar.appearance().barTintColor = UIColor.LeftColor()

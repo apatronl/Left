@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
-class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegate {
+class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -20,6 +21,9 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
     // TODO: Add "What do you have Left today?" when table is empty
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
@@ -74,6 +78,18 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
         textField.resignFirstResponder()
         addIngreditent()
         return true
+    }
+    
+    // MARK: DZNEMptyDataSet Delegate
+    
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "placeholder-search")
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let message = "What do you have Left today?"
+        let attribute = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 22.0)!]
+        return NSAttributedString(string: message, attributes: attribute)
     }
     
     

@@ -2,6 +2,7 @@ PODS:
   - Alamofire (3.4.1)
   - AlamofireNetworkActivityIndicator (1.0.1):
     - Alamofire (~> 3.3)
+  - DZNEmptyDataSet (1.8.1)
   - Nuke (3.1.3)
   - SwiftyJSON (2.3.2)
   - UIScrollView-InfiniteScroll (0.9.1)
@@ -9,6 +10,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - AlamofireNetworkActivityIndicator (~> 1.0)
+  - DZNEmptyDataSet
   - Nuke
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - UIScrollView-InfiniteScroll
@@ -25,10 +27,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   AlamofireNetworkActivityIndicator: 49a6e39afb947136f7b1872bae2d684957c26697
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Nuke: d951142c7499e18f242e59ae7fb95a021a2a4974
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UIScrollView-InfiniteScroll: 14e204c50ca4040467e1cbfa141dad7a18919b56
 
-PODFILE CHECKSUM: f9b8a1d9e629672fc9a1154d09c8c1298cccb32f
+PODFILE CHECKSUM: ec4e0352f92cb8071b5a70c2d5bdcc8dbd4f7a6a
 
 COCOAPODS: 1.0.0.beta.6

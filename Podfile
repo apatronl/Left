@@ -7,4 +7,5 @@ target 'Left' do
 	pod 'AlamofireNetworkActivityIndicator', '~> 1.0'
 	pod 'UIScrollView-InfiniteScroll'
 	pod ‘Nuke’
+	pod 'DZNEmptyDataSet'
 end
