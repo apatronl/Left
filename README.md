@@ -8,8 +8,8 @@ Left is an iOS app that lets you search for recipes that use the ingredients you
 - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) for JSON parsing.
 
 <p align="center">
-<img src="left3.png" width="350"/>
-<img src="left4.png" width="350"/>
+<img src="left1.png" width="350"/>
+<img src="left2.png" width="350"/>
 </p>
 
 # License
