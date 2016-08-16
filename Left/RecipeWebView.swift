@@ -53,6 +53,10 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
         showActivityViewController()
     }
     
+    func webViewDidStartLoad(webView: UIWebView) {
+        hud.show(true)
+    }
+    
     func webViewDidFinishLoad(webView: UIWebView) {
         hud.hide(true)
         updateNavButtons()
@@ -61,7 +65,6 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     // MARK: Helper
     
     func openUrl() {
-        hud.show(true)
         let url = NSURL(string: (self.recipe.url))
         let requesObj = NSURLRequest(URL: url!)
         webView.loadRequest(requesObj)
@@ -99,5 +102,3 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     }
     
 }
-
-

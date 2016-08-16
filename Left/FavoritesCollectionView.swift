@@ -76,7 +76,6 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         let index: Int = (sender.layer.valueForKey("index")) as! Int
         favoritesManager.deleteRecipeAtIndex(index)
         collectionView.reloadData()
-        print("delete! \(index)")
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {
