@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyDrop
 
 class RecipeWebView: UIViewController, UIWebViewDelegate {
 
@@ -85,6 +86,7 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     
     func saveButtonPressed(sender: UIBarButtonItem!) {
         favoritesManager.addRecipe(self.recipe)
+        Drop.down("Added to your favorites ⭐", state: Custom.Left)
     }
     
     // MARK: Safari Activity

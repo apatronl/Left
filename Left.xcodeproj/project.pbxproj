@@ -236,6 +236,7 @@
 		EDB8198B1D53F08E00B8C8EA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				ED55E2461C8A490D0079E254 /* FavoritesManager.swift */,
 				EDDF76681D5456360050674B /* RecipesLoader.swift */,
 				EDA1D0F61D52C8B60024BC6A /* Food2ForkService.swift */,
 				EDA1D0F81D52C9200024BC6A /* JSONParser.swift */,
@@ -249,7 +250,6 @@
 				EDA1D0FA1D52DF7B0024BC6A /* FavoritesCollectionView.swift */,
 				ED204FB81D42D52E00299F99 /* ResultsCollectionView.swift */,
 				EDB819891D53EB7400B8C8EA /* RecipeWebView.swift */,
-				ED55E2461C8A490D0079E254 /* FavoritesManager.swift */,
 				ED2391E51D561A7400ADF649 /* SearchTableView.swift */,
 			);
 			name = "View Controller";

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Ale Patrón. All rights reserved.
 //
 
-//import UIKit
+import SwiftyDrop
 
 extension UIViewController {
     
@@ -46,4 +46,30 @@ enum AlertType {
     case NoResults
     case SearchFailure
     case AtLeastOneIngredient
+}
+
+// MARK: Custom SwiftyDrop
+
+enum Custom: DropStatable {
+    case Left
+    var backgroundColor: UIColor? {
+        switch self {
+        case .Left: return UIColor.LeftColor()
+        }
+    }
+    var font: UIFont? {
+        switch self {
+        case .Left: return UIFont(name: "HelveticaNeue", size: 16.0)
+        }
+    }
+    var textColor: UIColor? {
+        switch self {
+        case .Left: return .whiteColor()
+        }
+    }
+    var blurEffect: UIBlurEffect? {
+        switch self {
+        case .Left: return nil
+        }
+    }
 }

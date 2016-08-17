@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Nuke
+import SwiftyDrop
 
 class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -194,6 +195,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         let index: Int = (sender.layer.valueForKey("index")) as! Int
         let recipe = recipes[index]
         favoritesManager.addRecipe(recipe)
+        Drop.down("Added to your favorites ⭐", state: Custom.Left)
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {
