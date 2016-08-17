@@ -13,7 +13,6 @@
 		ED204FBD1D42DA1C00299F99 /* FavoriteRecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED204FBC1D42DA1C00299F99 /* FavoriteRecipeCollectionCell.swift */; };
 		ED2391E61D561A7400ADF649 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2391E51D561A7400ADF649 /* SearchTableView.swift */; };
 		ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55E2461C8A490D0079E254 /* FavoritesManager.swift */; };
-		ED7A9F031D01FFFA007B9DFF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7A9F021D01FFFA007B9DFF /* MBProgressHUD.m */; };
 		ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399A1BAC9D40009487B5 /* AppDelegate.swift */; };
 		ED8039A21BAC9D40009487B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED8039A01BAC9D40009487B5 /* Main.storyboard */; };
 		ED8039A41BAC9D40009487B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8039A31BAC9D40009487B5 /* Assets.xcassets */; };
@@ -83,8 +82,6 @@
 		ED2391E51D561A7400ADF649 /* SearchTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		ED55E2461C8A490D0079E254 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		ED7A9F011D01FFF9007B9DFF /* Left-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Left-Bridging-Header.h"; sourceTree = "<group>"; };
-		ED7A9F021D01FFFA007B9DFF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		ED7A9F041D020007007B9DFF /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		ED7F2F7D1CB854BB00BCD86A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		ED8039971BAC9D40009487B5 /* Left.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Left.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED80399A1BAC9D40009487B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -266,8 +263,6 @@
 		EDC974391C94D331000C1C24 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				ED7A9F041D020007007B9DFF /* MBProgressHUD.h */,
-				ED7A9F021D01FFFA007B9DFF /* MBProgressHUD.m */,
 				EDA5D5AE1CC0735400417A28 /* SafariActivity.swift */,
 				EDB9B6901BB0596500B88EBF /* NavViewController.swift */,
 				ED80399A1BAC9D40009487B5 /* AppDelegate.swift */,
@@ -500,7 +495,6 @@
 				EDDF766E1D5456F20050674B /* UIViewController.swift in Sources */,
 				EDDF76691D5456360050674B /* RecipesLoader.swift in Sources */,
 				ED2391E61D561A7400ADF649 /* SearchTableView.swift in Sources */,
-				ED7A9F031D01FFFA007B9DFF /* MBProgressHUD.m in Sources */,
 				ED204FB91D42D52E00299F99 /* ResultsCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,6 +31,11 @@
                                 <view key="backgroundView" contentMode="scaleToFill" id="p9p-FT-4c0">
                                     <rect key="frame" x="0.0" y="-64" width="600" height="551"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ljd-W4-MtF">
+                                            <rect key="frame" x="290" y="458" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <cells>
@@ -98,14 +103,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ljd-W4-MtF" firstAttribute="centerX" secondItem="c1B-yx-dmH" secondAttribute="centerX" id="CUK-9a-Ugg"/>
                             <constraint firstItem="VWb-ao-Xlq" firstAttribute="width" secondItem="c1B-yx-dmH" secondAttribute="width" id="JXu-t7-x7a"/>
                             <constraint firstItem="VWb-ao-Xlq" firstAttribute="centerX" secondItem="c1B-yx-dmH" secondAttribute="centerX" id="L72-BE-zqQ"/>
+                            <constraint firstItem="Ljd-W4-MtF" firstAttribute="centerY" secondItem="c1B-yx-dmH" secondAttribute="centerY" id="a1Q-gu-7ef"/>
                             <constraint firstItem="VWb-ao-Xlq" firstAttribute="height" secondItem="c1B-yx-dmH" secondAttribute="height" id="df8-BX-gvf"/>
                             <constraint firstItem="VWb-ao-Xlq" firstAttribute="centerY" secondItem="c1B-yx-dmH" secondAttribute="centerY" id="kTF-bl-ymH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xGH-zb-Urs"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Ljd-W4-MtF" id="V0G-iG-p8p"/>
                         <outlet property="collectionView" destination="VWb-ao-Xlq" id="bG1-iu-UwT"/>
                     </connections>
                 </viewController>
@@ -351,14 +359,14 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hEW-D8-cX2"/>
-                                    <barButtonItem image="back" id="ZTe-Dy-CW8">
+                                    <barButtonItem enabled="NO" image="back" id="ZTe-Dy-CW8">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="back:" destination="G6I-YQ-xxW" id="y5U-0Z-GDF"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Qe4-g1-Vdx"/>
-                                    <barButtonItem image="forward" id="PCs-b4-R5O">
+                                    <barButtonItem enabled="NO" image="forward" id="PCs-b4-R5O">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="forward:" destination="G6I-YQ-xxW" id="VQu-9U-0Ny"/>
@@ -373,19 +381,25 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JvA-Xg-akh">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="width" secondItem="DJ2-aZ-Gii" secondAttribute="width" id="3rk-yK-rbg"/>
+                            <constraint firstItem="JvA-Xg-akh" firstAttribute="centerX" secondItem="DJ2-aZ-Gii" secondAttribute="centerX" id="EbR-g1-ers"/>
                             <constraint firstItem="VoR-R9-rv9" firstAttribute="top" secondItem="rYc-Kb-PcF" secondAttribute="bottom" id="OEo-Lp-dyC"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="trailing" secondItem="rYc-Kb-PcF" secondAttribute="trailing" id="dSQ-gj-0bi"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="centerX" secondItem="DJ2-aZ-Gii" secondAttribute="centerX" id="fhF-nn-1N7"/>
+                            <constraint firstItem="JvA-Xg-akh" firstAttribute="centerY" secondItem="DJ2-aZ-Gii" secondAttribute="centerY" id="hhE-mH-KYP"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="bottom" secondItem="rYc-Kb-PcF" secondAttribute="top" id="iyI-yP-khT"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="leading" secondItem="rYc-Kb-PcF" secondAttribute="leading" id="pLb-aV-GIj"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="top" secondItem="DJ2-aZ-Gii" secondAttribute="top" id="q4u-V8-Tjd"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="JvA-Xg-akh" id="t51-nD-ASO"/>
                         <outlet property="backButton" destination="ZTe-Dy-CW8" id="dmh-43-xyJ"/>
                         <outlet property="forwardButton" destination="PCs-b4-R5O" id="hAe-Oe-6hU"/>
                         <outlet property="webView" destination="lQc-40-eRy" id="Cq6-gj-8z1"/>

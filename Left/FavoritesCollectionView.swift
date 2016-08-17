@@ -54,7 +54,6 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         if height > 250 {
             height = (UIScreen.mainScreen().bounds.width / 3) - 15
         }
-        
         return CGSizeMake(height, height)
     }
     

@@ -15,11 +15,11 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let favoritesManager = FavoritesManager.sharedInstance
     private var recipesLoader: RecipesLoader?
     private var recipes = [RecipeItem]()
-    let hud = MBProgressHUD()
     var ingredients = [String]()
     var addButton: UIBarButtonItem!
     var manager = Nuke.ImageManager.shared
@@ -40,9 +40,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
                 }
             }
         }
-        
-        // Add activity indicator
-        self.view.addSubview(hud)
+        activityIndicator.hidesWhenStopped = true
         
         var ingredientsString = ""
         for ingredient in ingredients {
@@ -97,7 +95,6 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         if height > 250 {
             height = (UIScreen.mainScreen().bounds.width / 3) - 15
         }
-        
         return CGSizeMake(height, height)
     }
     
@@ -121,7 +118,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     // MARK: Helper
     
     func loadRecipes(ingredients: String) {
-        hud.show(true)
+        activityIndicator.startAnimating()
         recipesLoader = RecipesLoader(ingredients: ingredients)
         recipesLoader!.load(completion: { recipes, error in
             if let error = error {
@@ -141,7 +138,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
                 self.collectionView.reloadData()
                 self.navigationItem.title = "Results"
             }
-            self.hud.hide(true)
+            self.activityIndicator.stopAnimating()
         })
     }
     

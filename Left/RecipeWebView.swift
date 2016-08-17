@@ -14,9 +14,9 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let favoritesManager = FavoritesManager.sharedInstance
-    let hud = MBProgressHUD()
     var recipe: RecipeItem!
     var saveButton: UIBarButtonItem!
     
@@ -28,9 +28,7 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
             saveButton.target = self
             saveButton.action = #selector(RecipeWebView.saveButtonPressed(_:))
         }
-        
-        // Add activity indicator
-        self.view.addSubview(hud)
+        activityIndicator.hidesWhenStopped = true
         openUrl()
     }
     
@@ -55,11 +53,11 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
-        hud.show(true)
+        activityIndicator.startAnimating()
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        hud.hide(true)
+        activityIndicator.stopAnimating()
         updateNavButtons()
     }
     

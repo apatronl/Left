@@ -9,7 +9,6 @@
 #ifndef BridgingHeader_h
 #define BridgingHeader_h
 
-#import "MBProgressHUD.h"
 #import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 

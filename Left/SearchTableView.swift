@@ -18,7 +18,6 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
     private let textFieldPlaceholder = "Type an ingredient and press +"
     private var ingredients = [String]()
     
-    // TODO: Add "What do you have Left today?" when table is empty
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +27,7 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
         textField.placeholder = textFieldPlaceholder
-        textField.tintColor = UIColor.blackColor()
+        textField.tintColor = UIColor.LeftColor()
         textField.delegate = self
         
         searchButtonEnabled()
