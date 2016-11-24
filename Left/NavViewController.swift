@@ -15,7 +15,6 @@ class NavViewController: UINavigationController {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
         
-        //UITabBar.appearance().backgroundColor = myNavBarColor
         UITabBar.appearance().tintColor = UIColor.LeftColor()
         
         super.viewDidLoad()
@@ -23,9 +22,9 @@ class NavViewController: UINavigationController {
         // Do any additional setup after loading the view.
     }
     
-//    override func  preferredStatusBarStyle()-> UIStatusBarStyle {
-//        return UIStatusBarStyle.lightContent
-//    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

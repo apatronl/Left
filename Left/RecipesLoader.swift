@@ -23,7 +23,7 @@ class RecipesLoader {
         if isLoading {
             return
         }
-        Food2ForkService.recipesForIngredients(ingredients: self.ingredients, page: page, completion: completion as! ([RecipeItem], Error?) -> ())
+        Food2ForkService.recipesForIngredients(ingredients: self.ingredients, page: page, completion: completion)
         
     }
     func loadMore(completion: @escaping ([RecipeItem], Error?) -> ()) {

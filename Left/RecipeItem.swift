@@ -19,7 +19,7 @@ class RecipeItem: NSObject {
     let photoKey = "photo"
     let urlKey = "url"
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    func encodeWithCoder(_ aCoder: NSCoder) {
         aCoder.encode(name, forKey: nameKey)
         if let thePhoto = photo {
             aCoder.encode(thePhoto, forKey: photoKey)
