@@ -16,7 +16,7 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private let favoritesManager = FavoritesManager.sharedInstance
+    let favoritesManager = FavoritesManager.sharedInstance
     var recipe: RecipeItem!
     var saveButton: UIBarButtonItem!
     
@@ -26,7 +26,7 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
         // NOTE: saveButton visible when coming from Results but not from Favorites
         if let saveButton = self.navigationItem.rightBarButtonItem {
             saveButton.target = self
-            saveButton.action = #selector(RecipeWebView.saveButtonPressed(_:))
+            saveButton.action = #selector(RecipeWebView.saveButtonPressed(sender:))
         }
         activityIndicator.hidesWhenStopped = true
         openUrl()
@@ -52,11 +52,11 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
         showActivityViewController()
     }
     
-    func webViewDidStartLoad(webView: UIWebView) {
+    func webViewDidStartLoad(_ webView: UIWebView) {
         activityIndicator.startAnimating()
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         activityIndicator.stopAnimating()
         updateNavButtons()
     }
@@ -65,40 +65,40 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     
     func openUrl() {
         let url = NSURL(string: (self.recipe.url))
-        let requesObj = NSURLRequest(URL: url!)
-        webView.loadRequest(requesObj)
+        let requesObj = NSURLRequest(url: url! as URL)
+        webView.loadRequest(requesObj as URLRequest)
     }
     
     func updateNavButtons() {
         if (webView.canGoBack) {
-            backButton.enabled = true
+            backButton.isEnabled = true
         } else {
-            backButton.enabled = false
+            backButton.isEnabled = false
         }
         if (webView.canGoForward) {
-            forwardButton.enabled = true
+            forwardButton.isEnabled = true
         } else {
-            forwardButton.enabled = false
+            forwardButton.isEnabled = false
         }
     }
     
     func saveButtonPressed(sender: UIBarButtonItem!) {
-        favoritesManager.addRecipe(self.recipe)
+        favoritesManager.addRecipe(recipe: self.recipe)
         Drop.down("Added to your favorites ⭐", state: Custom.Left)
     }
     
     // MARK: Safari Activity
     
     func showActivityViewController() {
-        var activityItems: [AnyObject] = ["I found this recipe on Left app "]
+        var activityItems: [AnyObject] = ["I found this recipe on Left app " as AnyObject]
         var activities: [UIActivity] = []
-        if let url = webView.request?.URL {
-            activityItems.append(url)
+        if let url = webView.request?.url {
+            activityItems.append(url as AnyObject)
             activities.append(SafariActivity())
         }
         let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: activities)
         activityViewController.view.tintColor = UIColor.LeftColor()
-        presentViewController(activityViewController, animated: true, completion: {})
+        present(activityViewController, animated: true, completion: {})
     }
     
 }

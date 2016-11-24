@@ -12,19 +12,19 @@ class SafariActivity : UIActivity {
     
     var URL: NSURL?
     
-    override func activityType() -> String? {
-        return NSStringFromClass(SafariActivity)
+    override var activityType: UIActivityType? {
+        return UIActivityType(rawValue: NSStringFromClass(SafariActivity.self))
     }
     
-    override func activityTitle() -> String? {
+    override var activityTitle: String? {
         return "Open in Safari"
     }
     
-    override func activityImage() -> UIImage? {
+    override var activityImage: UIImage? {
         return UIImage(named: "safari-activity")
     }
     
-    override func prepareWithActivityItems(activityItems: [AnyObject]) {
+    override func prepare(withActivityItems activityItems: [Any]) {
         for item in activityItems {
             if let item = item as? NSURL {
                 URL = item
@@ -32,7 +32,7 @@ class SafariActivity : UIActivity {
         }
     }
     
-    override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
+    override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
         for item in activityItems {
             if let _ = item as? NSURL {
                 return true
@@ -41,9 +41,9 @@ class SafariActivity : UIActivity {
         return false
     }
     
-    override func performActivity() {
+    override func perform() {
         if let URL = URL {
-            UIApplication.sharedApplication().openURL(URL)
+            UIApplication.shared.openURL(URL as URL)
         }
     }
     

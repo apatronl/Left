@@ -9,22 +9,23 @@
 import UIKit
 import DZNEmptyDataSet
 
-class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class SearchTableView: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchButton: UIButton!
     
-    private let textFieldPlaceholder = "Type an ingredient and press +"
-    private var ingredients = [String]()
+    let textFieldPlaceholder = "Type an ingredient and press +"
+    var ingredients = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
+        self.tableView.dataSource = self
         
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         textField.placeholder = textFieldPlaceholder
         textField.tintColor = UIColor.LeftColor()
@@ -36,58 +37,56 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
         self.view.addGestureRecognizer(tap)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "resultsSegue" {
-            let destinationVC = segue.destinationViewController as! ResultsCollectionView
+            let destinationVC = segue.destination as! ResultsCollectionView
             destinationVC.ingredients = ingredients
         }
     }
     
     // MARK: IBAction
     
-    @IBAction func addButtonPressed(sender: UIBarButtonItem) {
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         addIngreditent()
     }
     
-    @IBAction func searchButtonPressed(sender: UIButton) {
-        performSegueWithIdentifier("resultsSegue", sender: sender)
+    @IBAction func searchButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "resultsSegue", sender: sender)
     }
     
     // MARK: Table View Delegate
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
-        -> UITableViewCell {
-            let cell  = tableView.dequeueReusableCellWithIdentifier("ingredientCell") as! IngredientCell
-            cell.ingredient = ingredients[indexPath.row]
-            
-            // Handle delete button action
-            cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
-            cell.deleteButton.addTarget(self, action: #selector(SearchTableView.deleteIngredient(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-            
-            return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "ingredientCell") as! IngredientCell
+        cell.ingredient = ingredients[indexPath.row]
+        
+        // Handle delete button action
+        cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
+        cell.deleteButton.addTarget(self, action: #selector(SearchTableView.deleteIngredient(sender:)), for: UIControlEvents.touchUpInside)
+        
+        return cell
     }
     
     // MARK: Text Field Delegate
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         addIngreditent()
         return true
     }
     
     // MARK: DZNEMptyDataSet Delegate
-    
-    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "placeholder-search")
     }
     
-    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let message = "What do you have Left today?"
-        let attribute = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 22.0)!]
+        let attribute = [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 22.0)!]
         return NSAttributedString(string: message, attributes: attribute)
     }
     
@@ -101,11 +100,11 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
     
     func searchButtonEnabled() {
         if ingredients.count > 0 {
-            searchButton.enabled = true
+            searchButton.isEnabled = true
             searchButton.backgroundColor = UIColor.LeftColor()
         } else {
-            searchButton.enabled = false
-            searchButton.backgroundColor = UIColor.lightGrayColor()
+            searchButton.isEnabled = false
+            searchButton.backgroundColor = UIColor.lightGray
         }
     }
     
@@ -124,8 +123,8 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITextFieldDelegat
     }
     
     func deleteIngredient(sender: UIButton) {
-        let index: Int = (sender.layer.valueForKey("index")) as! Int
-        ingredients.removeAtIndex(index)
+        let index: Int = (sender.layer.value(forKey: "index")) as! Int
+        ingredients.remove(at: index)
         tableView.reloadData()
         searchButtonEnabled()
     }

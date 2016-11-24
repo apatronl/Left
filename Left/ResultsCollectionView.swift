@@ -17,18 +17,18 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private let favoritesManager = FavoritesManager.sharedInstance
+    let favoritesManager = FavoritesManager.sharedInstance
     private var recipesLoader: RecipesLoader?
     private var recipes = [RecipeItem]()
     var ingredients = [String]()
     var addButton: UIBarButtonItem!
-    var manager = Nuke.ImageManager.shared
+    var manager = Nuke.Manager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Add infinite scroll handler
-        collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
+        collectionView?.addInfiniteScroll { [weak self] (scrollView) -> Void in
             if let loader = self?.recipesLoader {
                 if loader.hasMoreRecipes() {
                     self?.loadMoreRecipes() {
@@ -46,25 +46,25 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         for ingredient in ingredients {
             ingredientsString += ingredient + ","
         }
-        loadRecipes(ingredientsString)
+        loadRecipes(ingredients: ingredientsString)
     }
     
     // MARK: Collection View Delegate
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recipes.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RecipeCell", forIndexPath: indexPath) as! RecipeCollectionCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath as IndexPath) as! RecipeCollectionCell
         
         let recipe = recipes[indexPath.row]
         cell.recipe = recipe
         
         // Handle delete button action
         cell.favoriteButton.layer.setValue(indexPath.row, forKey: "index")
-        cell.favoriteButton.addTarget(self, action: #selector(ResultsCollectionView.saveRecipe(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-
+        cell.favoriteButton.addTarget(self, action: #selector(ResultsCollectionView.saveRecipe(sender:)), for: UIControlEvents.touchUpInside)
+        
         // Handle label tap action
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(ResultsCollectionView.openRecipeUrl))
         labelTap.numberOfTapsRequired = 1
@@ -76,7 +76,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         cell.recipePhoto.addGestureRecognizer(photoTap)
         
         if recipe.photo == nil {
-            recipe.photoUrl!.urlToImg({ recipePhoto in
+            recipe.photoUrl!.urlToImg(completion: { recipePhoto in
                 if let photo = recipePhoto {
                     recipe.photo = photo
                 } else {
@@ -84,34 +84,36 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
                 }
             })
             let imageView = cell.recipePhoto
-            imageView.nk_setImageWith(NSURL(string: recipe.photoUrl!)!)
+            let request = Request(url: URL(string: recipe.photoUrl!)!)
+            manager.loadImage(with: request, into: imageView!)
         }
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var height = (UIScreen.mainScreen().bounds.width / 2) - 15
+        var height = (UIScreen.main.bounds.width / 2) - 15
         if height > 250 {
-            height = (UIScreen.mainScreen().bounds.width / 3) - 15
+            height = (UIScreen.main.bounds.width / 3) - 15
         }
-        return CGSizeMake(height, height)
+        return CGSize(width: height, height: height)
     }
     
-    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let recipeCell = cell as! RecipeCollectionCell
-        recipeCell.recipePhoto.nk_cancelLoading()
+        //recipeCell.recipePhoto.nk_cancelLoading()
+        manager.cancelRequest(for: recipeCell.recipePhoto)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(10, 10, 10, 10)
     }
     
@@ -122,17 +124,17 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         recipesLoader = RecipesLoader(ingredients: ingredients)
         recipesLoader!.load(completion: { recipes, error in
             if let error = error {
-                self.showAlert(.SearchFailure)
+                self.showAlert(alertType: .SearchFailure)
                 self.navigationItem.title = "Error"
                 print("Error! " + error.localizedDescription)
             } else if (recipes.count == 0) {
-                self.showAlert(.NoResults)
-                self.recipesLoader!.setHasMore(false)
+                self.showAlert(alertType: .NoResults)
+                self.recipesLoader!.setHasMore(hasMore: false)
                 self.navigationItem.title = "No Results"
             } else {
                 // Food2Fork returns at most 30 recipes on each page
                 if (recipes.count < 30) {
-                    self.recipesLoader!.setHasMore(false)
+                    self.recipesLoader!.setHasMore(hasMore: false)
                 }
                 self.recipes = recipes
                 self.collectionView.reloadData()
@@ -142,65 +144,64 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         })
     }
     
-    private func loadMoreRecipes(handler: (Void -> Void)?) {
+    private func loadMoreRecipes(handler: ((Void) -> Void)?) {
         if let loader = recipesLoader {
-            loader.loadMore({ recipes, error in
+            loader.loadMore(completion: { recipes, error in
                 if let error = error {
-                    self.handleResponse(nil, error: error, completion: handler)
+                    self.handleResponse(data: nil, error: error, completion: handler)
                 } else {
-                    self.handleResponse(recipes, error: nil, completion: handler)
+                    self.handleResponse(data: recipes, error: nil, completion: handler)
                 }
             })
         }
     }
     
     // Handle response when loading more recipes with infinite scroll
-    private func handleResponse(data: [RecipeItem]?, error: NSError?, completion: (Void -> Void)?) {
+    private func handleResponse(data: [RecipeItem]?, error: Error?, completion: ((Void) -> Void)?) {
         if let _ = error {
             completion?()
             return
         }
         
         if (data!.count == 0) {
-            self.recipesLoader?.setHasMore(false)
+            self.recipesLoader?.setHasMore(hasMore: false)
             completion?()
             return
         }
         
         // Food2Fork returns at most 30 recipes on each page
         if (data!.count < 30) {
-            self.recipesLoader?.setHasMore(false)
+            self.recipesLoader?.setHasMore(hasMore: false)
         }
         
         var indexPaths = [NSIndexPath]()
         let firstIndex = recipes.count
-        
-        for (i, recipe) in data!.enumerate() {
-            let indexPath = NSIndexPath(forItem: firstIndex + i, inSection: 0)
+        for (i, recipe) in data!.enumerated() {
+            let indexPath = NSIndexPath(item: firstIndex + i, section: 0)
             recipes.append(recipe)
             indexPaths.append(indexPath)
         }
         
         collectionView?.performBatchUpdates({ () -> Void in
-            self.collectionView?.insertItemsAtIndexPaths(indexPaths)
+            (self.collectionView?.insertItems(at: indexPaths as [IndexPath]))!
             }, completion: { (finished) -> Void in
                 completion?()
         });
     }
     
     func saveRecipe(sender: UIButton) {
-        let index: Int = (sender.layer.valueForKey("index")) as! Int
+        let index: Int = (sender.layer.value(forKey: "index")) as! Int
         let recipe = recipes[index]
-        favoritesManager.addRecipe(recipe)
+        favoritesManager.addRecipe(recipe: recipe)
         Drop.down("Added to your favorites ⭐", state: Custom.Left)
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {
         let cell = sender.view?.superview?.superview as! RecipeCollectionCell
-        let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RecipeWebView") as! RecipeWebView
+        let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as! RecipeWebView
         webView.recipe = cell.recipe
-        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
-        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .Plain, target: self, action: nil)
+        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .plain, target: self, action: nil)
         webView.navigationItem.title = cell.recipe.name
         self.navigationController?.pushViewController(webView, animated: true)
     }

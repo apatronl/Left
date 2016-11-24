@@ -13,22 +13,20 @@ public struct Food2ForkService {
     
     private static let apiKey: String = "570024717057c65d605c4d54f84f2300"
     private static let url: String = "http://food2fork.com/api/search?key=" + apiKey + "&q="
-
-    public static func recipesForIngredients(ingredients: String, page: Int, completion: ([RecipeItem], NSError?) -> ()) {
-        var urlString = url + ingredients + "&page=\(page)" 
-        urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+    
+    static func recipesForIngredients(ingredients: String, page: Int, completion: @escaping ([RecipeItem], Error?) -> ()) {
+        var urlString = url + ingredients + "&page=\(page)"
+        urlString = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         print(urlString)
-        Alamofire.request(.GET, urlString).validate().responseJSON { response in
+        Alamofire.request(urlString).responseJSON { response in
             switch response.result {
-            case .Success :
+            case .success :
                 let result = JSON(response.result.value!)
-                let recipes = JSONParser.parseRecipes(result)
+                let recipes = JSONParser.parseRecipes(data: result)
                 completion(recipes, nil)
-            case .Failure(let error):
+            case .failure(let error):
                 completion([], error)
             }
         }
     }
 }
-
-

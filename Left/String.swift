@@ -10,33 +10,33 @@ extension String {
     
     func verifyRecipeName() -> String {
         var verifiedString = self
-        verifiedString = verifiedString.stringByReplacingOccurrencesOfString("&amp;", withString: "&")
-        verifiedString = verifiedString.stringByReplacingOccurrencesOfString("&#8217;", withString: "'")
-        verifiedString = verifiedString.stringByReplacingOccurrencesOfString("&#8482;", withString: "®")
-        verifiedString = verifiedString.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+        verifiedString = verifiedString.replacingOccurrences(of: "&amp;", with: "&")
+        verifiedString = verifiedString.replacingOccurrences(of: "&#8217;", with: "'")
+        verifiedString = verifiedString.replacingOccurrences(of: "&#8482;", with: "®")
+        verifiedString = verifiedString.replacingOccurrences(of: "&nbsp;", with: " ")
         
         return verifiedString
     }
     
-    func urlToImg(completion: (UIImage?) -> ()) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+    func urlToImg(completion: @escaping (UIImage?) -> ()) {
+        DispatchQueue.global(qos: .background).async {
             let url = NSURL(string: self)
-            if let data = NSData(contentsOfURL: url!) {
-                if let image = UIImage(data: data) {
-                    dispatch_async(dispatch_get_main_queue(), {
+            if let data = NSData(contentsOf: url! as URL) {
+                if let image = UIImage(data: data as Data) {
+                    DispatchQueue.main.async {
                         completion(image)
-                    })
+                    }
                 }
             } else {
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async {
                     completion(nil)
-                })
+                }
             }
-        })
+        }
     }
     
     func trim() -> String {
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
     }
     
 }

@@ -21,7 +21,7 @@ class FavoritesManager {
     }
     
     func deleteRecipeAtIndex(index: Int) {
-        favoriteRecipes.removeAtIndex(index)
+        favoriteRecipes.remove(at: index)
         save()
     }
     
@@ -34,7 +34,7 @@ class FavoritesManager {
     }
     
     func archivePath() -> String? {
-        let directoryList = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let directoryList = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         if let documentsPath = directoryList.first {
             return documentsPath + "/Favorites"
         }
@@ -54,8 +54,8 @@ class FavoritesManager {
     
     func unarchivedSavedItems() {
         if let theArchivePath = archivePath() {
-            if NSFileManager.defaultManager().fileExistsAtPath(theArchivePath) {
-                favoriteRecipes = NSKeyedUnarchiver.unarchiveObjectWithFile(theArchivePath) as! [RecipeItem]
+            if FileManager.default.fileExists(atPath: theArchivePath) {
+                favoriteRecipes = NSKeyedUnarchiver.unarchiveObject(withFile: theArchivePath) as! [RecipeItem]
             }
         }
     }

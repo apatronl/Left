@@ -4,76 +4,94 @@
 
 import Foundation
 
-// MARK: - Convenience
+#if os(macOS)
+    import AppKit.NSImage
+    /// Alias for NSImage
+    public typealias Image = NSImage
+#else
+    import UIKit.UIImage
+    /// Alias for UIImage
+    public typealias Image = UIImage
+#endif
 
-/// Creates a task with a given URL. After you create a task, start it using resume method.
-public func taskWith(URL: NSURL, completion: ImageTaskCompletion? = nil) -> ImageTask {
-    return ImageManager.shared.taskWith(URL, completion: completion)
+/// Loads an image into the given target.
+///
+/// For more info see `loadImage(with:into:)` method of `Manager`.
+public func loadImage(with url: URL, into target: Target) {
+    Manager.shared.loadImage(with: url, into: target)
 }
 
-/// Creates a task with a given request. After you create a task, start it using resume method.
-public func taskWith(request: ImageRequest, completion: ImageTaskCompletion? = nil) -> ImageTask {
-    return ImageManager.shared.taskWith(request, completion: completion)
+/// Loads an image into the given target.
+///
+/// For more info see `loadImage(with:into:)` method of `Manager`.
+public func loadImage(with request: Request, into target: Target) {
+    Manager.shared.loadImage(with: request, into: target)
 }
 
-/**
- Prepares images for the given requests for later use.
-
- When you call this method, `ImageManager` starts to load and cache images for the given requests. `ImageManager` caches images with the exact target size, content mode, and filters. At any time afterward, you can create tasks with equivalent requests.
- */
-public func startPreheatingImages(requests: [ImageRequest]) {
-    ImageManager.shared.startPreheatingImages(requests)
+/// Loads an image and calls the given `handler`. The method itself
+/// **doesn't do** anything when the image is loaded - you have full
+/// control over how to display it, etc.
+///
+/// The handler only gets called if the request is still associated with the
+/// `target` by the time it's completed.
+///
+/// See `loadImage(with:into:)` method for more info.
+public func loadImage(with url: URL, into target: AnyObject, handler: @escaping Manager.Handler) {
+    Manager.shared.loadImage(with: url, into: target, handler: handler)
 }
 
-/// Stop preheating for the given requests. The request parameters should match the parameters used in `startPreheatingImages` method.
-public func stopPreheatingImages(requests: [ImageRequest]) {
-    ImageManager.shared.stopPreheatingImages(requests)
+/// Loads an image and calls the given `handler`.
+///
+/// For more info see `loadImage(with:into:handler:)` method of `Manager`.
+public func loadImage(with request: Request, into target: AnyObject, handler: @escaping Manager.Handler) {
+    Manager.shared.loadImage(with: request, into: target, handler: handler)
 }
 
-/// Stops all preheating tasks.
-public func stopPreheatingImages() {
-    ImageManager.shared.stopPreheatingImages()
+/// Cancels an outstanding request associated with the target.
+public func cancelRequest(for target: AnyObject) {
+    Manager.shared.cancelRequest(for: target)
 }
 
+public extension Manager {
+    /// Shared `Manager` instance.
+    ///
+    /// Shared manager is created with `Loader.shared` and `Cache.shared`.
+    public static var shared = Manager(loader: Loader.shared, cache: Cache.shared)
+}
 
-// MARK: - ImageManager (Convenience)
+public extension Loader {
+    /// Shared `Loading` object.
+    ///
+    /// Shared loader is created with `DataLoader()`, `DataDecoder()` and
+    // `Cache.shared`. The resulting loader is wrapped in a `Deduplicator`.
+    public static var shared: Loading = Deduplicator(loader: Loader(loader: DataLoader(), decoder: DataDecoder(), cache: Cache.shared))
+}
 
-/// Convenience methods for ImageManager.
-public extension ImageManager {
-    /// Creates a task with a given request. For more info see `taskWith(_)` methpd.
-    func taskWith(URL: NSURL, completion: ImageTaskCompletion? = nil) -> ImageTask {
-        return self.taskWith(ImageRequest(URL: URL), completion: completion)
+public extension Cache {
+    /// Shared `Cache` instance.
+    public static var shared = Cache()
+}
+
+internal final class Lock {
+    var mutex = UnsafeMutablePointer<pthread_mutex_t>.allocate(capacity: 1)
+    
+    init() {
+        pthread_mutex_init(mutex, nil)
     }
     
-    /// Creates a task with a given request. For more info see `taskWith(_)` methpd.
-    func taskWith(request: ImageRequest, completion: ImageTaskCompletion?) -> ImageTask {
-        let task = self.taskWith(request)
-        if completion != nil { task.completion(completion!) }
-        return task
+    deinit {
+        pthread_mutex_destroy(mutex)
+        mutex.deinitialize()
+        mutex.deallocate(capacity: 1)
     }
-}
-
-
-// MARK: - ImageManager (Shared)
-
-/// Manages shared ImageManager instance.
-public extension ImageManager {
-    private static var manager = ImageManager()
-    private static var lock = OS_SPINLOCK_INIT
     
-    /// The shared image manager. This property and all other `ImageManager` APIs are thread safe.
-    public class var shared: ImageManager {
-        set {
-            OSSpinLockLock(&lock)
-            manager = newValue
-            OSSpinLockUnlock(&lock)
-        }
-        get {
-            var result: ImageManager
-            OSSpinLockLock(&lock)
-            result = manager
-            OSSpinLockUnlock(&lock)
-            return result
-        }
+    /// In critical places it's better to use lock() and unlock() manually
+    func sync<T>(_ closure: (Void) -> T) -> T {
+        pthread_mutex_lock(mutex)
+        defer { pthread_mutex_unlock(mutex) }
+        return closure()
     }
+    
+    func lock() { pthread_mutex_lock(mutex) }
+    func unlock() { pthread_mutex_unlock(mutex) }
 }

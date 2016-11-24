@@ -29,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PopupDialog.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SwiftyDrop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16A880713D18C5BAE82F2F236E09B76A</key>
+		<key>115FA0D867E07C04838493890DBD8D29</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
+		<key>3E9EB2CF4768F4548F3E209CE656A807</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>228FFC4E78F899B58C33C57F31513A8E</key>
+		<key>4621C3F9BE4863F63014320D83FFE6F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>699D5C7496E1394F574BFD10D1421714</key>
+		<key>636D2349F190F866F5DE2A564FA53AD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A183D848F9C08FFF7B97E9DC2751FD1</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7864B051D67AD732EF246100439C525B</key>
+		<key>9B72E0CDBAB7245D7233A3D60016E7A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<key>B2E810A917626E6EC56DBE5AC15A1308</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F21E8D0CF87BE5407DBB09F1AC3D43F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B43BF8F800157FFF32C3AAF8909F9C41</key>
+		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -11,7 +11,7 @@ import SwiftyJSON
 struct JSONParser {
     
     static func parseRecipes(data: JSON) -> [RecipeItem] {
-        return self.JSONObjectsFromData(data)?.map(self.parseRecipe) ?? []
+        return self.JSONObjectsFromData(data: data)?.map(self.parseRecipe) ?? []
     }
     
     // MARK: Helper

@@ -18,7 +18,7 @@ class FavoriteRecipeCollectionCell: UICollectionViewCell {
     var recipe: RecipeItem! {
         didSet {
             recipeName.text = recipe.name
-            recipePhoto.contentMode = UIViewContentMode.ScaleAspectFill
+            recipePhoto.contentMode = UIViewContentMode.scaleAspectFill
             recipePhoto.clipsToBounds = true
             if recipe.photo != nil {
                 recipePhoto.image = recipe.photo

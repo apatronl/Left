@@ -1,43 +1,31 @@
 PODS:
-  - Alamofire (3.4.1)
-  - AlamofireNetworkActivityIndicator (1.0.1):
-    - Alamofire (~> 3.3)
+  - Alamofire (4.2.0)
+  - AlamofireNetworkActivityIndicator (2.1.0):
+    - Alamofire (~> 4.1)
   - DZNEmptyDataSet (1.8.1)
-  - Nuke (3.1.3)
-  - PopupDialog (0.3.2)
-  - SwiftyDrop (2.4.1)
-  - SwiftyJSON (2.3.2)
+  - Nuke (4.1.2)
+  - SwiftyDrop (3.0.3)
+  - SwiftyJSON (3.1.3)
   - UIScrollView-InfiniteScroll (0.9.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.4)
-  - AlamofireNetworkActivityIndicator (~> 1.0)
+  - Alamofire (~> 4.0)
+  - AlamofireNetworkActivityIndicator (~> 2.0)
   - DZNEmptyDataSet
-  - Nuke
-  - PopupDialog (~> 0.2)
-  - SwiftyDrop (~> 2.0)
-  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - Nuke (~> 4.0)
+  - SwiftyDrop (~> 3.0)
+  - SwiftyJSON
   - UIScrollView-InfiniteScroll
 
-EXTERNAL SOURCES:
-  SwiftyJSON:
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
-
-CHECKOUT OPTIONS:
-  SwiftyJSON:
-    :commit: 73670b94292b8d8496c398a973f56ac67789ba9f
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
-
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  AlamofireNetworkActivityIndicator: 49a6e39afb947136f7b1872bae2d684957c26697
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AlamofireNetworkActivityIndicator: 4716f6554bdfb9c7cf13b1e0e3af21163129690a
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Nuke: d951142c7499e18f242e59ae7fb95a021a2a4974
-  PopupDialog: 8575b6974bfe39be1735011ea3e8c72efc28e9e1
-  SwiftyDrop: 54a30c4edd51be9863429c3ad2ad4108eb7b7814
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Nuke: 7cfd2acdf90c36f66e6ea40795bac0d851a9afe0
+  SwiftyDrop: 785f95aabc26c4d832576bb78dc4ba7d0594a95b
+  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   UIScrollView-InfiniteScroll: 14e204c50ca4040467e1cbfa141dad7a18919b56
 
-PODFILE CHECKSUM: 135649e34990cd4e4e4df3b22482575555ac8bf4
+PODFILE CHECKSUM: 62ca1498b01d9b14899d0aff32d9cfc3d0ccce8e
 
-COCOAPODS: 1.0.0.beta.6
+COCOAPODS: 1.2.0.beta.1

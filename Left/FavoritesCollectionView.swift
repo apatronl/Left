@@ -14,26 +14,26 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
     
     let favoritesManager = FavoritesManager.sharedInstance
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.reloadData()
     }
     
     // MARK: - Collection View Delegate
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return favoritesManager.recipeCount()
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RecipeCell", forIndexPath: indexPath) as! FavoriteRecipeCollectionCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath as IndexPath) as! FavoriteRecipeCollectionCell
         
-        let recipe = favoritesManager.recipeAtIndex(indexPath.row)
+        let recipe = favoritesManager.recipeAtIndex(index: indexPath.row)
         cell.recipe = recipe
         
         // Handle delete button action
         cell.deleteButton?.layer.setValue(indexPath.row, forKey: "index")
-        cell.deleteButton.addTarget(self, action: #selector(FavoritesCollectionView.deleteRecipe), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.deleteButton.addTarget(self, action: #selector(FavoritesCollectionView.deleteRecipe), for: UIControlEvents.touchUpInside)
         
         // Handle label tap action
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(FavoritesCollectionView.openRecipeUrl))
@@ -48,38 +48,38 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var height = (UIScreen.mainScreen().bounds.width / 2) - 15
+        var height = (UIScreen.main.bounds.width / 2) - 15
         if height > 250 {
-            height = (UIScreen.mainScreen().bounds.width / 3) - 15
+            height = (UIScreen.main.bounds.width / 3) - 15
         }
-        return CGSizeMake(height, height)
+        return CGSize(width: height, height: height)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(10, 10, 10, 10)
     }
     
     // MARK: - Helper
     
     func deleteRecipe(sender: UIButton) {
-        let index: Int = (sender.layer.valueForKey("index")) as! Int
-        favoritesManager.deleteRecipeAtIndex(index)
+        let index: Int = (sender.layer.value(forKey: "index")) as! Int
+        favoritesManager.deleteRecipeAtIndex(index: index)
         collectionView.reloadData()
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {
         let cell = sender.view?.superview?.superview as! FavoriteRecipeCollectionCell
-        let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RecipeWebView") as! RecipeWebView
+        let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as! RecipeWebView
         webView.recipe = cell.recipe
         webView.navigationItem.title = cell.recipe.name
         self.navigationController?.pushViewController(webView, animated: true)

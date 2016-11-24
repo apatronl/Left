@@ -19,16 +19,16 @@ class RecipesLoader {
         self.hasMore = true
     }
     
-    func load(page: Int = 1, completion: ([RecipeItem], NSError?) -> ()) {
+    func load(page: Int = 1, completion: @escaping ([RecipeItem], Error?) -> ()) {
         if isLoading {
             return
         }
-        Food2ForkService.recipesForIngredients(self.ingredients, page: page, completion: completion)
+        Food2ForkService.recipesForIngredients(ingredients: self.ingredients, page: page, completion: completion as! ([RecipeItem], Error?) -> ())
+        
     }
-    
-    func loadMore(completion: ([RecipeItem], NSError?) -> ()) {
+    func loadMore(completion: @escaping ([RecipeItem], Error?) -> ()) {
         page += 1
-        load(page, completion: completion)
+        load(page: page, completion: completion)
     }
     
     func hasMoreRecipes() -> Bool {

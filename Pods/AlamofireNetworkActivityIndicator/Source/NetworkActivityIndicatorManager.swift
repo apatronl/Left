@@ -1,53 +1,53 @@
-// NetworkActivityIndicatorManager.swift
 //
-// Copyright (c) 2016 Alamofire Software Foundation (http://alamofire.org/)
+//  NetworkActivityIndicatorManager.swift
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Copyright (c) 2016 Alamofire Software Foundation (http://alamofire.org/)
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
 
 import Alamofire
 import Foundation
 import UIKit
 
-/**
-    The `NetworkActivityIndicatorManager` manages the state of the network activity indicator in the status bar. When
-    enabled, it will listen for notifications indicating that a URL session task has started or completed and start
-    animating the indicator accordingly. The indicator will continue to animate while the internal activity count is
-    greater than zero.
- 
-    To use the `NetworkActivityIndicatorManager`, the `sharedManager` should be enabled in the
-    `application:didFinishLaunchingWithOptions:` method in the `AppDelegate`. This can be done with the following:
- 
-        NetworkActivityIndicatorManager.sharedManager.isEnabled = true
- 
-    By setting the `isEnabled` property to `true` for the `sharedManager`, the network activity indicator will show and
-    hide automatically as Alamofire requests start and complete. You should not ever need to call 
-    `incrementActivityCount` and `decrementActivityCount` yourself.
-*/
+/// The `NetworkActivityIndicatorManager` manages the state of the network activity indicator in the status bar. When
+/// enabled, it will listen for notifications indicating that a URL session task has started or completed and start
+/// animating the indicator accordingly. The indicator will continue to animate while the internal activity count is
+/// greater than zero.
+///
+/// To use the `NetworkActivityIndicatorManager`, the `shared` instance should be enabled in the
+/// `application:didFinishLaunchingWithOptions:` method in the `AppDelegate`. This can be done with the following:
+///
+///     NetworkActivityIndicatorManager.shared.isEnabled = true
+///
+/// By setting the `isEnabled` property to `true` for the `shared` instance, the network activity indicator will show 
+/// and hide automatically as Alamofire requests start and complete. You should not ever need to call
+/// `incrementActivityCount` and `decrementActivityCount` yourself.
 public class NetworkActivityIndicatorManager {
     private enum ActivityIndicatorState {
-        case NotActive, DelayingStart, Active, DelayingCompletion
+        case notActive, delayingStart, active, delayingCompletion
     }
 
     // MARK: - Properties
 
     /// The shared network activity indicator manager for the system.
-    public static let sharedManager = NetworkActivityIndicatorManager()
+    public static let shared = NetworkActivityIndicatorManager()
 
     /// A boolean value indicating whether the manager is enabled. Defaults to `false`.
     public var isEnabled: Bool {
@@ -66,40 +66,38 @@ public class NetworkActivityIndicatorManager {
         didSet {
             guard isNetworkActivityIndicatorVisible != oldValue else { return }
 
-            dispatch_async(dispatch_get_main_queue()) {
-                let app = UIApplication.sharedApplication()
-                app.networkActivityIndicatorVisible = self.isNetworkActivityIndicatorVisible
-
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = self.isNetworkActivityIndicatorVisible
                 self.networkActivityIndicatorVisibilityChanged?(self.isNetworkActivityIndicatorVisible)
             }
         }
     }
 
     /// A closure executed when the network activity indicator visibility changes.
-    public var networkActivityIndicatorVisibilityChanged: (Bool -> Void)?
+    public var networkActivityIndicatorVisibilityChanged: ((Bool) -> Void)?
 
-    /// A time interval indicating the minimum duration of networking activity that should occur before the activity 
+    /// A time interval indicating the minimum duration of networking activity that should occur before the activity
     /// indicator is displayed. Defaults to `1.0` second.
-    public var startDelay: NSTimeInterval = 1.0
+    public var startDelay: TimeInterval = 1.0
 
     /// A time interval indicating the duration of time that no networking activity should be observed before dismissing
     /// the activity indicator. This allows the activity indicator to be continuously displayed between multiple network
     /// requests. Without this delay, the activity indicator tends to flicker. Defaults to `0.2` seconds.
-    public var completionDelay: NSTimeInterval = 0.2
+    public var completionDelay: TimeInterval = 0.2
 
-    private var activityIndicatorState: ActivityIndicatorState = .NotActive {
+    private var activityIndicatorState: ActivityIndicatorState = .notActive {
         didSet {
             switch activityIndicatorState {
-            case .NotActive:
+            case .notActive:
                 isNetworkActivityIndicatorVisible = false
                 invalidateStartDelayTimer()
                 invalidateCompletionDelayTimer()
-            case .DelayingStart:
+            case .delayingStart:
                 scheduleStartDelayTimer()
-            case .Active:
+            case .active:
                 invalidateCompletionDelayTimer()
                 isNetworkActivityIndicatorVisible = true
-            case .DelayingCompletion:
+            case .delayingCompletion:
                 scheduleCompletionDelayTimer()
             }
         }
@@ -108,8 +106,8 @@ public class NetworkActivityIndicatorManager {
     private var activityCount: Int = 0
     private var enabled: Bool = true
 
-    private var startDelayTimer: NSTimer?
-    private var completionDelayTimer: NSTimer?
+    private var startDelayTimer: Timer?
+    private var completionDelayTimer: Timer?
 
     private let lock = NSLock()
 
@@ -128,14 +126,12 @@ public class NetworkActivityIndicatorManager {
 
     // MARK: - Activity Count
 
-    /**
-        Increments the number of active network requests.
-
-        If this number was zero before incrementing, the network activity indicator will start spinning after 
-        the `startDelay`.
-
-        Generally, this method should not need to be used directly.
-    */
+    /// Increments the number of active network requests.
+    ///
+    /// If this number was zero before incrementing, the network activity indicator will start spinning after
+    /// the `startDelay`.
+    ///
+    /// Generally, this method should not need to be used directly.
     public func incrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
 
@@ -143,17 +139,14 @@ public class NetworkActivityIndicatorManager {
         updateActivityIndicatorStateForNetworkActivityChange()
     }
 
-    /**
-        Decrements the number of active network requests.
-
-        If the number of active requests is zero after calling this method, the network activity indicator will stop 
-        spinning after the `completionDelay`.
-
-        Generally, this method should not need to be used directly.
-    */
+    /// Decrements the number of active network requests.
+    ///
+    /// If the number of active requests is zero after calling this method, the network activity indicator will stop
+    /// spinning after the `completionDelay`.
+    ///
+    /// Generally, this method should not need to be used directly.
     public func decrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
-        guard activityCount > 0 else { return }
 
         activityCount -= 1
         updateActivityIndicatorStateForNetworkActivityChange()
@@ -165,47 +158,47 @@ public class NetworkActivityIndicatorManager {
         guard enabled else { return }
 
         switch activityIndicatorState {
-        case .NotActive:
-            if activityCount > 0 { activityIndicatorState = .DelayingStart }
-        case .DelayingStart:
+        case .notActive:
+            if activityCount > 0 { activityIndicatorState = .delayingStart }
+        case .delayingStart:
             // No-op - let the delay timer finish
             break
-        case .Active:
-            if activityCount == 0 { activityIndicatorState = .DelayingCompletion }
-        case .DelayingCompletion:
-            if activityCount > 0 { activityIndicatorState = .Active }
+        case .active:
+            if activityCount == 0 { activityIndicatorState = .delayingCompletion }
+        case .delayingCompletion:
+            if activityCount > 0 { activityIndicatorState = .active }
         }
     }
 
     // MARK: - Private - Notification Registration
 
     private func registerForNotifications() {
-        let notificationCenter = NSNotificationCenter.defaultCenter()
+        let notificationCenter = NotificationCenter.default
 
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidStart),
-            name: Notifications.Task.DidResume,
+            name: Notification.Name.Task.DidResume,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
-            name: Notifications.Task.DidSuspend,
+            name: Notification.Name.Task.DidSuspend,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
-            name: Notifications.Task.DidComplete,
+            name: Notification.Name.Task.DidComplete,
             object: nil
         )
     }
 
     private func unregisterForNotifications() {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Private - Notifications
@@ -221,7 +214,7 @@ public class NetworkActivityIndicatorManager {
     // MARK: - Private - Timers
 
     private func scheduleStartDelayTimer() {
-        startDelayTimer = NSTimer(
+        let timer = Timer(
             timeInterval: startDelay,
             target: self,
             selector: #selector(NetworkActivityIndicatorManager.startDelayTimerFired),
@@ -229,12 +222,16 @@ public class NetworkActivityIndicatorManager {
             repeats: false
         )
 
-        NSRunLoop.mainRunLoop().addTimer(startDelayTimer!, forMode: NSRunLoopCommonModes)
-        NSRunLoop.mainRunLoop().addTimer(startDelayTimer!, forMode: UITrackingRunLoopMode)
+        DispatchQueue.main.async {
+            RunLoop.main.add(timer, forMode: .commonModes)
+            RunLoop.main.add(timer, forMode: .UITrackingRunLoopMode)
+        }
+
+        startDelayTimer = timer
     }
 
     private func scheduleCompletionDelayTimer() {
-        completionDelayTimer = NSTimer(
+        let timer = Timer(
             timeInterval: completionDelay,
             target: self,
             selector: #selector(NetworkActivityIndicatorManager.completionDelayTimerFired),
@@ -242,23 +239,27 @@ public class NetworkActivityIndicatorManager {
             repeats: false
         )
 
-        NSRunLoop.mainRunLoop().addTimer(completionDelayTimer!, forMode: NSRunLoopCommonModes)
-        NSRunLoop.mainRunLoop().addTimer(completionDelayTimer!, forMode: UITrackingRunLoopMode)
+        DispatchQueue.main.async {
+            RunLoop.main.add(timer, forMode: .commonModes)
+            RunLoop.main.add(timer, forMode: .UITrackingRunLoopMode)
+        }
+
+        completionDelayTimer = timer
     }
 
     @objc private func startDelayTimerFired() {
         lock.lock() ; defer { lock.unlock() }
 
         if activityCount > 0 {
-            activityIndicatorState = .Active
+            activityIndicatorState = .active
         } else {
-            activityIndicatorState = .NotActive
+            activityIndicatorState = .notActive
         }
     }
 
     @objc private func completionDelayTimerFired() {
         lock.lock() ; defer { lock.unlock() }
-        activityIndicatorState = .NotActive
+        activityIndicatorState = .notActive
     }
 
     private func invalidateStartDelayTimer() {
