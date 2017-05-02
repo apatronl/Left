@@ -32,6 +32,12 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
         openUrl()
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        self.tabBarController?.tabBar.isHidden = true
+//    }
+    
     @IBAction func refresh(sender: UIBarButtonItem) {
         webView.reload()
     }

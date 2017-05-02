@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1nN-EM-7pz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1nN-EM-7pz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -232,11 +232,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tq9-Jq-cy7" id="fet-z4-Clu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-1Q-pSI">
-                                                    <rect key="frame" x="340" y="12.5" width="27" height="27"/>
+                                                    <rect key="frame" x="340" y="12" width="27" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="27" id="eWn-h3-pM2"/>
                                                         <constraint firstAttribute="height" constant="27" id="gSP-7a-HKH"/>
@@ -244,7 +244,7 @@
                                                     <state key="normal" image="delete-ingredient"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZ4-f3-c8Y">
-                                                    <rect key="frame" x="18" y="0.0" width="314" height="51.5"/>
+                                                    <rect key="frame" x="18" y="0.0" width="314" height="51"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -384,17 +384,18 @@
                                 </items>
                             </toolbar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JvA-Xg-akh">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                <rect key="frame" x="178" y="324" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="width" secondItem="DJ2-aZ-Gii" secondAttribute="width" id="3rk-yK-rbg"/>
+                            <constraint firstItem="rYc-Kb-PcF" firstAttribute="centerX" secondItem="DJ2-aZ-Gii" secondAttribute="centerX" id="9uf-nY-xLk"/>
                             <constraint firstItem="JvA-Xg-akh" firstAttribute="centerX" secondItem="DJ2-aZ-Gii" secondAttribute="centerX" id="EbR-g1-ers"/>
-                            <constraint firstItem="VoR-R9-rv9" firstAttribute="top" secondItem="rYc-Kb-PcF" secondAttribute="bottom" id="OEo-Lp-dyC"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="trailing" secondItem="rYc-Kb-PcF" secondAttribute="trailing" id="dSQ-gj-0bi"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="centerX" secondItem="DJ2-aZ-Gii" secondAttribute="centerX" id="fhF-nn-1N7"/>
                             <constraint firstItem="JvA-Xg-akh" firstAttribute="centerY" secondItem="DJ2-aZ-Gii" secondAttribute="centerY" id="hhE-mH-KYP"/>
+                            <constraint firstItem="rYc-Kb-PcF" firstAttribute="bottom" secondItem="VoR-R9-rv9" secondAttribute="top" id="iYJ-Ha-hAf"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="bottom" secondItem="rYc-Kb-PcF" secondAttribute="top" id="iyI-yP-khT"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="leading" secondItem="rYc-Kb-PcF" secondAttribute="leading" id="pLb-aV-GIj"/>
                             <constraint firstItem="lQc-40-eRy" firstAttribute="top" secondItem="DJ2-aZ-Gii" secondAttribute="top" id="q4u-V8-Tjd"/>
@@ -428,7 +429,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPd-vU-3wp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1888" y="812"/>
+            <point key="canvasLocation" x="-1844" y="1018"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Sg7-gB-DlL">

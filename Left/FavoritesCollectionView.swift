@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyDrop
 
 class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -17,6 +18,12 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Collection View Delegate
@@ -75,6 +82,13 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         let index: Int = (sender.layer.value(forKey: "index")) as! Int
         favoritesManager.deleteRecipeAtIndex(index: index)
         collectionView.reloadData()
+        Drop.down("Recipe removed from your favorites", state: Custom.Left)
+        
+        // Haptic feedback (available iOS 10+)
+        if #available(iOS 10.0, *) {
+            let savedRecipeFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+            savedRecipeFeedbackGenerator.impactOccurred()
+        }
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {

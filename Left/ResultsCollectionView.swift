@@ -49,6 +49,12 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         loadRecipes(ingredients: ingredientsString)
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        self.tabBarController?.tabBar.isHidden = false
+//    }
+    
     // MARK: Collection View Delegate
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -194,6 +200,13 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         let recipe = recipes[index]
         favoritesManager.addRecipe(recipe: recipe)
         Drop.down("Added to your favorites ⭐", state: Custom.Left)
+        
+        // Haptic feedback (available iOS 10+)
+        if #available(iOS 10.0, *) {
+            let savedRecipeFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+            savedRecipeFeedbackGenerator.impactOccurred()
+        }
+        
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {

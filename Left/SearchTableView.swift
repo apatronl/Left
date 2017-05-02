@@ -21,6 +21,8 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        subscribeToKeyboardNotifications()
+        
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.dataSource = self
@@ -37,6 +39,11 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.view.addGestureRecognizer(tap)
     }
     
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        unsubscribeFromKeyboardNotifications()
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "resultsSegue" {
             let destinationVC = segue.destination as! ResultsCollectionView
@@ -51,6 +58,7 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
+        dismissKeyboard()
         performSegue(withIdentifier: "resultsSegue", sender: sender)
     }
     
