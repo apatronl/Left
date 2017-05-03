@@ -232,7 +232,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tq9-Jq-cy7" id="fet-z4-Clu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-1Q-pSI">
@@ -357,28 +357,28 @@
                                     <barButtonItem systemItem="refresh" id="0l6-3c-sMb">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="refresh:" destination="G6I-YQ-xxW" id="LMf-UC-dnI"/>
+                                            <action selector="refreshWithSender:" destination="G6I-YQ-xxW" id="smN-ED-pdc"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hEW-D8-cX2"/>
                                     <barButtonItem enabled="NO" image="back" id="ZTe-Dy-CW8">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="back:" destination="G6I-YQ-xxW" id="y5U-0Z-GDF"/>
+                                            <action selector="backWithSender:" destination="G6I-YQ-xxW" id="E0F-8x-RNB"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Qe4-g1-Vdx"/>
                                     <barButtonItem enabled="NO" image="forward" id="PCs-b4-R5O">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="forward:" destination="G6I-YQ-xxW" id="VQu-9U-0Ny"/>
+                                            <action selector="forwardWithSender:" destination="G6I-YQ-xxW" id="l4g-Hx-Ed8"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dfM-uI-39x"/>
                                     <barButtonItem systemItem="action" id="3RO-4U-KcD">
                                         <color key="tintColor" red="0.59999999999999998" green="0.20000000000000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="action:" destination="G6I-YQ-xxW" id="0if-lJ-OLm"/>
+                                            <action selector="actionWithSender:" destination="G6I-YQ-xxW" id="cHV-fD-1bv"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

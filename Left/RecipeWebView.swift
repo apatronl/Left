@@ -76,21 +76,30 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     }
     
     func updateNavButtons() {
-        if (webView.canGoBack) {
-            backButton.isEnabled = true
-        } else {
-            backButton.isEnabled = false
-        }
-        if (webView.canGoForward) {
-            forwardButton.isEnabled = true
-        } else {
-            forwardButton.isEnabled = false
-        }
+//        if (webView.canGoBack) {
+//            backButton.isEnabled = true
+//        } else {
+//            backButton.isEnabled = false
+//        }
+//        if (webView.canGoForward) {
+//            forwardButton.isEnabled = true
+//        } else {
+//            forwardButton.isEnabled = false
+//        }
+        backButton.isEnabled = webView.canGoBack
+        forwardButton.isEnabled = webView.canGoForward
+
     }
     
     func saveButtonPressed(sender: UIBarButtonItem!) {
         favoritesManager.addRecipe(recipe: self.recipe)
         Drop.down("Added to your favorites ⭐", state: Custom.Left)
+        
+        // Haptic feedback (available iOS 10+)
+        if #available(iOS 10.0, *) {
+            let savedRecipeFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+            savedRecipeFeedbackGenerator.impactOccurred()
+        }
     }
     
     // MARK: Safari Activity
