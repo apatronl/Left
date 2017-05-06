@@ -95,7 +95,10 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         let cell = sender.view?.superview?.superview as! FavoriteRecipeCollectionCell
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as! RecipeWebView
         webView.recipe = cell.recipe
-        webView.navigationItem.title = cell.recipe.name
+        
+        // Update open count of recipe for 3D touch quick actions
+        cell.recipe.updateOpenCount()
+        
         self.navigationController?.pushViewController(webView, animated: true)
     }
     

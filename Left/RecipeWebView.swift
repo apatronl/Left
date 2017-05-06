@@ -28,6 +28,7 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
             saveButton.target = self
             saveButton.action = #selector(RecipeWebView.saveButtonPressed(sender:))
         }
+        self.navigationItem.title = recipe.name
         activityIndicator.hidesWhenStopped = true
         openUrl()
     }
@@ -76,16 +77,6 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     }
     
     func updateNavButtons() {
-//        if (webView.canGoBack) {
-//            backButton.isEnabled = true
-//        } else {
-//            backButton.isEnabled = false
-//        }
-//        if (webView.canGoForward) {
-//            forwardButton.isEnabled = true
-//        } else {
-//            forwardButton.isEnabled = false
-//        }
         backButton.isEnabled = webView.canGoBack
         forwardButton.isEnabled = webView.canGoForward
 

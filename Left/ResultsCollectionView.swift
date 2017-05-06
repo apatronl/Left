@@ -215,7 +215,6 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         webView.recipe = cell.recipe
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .plain, target: self, action: nil)
-        webView.navigationItem.title = cell.recipe.name
         self.navigationController?.pushViewController(webView, animated: true)
     }
     

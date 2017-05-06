@@ -415,7 +415,7 @@
         <!--Favorites-->
         <scene sceneID="cah-AD-Cxd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mjG-sn-vzr" customClass="NavViewController" customModule="Left" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FavoritesTab" automaticallyAdjustsScrollViewInsets="NO" id="mjG-sn-vzr" customClass="NavViewController" customModule="Left" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="star-tab-bar" id="rhW-qI-om6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bG8-FQ-USX">
