@@ -28,6 +28,7 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
             saveButton.target = self
             saveButton.action = #selector(RecipeWebView.saveButtonPressed(sender:))
         }
+        
         self.navigationItem.title = recipe.name
         activityIndicator.hidesWhenStopped = true
         openUrl()

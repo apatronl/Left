@@ -134,6 +134,7 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
         let index: Int = (sender.layer.value(forKey: "index")) as! Int
         ingredients.remove(at: index)
         tableView.reloadData()
+        dismissKeyboard()
         searchButtonEnabled()
     }
 }

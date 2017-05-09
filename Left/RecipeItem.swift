@@ -51,14 +51,29 @@ class RecipeItem: NSObject {
     // MARK: 3D touch quick actions
     
     func updateOpenCount() {
-        let data = UserDefaults.standard
-        var dict: [String : Int] = data.dictionary(forKey: RecipeOpenCountKey) as? [String : Int] ?? [:]
-        let key = "\(self.name)~~\(self.url)"
-        let previousCount = dict[key] ?? 0
-        dict.updateValue(previousCount + 1, forKey: key)
-        data.set(dict, forKey: RecipeOpenCountKey)
-        
-        RecipeItem.updateShortcutItems()
+        if #available(iOS 9.0, *) {
+            let data = UserDefaults.standard
+            var dict: [String : Int] = data.dictionary(forKey: RecipeOpenCountKey) as? [String : Int] ?? [:]
+            let key = "\(self.name)~~\(self.url)"
+            let previousCount = dict[key] ?? 0
+            dict.updateValue(previousCount + 1, forKey: key)
+            data.set(dict, forKey: RecipeOpenCountKey)
+            
+            RecipeItem.updateShortcutItems()
+        }
+    }
+    
+    func removeFromDefaults(index: Int) {
+        // 3D touch available iOS 9.0+
+        if #available(iOS 9.0, *) {
+            let data = UserDefaults.standard
+            var dict: [String : Int] = data.dictionary(forKey: RecipeOpenCountKey) as? [String : Int] ?? [ : ]
+            let recipeKey = "\(self.name)~~\(self.url)"
+            dict.removeValue(forKey: recipeKey)
+            data.set(dict, forKey: RecipeOpenCountKey)
+            
+            RecipeItem.updateShortcutItems()
+        }
     }
     
     static func updateShortcutItems() {
@@ -68,7 +83,7 @@ class RecipeItem: NSObject {
             let sortedDict = dict.sorted{ $0.1 > $1.1 }
             var shortcuts: [UIApplicationShortcutItem] = []
             
-            for i in 0...min(4, sortedDict.count) - 1 {
+            for i in 0..<min(4, sortedDict.count) {
                 let (key, _) = sortedDict[i]
                 let splitKey = key.components(separatedBy: "~~")
                 
@@ -82,34 +97,5 @@ class RecipeItem: NSObject {
             
             UIApplication.shared.shortcutItems = shortcuts
         }
-//        //update Shortcut Items list
-//        if #available(iOS 9.0, *) {
-//            let data = NSUserDefaults.standardUserDefaults()
-//            let dict: [String : Int] = data.dictionaryForKey(TSClassOpenCountKey) as? [String : Int] ?? [:]
-//            let sorted = dict.sort{ $0.1 > $1.1 }
-//            var shortcuts: [UIApplicationShortcutItem] = []
-//            
-//            for i in 0 ..< min(4, sorted.count) {
-//                
-//                let (key, _) = sorted[i]
-//                let splits = key.componentsSeparatedByString("~~")
-//                
-//                if splits.count != 4 { continue }
-//                let fullName = splits[0]
-//                let icon = splits[1]
-//                let name = splits[2]
-//                let link = splits[3]
-//                
-//                //grab the subject display name through the logic in the Class constructor
-//                let subjectName = Class(withFullName: fullName, link: link).subjectName
-//                
-//                let shortcutIcon = UIApplicationShortcutIcon(templateImageName: icon)
-//                let info = ["URL" : link, "FULL_NAME" : fullName, "DISPLAY_NAME" : name]
-//                let shortcut = UIApplicationShortcutItem(type: "openClass", localizedTitle: name, localizedSubtitle: subjectName, icon: shortcutIcon, userInfo: info)
-//                shortcuts.append(shortcut)
-//            }
-//            
-//            UIApplication.sharedApplication().shortcutItems = shortcuts
-//        }
     }
 }

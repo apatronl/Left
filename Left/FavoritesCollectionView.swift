@@ -80,6 +80,11 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
     
     func deleteRecipe(sender: UIButton) {
         let index: Int = (sender.layer.value(forKey: "index")) as! Int
+        
+        if let recipe = favoritesManager.recipeAtIndex(index: index) {
+            recipe.removeFromDefaults(index: index)
+        }
+        
         favoritesManager.deleteRecipeAtIndex(index: index)
         collectionView.reloadData()
         Drop.down("Recipe removed from your favorites", state: Custom.Left)
@@ -89,6 +94,7 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
             let savedRecipeFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
             savedRecipeFeedbackGenerator.impactOccurred()
         }
+
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {
