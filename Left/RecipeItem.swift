@@ -6,7 +6,6 @@
 //  Copyright © 2015 Ale Patrón. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 let RecipeOpenCountKey = "recipeOpenCount"
