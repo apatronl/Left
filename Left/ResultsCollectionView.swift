@@ -62,14 +62,14 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath as IndexPath) as! RecipeCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath as IndexPath) as! LFTRecipeCollectionCell
         
         let recipe = recipes[indexPath.row]
         cell.recipe = recipe
         
         // Handle delete button action
-        cell.favoriteButton.layer.setValue(indexPath.row, forKey: "index")
-        cell.favoriteButton.addTarget(self, action: #selector(ResultsCollectionView.saveRecipe(sender:)), for: UIControlEvents.touchUpInside)
+        cell.actionButton.layer.setValue(indexPath.row, forKey: "index")
+        cell.actionButton.addTarget(self, action: #selector(ResultsCollectionView.saveRecipe(sender:)), for: UIControlEvents.touchUpInside)
         
         // Handle label tap action
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(ResultsCollectionView.openRecipeUrl))
@@ -106,7 +106,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let recipeCell = cell as! RecipeCollectionCell
+        let recipeCell = cell as! LFTRecipeCollectionCell
         //recipeCell.recipePhoto.nk_cancelLoading()
         manager.cancelRequest(for: recipeCell.recipePhoto)
     }
@@ -210,7 +210,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {
-        let cell = sender.view?.superview?.superview as! RecipeCollectionCell
+        let cell = sender.view?.superview?.superview as! LFTRecipeCollectionCell
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as! RecipeWebView
         webView.recipe = cell.recipe
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)

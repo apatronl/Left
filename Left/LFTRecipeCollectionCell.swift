@@ -1,19 +1,18 @@
 //
-//  RecipeCollectionCell.swift
+//  LFTRecipeCollectionCell.swift
 //  Left
 //
-//  Created by Alejandrina Patron on 7/22/16.
-//  Copyright © 2016 Ale Patrón. All rights reserved.
+//  Created by Alejandrina Patron on 6/9/17.
+//  Copyright © 2017 Ale Patrón. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class FavoriteRecipeCollectionCell: UICollectionViewCell {
+class LFTRecipeCollectionCell: UICollectionViewCell {
     
+    @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var recipePhoto: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var deleteButton: UIButton!
     
     var recipe: RecipeItem! {
         didSet {

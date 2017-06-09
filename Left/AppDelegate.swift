@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         NetworkActivityIndicatorManager.shared.isEnabled = true
+//        SKStoreReviewManager.incrementAppRuns()
+//        SKStoreReviewManager.askForReview()
         return true
     }
     
@@ -48,6 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        // Dismiss keyboard when user presses home button while typing an ingredient on SearchVC
+        self.window?.endEditing(true)
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {

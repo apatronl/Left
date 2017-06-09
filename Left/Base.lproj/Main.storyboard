@@ -43,7 +43,7 @@
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipeCell" id="7ic-UK-kEZ" customClass="RecipeCollectionCell" customModule="Left" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipeCell" id="7ic-UK-kEZ" customClass="LFTRecipeCollectionCell" customModule="Left" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="244" height="244"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -92,9 +92,9 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="favoriteButton" destination="vAf-Rd-dtU" id="pzU-Z5-BTk"/>
-                                            <outlet property="recipeName" destination="cJ0-HT-2cX" id="JKP-Qs-su6"/>
-                                            <outlet property="recipePhoto" destination="trq-rB-1g3" id="PFF-se-fw5"/>
+                                            <outlet property="actionButton" destination="vAf-Rd-dtU" id="RyR-hc-9xX"/>
+                                            <outlet property="recipeName" destination="cJ0-HT-2cX" id="25q-MU-urn"/>
+                                            <outlet property="recipePhoto" destination="trq-rB-1g3" id="tnU-oO-KOL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -139,7 +139,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipeCell" id="2SS-gb-h5s" customClass="FavoriteRecipeCollectionCell" customModule="Left" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipeCell" id="2SS-gb-h5s" customClass="LFTRecipeCollectionCell" customModule="Left" customModuleProvider="target">
                                 <rect key="frame" x="65.5" y="0.0" width="244" height="244"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -192,9 +192,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="deleteButton" destination="cbD-Fu-Nql" id="gwP-Mz-TtD"/>
-                                    <outlet property="recipeName" destination="TWd-Pz-qnE" id="Yyc-fC-gD9"/>
-                                    <outlet property="recipePhoto" destination="ffO-Jl-RgP" id="qMa-gZ-ef9"/>
+                                    <outlet property="actionButton" destination="cbD-Fu-Nql" id="Afn-I2-NWE"/>
+                                    <outlet property="recipeName" destination="TWd-Pz-qnE" id="9H3-SE-mA5"/>
+                                    <outlet property="recipePhoto" destination="ffO-Jl-RgP" id="N4s-5q-fdc"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
