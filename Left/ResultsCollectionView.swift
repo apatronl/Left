@@ -66,7 +66,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath as IndexPath) as! LFTRecipeCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath as IndexPath) as! RecipeCollectionCell
         
         let recipe = recipes[indexPath.row]
         cell.recipe = recipe
@@ -110,7 +110,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let recipeCell = cell as! LFTRecipeCollectionCell
+        let recipeCell = cell as! RecipeCollectionCell
         //recipeCell.recipePhoto.nk_cancelLoading()
         manager.cancelRequest(for: recipeCell.recipePhoto)
     }
@@ -130,27 +130,17 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     // MARK: UIViewControllerPreviewingDelegate
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-//        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
-//        guard let cell = collectionView.cellForItem(at: indexPath) as? LFTRecipeCollectionCell else { return nil }
-        //if let _ = cell.deleteButton.hitTest(location, with: nil) { return nil }
-        //if cell.actionButton.point(inside: location, with: nil) { return nil }
-//        guard let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as? RecipeWebView else { return nil }
-//        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-//        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .plain, target: self, action: nil)
-//        webView.recipe = cell.recipe
-//        webView.preferredContentSize = CGSize(width: 0.0, height: 500)
-//        previewingContext.sourceRect = cell.frame
-        if let indexPath = collectionView.indexPathForItem(at: location), let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
-            guard let cell = collectionView.cellForItem(at: indexPath) as? LFTRecipeCollectionCell else { return nil }
-            guard let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as? RecipeWebView else { return nil }
-            webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-            webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .plain, target: self, action: nil)
-            webView.recipe = cell.recipe
-            webView.preferredContentSize = CGSize(width: 0.0, height: 500)
-            previewingContext.sourceRect = cellAttributes.frame
-            return webView
-        }
-        return nil
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? RecipeCollectionCell else { return nil }
+        guard let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as? RecipeWebView else { return nil }
+        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .plain, target: self, action: nil)
+        webView.recipe = cell.recipe
+        webView.preferredContentSize = CGSize(width: 0.0, height: self.view.frame.height * 0.7)
+        let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath)
+        previewingContext.sourceRect = cellAttributes?.frame ?? cell.frame
+        
+        return webView
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
@@ -245,7 +235,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {
-        let cell = sender.view?.superview?.superview as! LFTRecipeCollectionCell
+        let cell = sender.view?.superview?.superview as! RecipeCollectionCell
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as! RecipeWebView
         webView.recipe = cell.recipe
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)

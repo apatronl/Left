@@ -27,6 +27,10 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
         if let saveButton = self.navigationItem.rightBarButtonItem {
             saveButton.target = self
             saveButton.action = #selector(RecipeWebView.saveButtonPressed(sender:))
+        } else {
+            // Update open count of recipe for 3D touch quick actions
+            // Only when coming from Favorites
+            recipe.updateOpenCount()
         }
         
         self.navigationItem.title = recipe.name
@@ -71,18 +75,18 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     
     // MARK: Helper
     
-    func openUrl() {
+    private func openUrl() {
         let url = NSURL(string: (self.recipe.url))
         let requesObj = NSURLRequest(url: url! as URL)
         webView.loadRequest(requesObj as URLRequest)
     }
     
-    func updateNavButtons() {
+    private func updateNavButtons() {
         backButton.isEnabled = webView.canGoBack
         forwardButton.isEnabled = webView.canGoForward
     }
     
-    func saveButtonPressed(sender: UIBarButtonItem!) {
+    @objc private func saveButtonPressed(sender: UIBarButtonItem!) {
         favoritesManager.addRecipe(recipe: self.recipe)
         Drop.down("Added to your favorites ⭐", state: Custom.Left)
         

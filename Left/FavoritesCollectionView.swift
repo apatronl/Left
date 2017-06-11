@@ -50,7 +50,7 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
 //            return cell
 //        }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath as IndexPath) as! LFTRecipeCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath as IndexPath) as! RecipeCollectionCell
         
         let recipe = favoritesManager.recipeAtIndex(index: indexPath.row)
         cell.recipe = recipe
@@ -97,11 +97,12 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
-        guard let cell = collectionView.cellForItem(at: indexPath) as? LFTRecipeCollectionCell else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? RecipeCollectionCell else { return nil }
         guard let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as? RecipeWebView else { return nil }
         webView.recipe = cell.recipe
         webView.preferredContentSize = CGSize(width: 0.0, height: 500)
-        previewingContext.sourceRect = cell.frame
+        let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath)
+        previewingContext.sourceRect = cellAttributes?.frame ?? cell.frame
         
         return webView
     }
@@ -132,12 +133,9 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func openRecipeUrl(sender: UITapGestureRecognizer) {
-        let cell = sender.view?.superview?.superview as! LFTRecipeCollectionCell
+        let cell = sender.view?.superview?.superview as! RecipeCollectionCell
         let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as! RecipeWebView
         webView.recipe = cell.recipe
-        
-        // Update open count of recipe for 3D touch quick actions
-        cell.recipe.updateOpenCount()
         
         self.navigationController?.pushViewController(webView, animated: true)
     }

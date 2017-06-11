@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LFTRecipeCollectionCell: UICollectionViewCell {
+class RecipeCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var recipePhoto: UIImageView!

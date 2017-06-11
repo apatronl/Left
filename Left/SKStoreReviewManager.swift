@@ -12,12 +12,10 @@ struct SKStoreReviewManager {
     
     private static let APP_RUNS_KEY = "APP_RUNS"
     
-    // Call this function in AppDelegate.swift on app launch
     static func incrementAppRuns() {
         let defaults = UserDefaults.standard
         var appRuns = defaults.value(forKey: APP_RUNS_KEY) as? Int ?? 0
         appRuns += 1
-        print(appRuns)
         defaults.set(appRuns, forKey: APP_RUNS_KEY)
     }
     

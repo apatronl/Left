@@ -12,7 +12,7 @@
 		ED204FB91D42D52E00299F99 /* ResultsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED204FB81D42D52E00299F99 /* ResultsCollectionView.swift */; };
 		ED2391E61D561A7400ADF649 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2391E51D561A7400ADF649 /* SearchTableView.swift */; };
 		ED3032F71EC8B7E500779FA4 /* SKStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3032F61EC8B7E500779FA4 /* SKStoreReviewManager.swift */; };
-		ED3032F91EEB198000779FA4 /* LFTRecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3032F81EEB198000779FA4 /* LFTRecipeCollectionCell.swift */; };
+		ED3032F91EEB198000779FA4 /* RecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3032F81EEB198000779FA4 /* RecipeCollectionCell.swift */; };
 		ED3032FB1EECEE0800779FA4 /* LFTReviewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3032FA1EECEE0800779FA4 /* LFTReviewCollectionCell.xib */; };
 		ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55E2461C8A490D0079E254 /* FavoritesManager.swift */; };
 		ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399A1BAC9D40009487B5 /* AppDelegate.swift */; };
@@ -63,7 +63,7 @@
 		ED204FB81D42D52E00299F99 /* ResultsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCollectionView.swift; sourceTree = "<group>"; };
 		ED2391E51D561A7400ADF649 /* SearchTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		ED3032F61EC8B7E500779FA4 /* SKStoreReviewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKStoreReviewManager.swift; sourceTree = "<group>"; };
-		ED3032F81EEB198000779FA4 /* LFTRecipeCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFTRecipeCollectionCell.swift; sourceTree = "<group>"; };
+		ED3032F81EEB198000779FA4 /* RecipeCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCollectionCell.swift; sourceTree = "<group>"; };
 		ED3032FA1EECEE0800779FA4 /* LFTReviewCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFTReviewCollectionCell.xib; sourceTree = "<group>"; };
 		ED55E2461C8A490D0079E254 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		ED7A9F011D01FFF9007B9DFF /* Left-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Left-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		EDB819851D53B15000B8C8EA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ED3032F81EEB198000779FA4 /* LFTRecipeCollectionCell.swift */,
+				ED3032F81EEB198000779FA4 /* RecipeCollectionCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -391,7 +391,7 @@
 			files = (
 				EDB9B6911BB0596500B88EBF /* NavViewController.swift in Sources */,
 				EDDF76701D5457240050674B /* String.swift in Sources */,
-				ED3032F91EEB198000779FA4 /* LFTRecipeCollectionCell.swift in Sources */,
+				ED3032F91EEB198000779FA4 /* RecipeCollectionCell.swift in Sources */,
 				EDF1B9571BEAFAE000750317 /* RecipeItem.swift in Sources */,
 				EDA1D0F91D52C9200024BC6A /* JSONParser.swift in Sources */,
 				ED3032F71EC8B7E500779FA4 /* SKStoreReviewManager.swift in Sources */,
