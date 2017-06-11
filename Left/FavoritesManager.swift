@@ -11,7 +11,7 @@ import Foundation
 class FavoritesManager {
     
     // Singleton
-    static let sharedInstance = FavoritesManager()
+    static let shared = FavoritesManager()
     
     private var favoriteRecipes = [RecipeItem]()
     

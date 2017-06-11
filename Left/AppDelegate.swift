@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         NetworkActivityIndicatorManager.shared.isEnabled = true
-//        SKStoreReviewManager.incrementAppRuns()
-//        SKStoreReviewManager.askForReview()
         return true
     }
     

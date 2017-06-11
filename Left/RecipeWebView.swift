@@ -16,7 +16,7 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let favoritesManager = FavoritesManager.sharedInstance
+    let favoritesManager = FavoritesManager.shared
     var recipe: RecipeItem!
     var saveButton: UIBarButtonItem!
     
@@ -80,7 +80,6 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     func updateNavButtons() {
         backButton.isEnabled = webView.canGoBack
         forwardButton.isEnabled = webView.canGoForward
-
     }
     
     func saveButtonPressed(sender: UIBarButtonItem!) {
@@ -97,12 +96,9 @@ class RecipeWebView: UIViewController, UIWebViewDelegate {
     // MARK: Safari Activity
     
     func showActivityViewController() {
-        var activityItems: [AnyObject] = ["I found this recipe on Left app " as AnyObject]
-        var activities: [UIActivity] = []
-        if let url = webView.request?.url {
-            activityItems.append(url as AnyObject)
-            activities.append(SafariActivity())
-        }
+        let activityItems: [AnyObject] =
+            ["I found this recipe on Left app " as AnyObject, NSURL(string: self.recipe.url) as AnyObject]
+        let activities: [UIActivity] = [SafariActivity()]
         let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: activities)
         activityViewController.view.tintColor = UIColor.LeftColor()
         present(activityViewController, animated: true, completion: {})

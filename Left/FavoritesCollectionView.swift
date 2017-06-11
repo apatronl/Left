@@ -13,13 +13,15 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet var collectionView: UICollectionView!
     
-    let favoritesManager = FavoritesManager.sharedInstance
+    let favoritesManager = FavoritesManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        collectionView.register(UINib(nibName: "LFTReviewCollectionCell", bundle: nil), forCellWithReuseIdentifier: "LFTReviewCollectionCell")
+        
         if (traitCollection.forceTouchCapability == .available) {
-            registerForPreviewing(with: self, sourceView: view)
+            registerForPreviewing(with: self, sourceView: self.collectionView)
         }
     }
     
@@ -41,6 +43,13 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+//        let index = indexPath.row
+//        if index == favoritesManager.recipeCount() {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LFTReviewCollectionCell", for: indexPath)
+//            return cell
+//        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath as IndexPath) as! LFTRecipeCollectionCell
         
         let recipe = favoritesManager.recipeAtIndex(index: indexPath.row)
@@ -89,8 +98,6 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
         guard let cell = collectionView.cellForItem(at: indexPath) as? LFTRecipeCollectionCell else { return nil }
-        //if let _ = cell.deleteButton.hitTest(location, with: nil) { return nil }
-        if cell.actionButton.point(inside: location, with: nil) { return nil }
         guard let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as? RecipeWebView else { return nil }
         webView.recipe = cell.recipe
         webView.preferredContentSize = CGSize(width: 0.0, height: 500)

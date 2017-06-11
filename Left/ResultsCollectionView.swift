@@ -11,13 +11,13 @@ import UIKit
 import Nuke
 import SwiftyDrop
 
-class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIViewControllerPreviewingDelegate {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let favoritesManager = FavoritesManager.sharedInstance
+    let favoritesManager = FavoritesManager.shared
     private var recipesLoader: RecipesLoader?
     private var recipes = [RecipeItem]()
     var ingredients = [String]()
@@ -26,6 +26,10 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (traitCollection.forceTouchCapability == .available) {
+            registerForPreviewing(with: self, sourceView: self.collectionView)
+        }
         
         // Add infinite scroll handler
         collectionView?.addInfiniteScroll { [weak self] (scrollView) -> Void in
@@ -122,6 +126,37 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(10, 10, 10, 10)
     }
+    
+    // MARK: UIViewControllerPreviewingDelegate
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+//        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+//        guard let cell = collectionView.cellForItem(at: indexPath) as? LFTRecipeCollectionCell else { return nil }
+        //if let _ = cell.deleteButton.hitTest(location, with: nil) { return nil }
+        //if cell.actionButton.point(inside: location, with: nil) { return nil }
+//        guard let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as? RecipeWebView else { return nil }
+//        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+//        webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .plain, target: self, action: nil)
+//        webView.recipe = cell.recipe
+//        webView.preferredContentSize = CGSize(width: 0.0, height: 500)
+//        previewingContext.sourceRect = cell.frame
+        if let indexPath = collectionView.indexPathForItem(at: location), let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
+            guard let cell = collectionView.cellForItem(at: indexPath) as? LFTRecipeCollectionCell else { return nil }
+            guard let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as? RecipeWebView else { return nil }
+            webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+            webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .plain, target: self, action: nil)
+            webView.recipe = cell.recipe
+            webView.preferredContentSize = CGSize(width: 0.0, height: 500)
+            previewingContext.sourceRect = cellAttributes.frame
+            return webView
+        }
+        return nil
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
+
     
     // MARK: Helper
     

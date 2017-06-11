@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VWb-ao-Xlq">
-                                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Rn-49-7BS">
                                     <size key="itemSize" width="244" height="244"/>
@@ -33,7 +33,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <view key="backgroundView" contentMode="scaleToFill" id="p9p-FT-4c0">
-                                    <rect key="frame" x="0.0" y="-64" width="1000" height="1000"/>
+                                    <rect key="frame" x="0.0" y="-64" width="375" height="618"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ljd-W4-MtF">
@@ -44,7 +44,7 @@
                                 </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipeCell" id="7ic-UK-kEZ" customClass="LFTRecipeCollectionCell" customModule="Left" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="244" height="244"/>
+                                        <rect key="frame" x="65.5" y="0.0" width="244" height="244"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="244" height="244"/>
@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOD-sx-JOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-395" y="62"/>
+            <point key="canvasLocation" x="-396" y="61.619190404797607"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="9l4-Z4-3La">
@@ -429,7 +429,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPd-vU-3wp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1844" y="1018"/>
+            <point key="canvasLocation" x="-1889" y="812"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Sg7-gB-DlL">
@@ -449,7 +449,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9b2-ta-z9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2601" y="812"/>
+            <point key="canvasLocation" x="-2658" y="483"/>
         </scene>
         <!--Search-->
         <scene sceneID="F8Y-Bt-9m4">

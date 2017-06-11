@@ -21,6 +21,9 @@ class SearchTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SKStoreReviewManager.incrementAppRuns()
+        SKStoreReviewManager.askForReview()
+        
         subscribeToKeyboardNotifications()
         
         self.tableView.emptyDataSetSource = self
