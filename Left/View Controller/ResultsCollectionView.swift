@@ -136,7 +136,7 @@ class ResultsCollectionView: UIViewController, UICollectionViewDataSource, UICol
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         webView.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "star-navbar"), style: .plain, target: self, action: nil)
         webView.recipe = cell.recipe
-        webView.preferredContentSize = CGSize(width: 0.0, height: self.view.frame.height * 0.7)
+        webView.preferredContentSize = CGSize(width: 0.0, height: self.view.frame.height * 0.8)
         let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath)
         previewingContext.sourceRect = cellAttributes?.frame ?? cell.frame
         

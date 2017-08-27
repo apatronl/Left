@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyDrop
 
-class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIViewControllerPreviewingDelegate {
+class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIViewControllerPreviewingDelegate, UITabBarControllerDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -19,7 +19,7 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
         
 //        collectionView.register(UINib(nibName: "LFTReviewCollectionCell", bundle: nil), forCellWithReuseIdentifier: "LFTReviewCollectionCell")
-        
+//        self.tabBarController?.delegate = self
         if (traitCollection.forceTouchCapability == .available) {
             registerForPreviewing(with: self, sourceView: self.collectionView)
         }
@@ -36,7 +36,7 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    // MARK: Collection View Delegate
+// MARK: Collection View Delegate
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return favoritesManager.recipeCount()
@@ -93,14 +93,14 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         return UIEdgeInsetsMake(10, 10, 10, 10)
     }
     
-    // MARK: UIViewControllerPreviewingDelegate
+// MARK: UIViewControllerPreviewingDelegate
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
         guard let cell = collectionView.cellForItem(at: indexPath) as? RecipeCollectionCell else { return nil }
         guard let webView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecipeWebView") as? RecipeWebView else { return nil }
         webView.recipe = cell.recipe
-        webView.preferredContentSize = CGSize(width: 0.0, height: 500)
+        webView.preferredContentSize = CGSize(width: 0.0, height: self.view.frame.height * 0.8)
         let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath)
         previewingContext.sourceRect = cellAttributes?.frame ?? cell.frame
         
@@ -111,7 +111,7 @@ class FavoritesCollectionView: UIViewController, UICollectionViewDataSource, UIC
         show(viewControllerToCommit, sender: self)
     }
     
-    // MARK: Helper
+// MARK: Helper
     
     func deleteRecipe(sender: UIButton) {
         let index: Int = (sender.layer.value(forKey: "index")) as! Int

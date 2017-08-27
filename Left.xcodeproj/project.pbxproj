@@ -15,6 +15,7 @@
 		ED3032F91EEB198000779FA4 /* RecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3032F81EEB198000779FA4 /* RecipeCollectionCell.swift */; };
 		ED3032FB1EECEE0800779FA4 /* LFTReviewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3032FA1EECEE0800779FA4 /* LFTReviewCollectionCell.xib */; };
 		ED55E2471C8A490D0079E254 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55E2461C8A490D0079E254 /* FavoritesManager.swift */; };
+		ED60AF5B1EEDFA6C00B79A37 /* ShortcutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED60AF5A1EEDFA6C00B79A37 /* ShortcutsManager.swift */; };
 		ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80399A1BAC9D40009487B5 /* AppDelegate.swift */; };
 		ED8039A21BAC9D40009487B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED8039A01BAC9D40009487B5 /* Main.storyboard */; };
 		ED8039A41BAC9D40009487B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8039A31BAC9D40009487B5 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		ED3032F81EEB198000779FA4 /* RecipeCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCollectionCell.swift; sourceTree = "<group>"; };
 		ED3032FA1EECEE0800779FA4 /* LFTReviewCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFTReviewCollectionCell.xib; sourceTree = "<group>"; };
 		ED55E2461C8A490D0079E254 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		ED60AF5A1EEDFA6C00B79A37 /* ShortcutsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsManager.swift; sourceTree = "<group>"; };
 		ED7A9F011D01FFF9007B9DFF /* Left-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Left-Bridging-Header.h"; sourceTree = "<group>"; };
 		ED8039971BAC9D40009487B5 /* Left.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Left.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED80399A1BAC9D40009487B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ED60AF5C1EFED77700B79A37 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				EDB9B6901BB0596500B88EBF /* NavViewController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		ED80398E1BAC9D40009487B5 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 				EDB8198D1D53F12F00B8C8EA /* View Controller */,
 				EDB8198B1D53F08E00B8C8EA /* Services */,
 				EDB819861D53BE8A00B8C8EA /* Extensions */,
+				ED60AF5C1EFED77700B79A37 /* Navigation */,
 				EDC974391C94D331000C1C24 /* Other */,
 				ED8039A51BAC9D40009487B5 /* LaunchScreen.storyboard */,
 				ED8039A31BAC9D40009487B5 /* Assets.xcassets */,
@@ -174,7 +185,7 @@
 			children = (
 				EDF1B9561BEAFAE000750317 /* RecipeItem.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EDB819851D53B15000B8C8EA /* View */ = {
@@ -182,7 +193,7 @@
 			children = (
 				ED3032F81EEB198000779FA4 /* RecipeCollectionCell.swift */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		EDB819861D53BE8A00B8C8EA /* Extensions */ = {
@@ -193,7 +204,7 @@
 				EDDF766F1D5457240050674B /* String.swift */,
 				EDE918B71E39A74200877B5D /* SearchTableView+Keyboard.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EDB8198B1D53F08E00B8C8EA /* Services */ = {
@@ -204,8 +215,9 @@
 				EDA1D0F61D52C8B60024BC6A /* Food2ForkService.swift */,
 				EDA1D0F81D52C9200024BC6A /* JSONParser.swift */,
 				ED3032F61EC8B7E500779FA4 /* SKStoreReviewManager.swift */,
+				ED60AF5A1EEDFA6C00B79A37 /* ShortcutsManager.swift */,
 			);
-			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		EDB8198D1D53F12F00B8C8EA /* View Controller */ = {
@@ -216,7 +228,7 @@
 				EDB819891D53EB7400B8C8EA /* RecipeWebView.swift */,
 				ED2391E51D561A7400ADF649 /* SearchTableView.swift */,
 			);
-			name = "View Controller";
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		EDB9B6941BB05C9B00B88EBF /* Supporting Files */ = {
@@ -231,11 +243,10 @@
 			isa = PBXGroup;
 			children = (
 				EDA5D5AE1CC0735400417A28 /* SafariActivity.swift */,
-				EDB9B6901BB0596500B88EBF /* NavViewController.swift */,
 				ED80399A1BAC9D40009487B5 /* AppDelegate.swift */,
 				ED7A9F011D01FFF9007B9DFF /* Left-Bridging-Header.h */,
 			);
-			name = Other;
+			path = Other;
 			sourceTree = "<group>";
 		};
 		FAA45BFD36B8A97B76C994CF /* Pods */ = {
@@ -405,6 +416,7 @@
 				ED80399B1BAC9D40009487B5 /* AppDelegate.swift in Sources */,
 				EDDF766E1D5456F20050674B /* UIViewController.swift in Sources */,
 				EDDF76691D5456360050674B /* RecipesLoader.swift in Sources */,
+				ED60AF5B1EEDFA6C00B79A37 /* ShortcutsManager.swift in Sources */,
 				ED2391E61D561A7400ADF649 /* SearchTableView.swift in Sources */,
 				ED204FB91D42D52E00299F99 /* ResultsCollectionView.swift in Sources */,
 			);
